@@ -16,9 +16,8 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="h-100">
-                        <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-                        <h1 class="display-6 mb-4">#1 Digital Solution With <span class="text-primary">10 Years</span> Of Experience</h1>
-                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <h6 class="section-title bg-white text-start text-primary pe-3">Qui somme-nous?</h6>
+                        <p>Notre équipe se compose de spécialistes de la publicité, de créatifs et de designersNotre démarche : Créer des concepts novateurs, élaborer différentes stratégies de communication et réaliser des produits adaptés à vos besoinsNous concevons et réalisons vos logos, chartes graphiques, documents imprimés administratifs et commerciaux, cartes de visites, chemises commerciales, plaquettes commerciales, dépliants, papiers en-tete, CD-Rom et DVD, signalétiques sur véhicules / magasins, panneaux, etc...</p>
                         <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos.</p>
                         <div class="d-flex align-items-center mb-4 pb-2">
                             <img class="flex-shrink-0 rounded-circle" src="img/team-1.jpg" alt="" style="width: 50px; height: 50px;">
@@ -27,7 +26,7 @@
                                 <small>SEO & Founder</small>
                             </div>
                         </div>
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Read More</a>
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Voir nos services</a>
                     </div>
                 </div>
             </div>
@@ -42,8 +41,8 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="h-100">
-                        <h6 class="section-title bg-white text-start text-primary pe-3">Why Choose Us</h6>
-                        <h1 class="display-6 mb-4">Why People Trust Us? Learn About Us!</h1>
+                        <h6 class="section-title bg-white text-start text-primary pe-3">Pourquoi Nous Choisir</h6>
+                        <h1 class="display-6 mb-4">Pourquoi les gens nous font-ils confiance? En savoir plus sur nous!</h1>
                         <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                         <div class="row g-4">
                             <div class="col-12">
