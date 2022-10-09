@@ -22,7 +22,6 @@ class CreateCompanyTable extends Migration
             $table->text('adress_location');
             $table->time('opening_hour');
             $table->time('closing_hour');
-            $table->integer('years_experience');
             $table->timestamps();
         });
     }

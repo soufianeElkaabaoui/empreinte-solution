@@ -11,43 +11,31 @@
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
-                    <img class="img-fluid" src="img/carousel-1.jpg" alt="Image">
+                    <img class="img-fluid" src="images/carousel-1.jpg" alt="Image">
                 </button>
                 <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="1" aria-label="Slide 2">
-                    <img class="img-fluid" src="img/carousel-2.jpg" alt="Image">
+                    <img class="img-fluid" src="images/carousel-2.jpg" alt="Image">
                 </button>
                 <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="2" aria-label="Slide 3">
-                    <img class="img-fluid" src="img/carousel-3.jpg" alt="Image">
+                    <img class="img-fluid" src="images/carousel-3.jpg" alt="Image">
                 </button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="w-100" src="img/carousel-1.jpg" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-4 animated zoomIn">Nous sommes leader dans</h4>
-                            <h1 class="display-1 text-white mb-0 animated zoomIn">Design</h1>
+                @if (count($services) > 0)
+                    @foreach ($services as $service)
+                        <div class="carousel-item active">
+                            <img class="w-100" src="{{ asset('images/' . $service->image_url) }}" alt="image de service">
+                            <div class="carousel-caption">
+                                <div class="p-3" style="max-width: 900px;">
+                                    <h4 class="text-white text-uppercase mb-4 animated zoomIn">Nous sommes leader dans</h4>
+                                    <h1 class="display-1 text-white mb-0 animated zoomIn">{{$service->name}}</h1>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="w-100" src="img/carousel-2.jpg" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-4 animated zoomIn">Nous sommes leader dans</h4>
-                            <h1 class="display-1 text-white mb-0 animated zoomIn">Print</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="w-100" src="img/carousel-3.jpg" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-4 animated zoomIn">Nous sommes leader dans</h4>
-                            <h1 class="display-1 text-white mb-0 animated zoomIn">Lettrage 3D</h1>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @else
+                    <div class="">Il y a aucun service ce moment là.</div>
+                @endif
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
                 data-bs-slide="prev">
@@ -72,28 +60,28 @@
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
                         <i class="fa fa-certificate fa-4x text-primary mb-4"></i>
                         <h5 class="mb-3">Années d’expérience</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">1234</h1>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">{{$years_experience}}</h1>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
                         <i class="fa fa-users-cog fa-4x text-primary mb-4"></i>
                         <h5 class="mb-3">Membres de l’équipe</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">1234</h1>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">{{$nb_members}}</h1>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
                         <i class="fa fa-users fa-4x text-primary mb-4"></i>
                         <h5 class="mb-3">Clients satisfaits</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">1234</h1>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">{{$nb_clients}}</h1>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
                         <i class="fa fa-check fa-4x text-primary mb-4"></i>
                         <h5 class="mb-3">Projets terminés</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">1234</h1>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">{{$nb_projects_finished}}</h1>
                     </div>
                 </div>
             </div>
@@ -108,7 +96,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="img-border">
-                        <img class="img-fluid" src="img/about.jpg" alt="">
+                        <img class="img-fluid" src="images/about.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -116,13 +104,13 @@
                         <h6 class="section-title bg-white text-start text-primary pe-3">Qui somme-nous?</h6>
                         <p>Notre équipe se compose de spécialistes de la publicité, de créatifs et de designersNotre démarche : Créer des concepts novateurs, élaborer différentes stratégies de communication et réaliser des produits adaptés à vos besoinsNous concevons et réalisons vos logos, chartes graphiques, documents imprimés administratifs et commerciaux, cartes de visites, chemises commerciales, plaquettes commerciales, dépliants, papiers en-tete, CD-Rom et DVD, signalétiques sur véhicules / magasins, panneaux, etc...</p>
                         <div class="d-flex align-items-center mb-4 pb-2">
-                            <img class="flex-shrink-0 rounded-circle" src="img/team-1.jpg" alt="" style="width: 50px; height: 50px;">
+                            <img class="flex-shrink-0 rounded-circle" src="images/team-1.jpg" alt="" style="width: 50px; height: 50px;">
                             <div class="ps-4">
-                                <h6>Jhon Doe</h6>
-                                <small>SEO & Founder</small>
+                                <h6>Ahmed</h6>
+                                <small>Founder</small>
                             </div>
                         </div>
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Lire Plus</a>
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="{{ route('about') }}">Lire Plus</a>
                     </div>
                 </div>
             </div>
@@ -139,24 +127,24 @@
                 <h1 class="display-6 mb-4">Nous nous focussons pour tirer le meilleur dans tous les secteurs</h1>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="img/service-1.jpg" alt="">
-                        <h4 class="mb-0">Design</h4>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="img/service-2.jpg" alt="">
-                        <h4 class="mb-0">Print</h4>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="img/service-3.jpg" alt="">
-                        <h4 class="mb-0">Lettrage 3D</h4>
-                    </a>
-                </div>
+                @if (count($services) > 0)
+                    @php
+                        $time_counter = 1;
+                    @endphp
+                    @foreach ($services as $service)
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{$time_counter}}s">
+                            <a class="service-item d-block rounded text-center h-100 p-4" href="{{ route('services', ['id'=>$service->id]) }}">
+                                <img class="img-fluid rounded mb-4" src="{{ asset('images/' . $service->image_url) }}" alt="image de service">
+                                <h4 class="mb-0">{{$service->name}}</h4>
+                            </a>
+                        </div>
+                        @php
+                            $time_counter +=2
+                        @endphp
+                    @endforeach
+                @else
+                    <div class="col-12">Il ya aucun service ce moment là.</div>
+                @endif
             </div>
         </div>
     </div>
@@ -164,7 +152,7 @@
 
 
     <!-- Feature Start -->
-    <div class="container-xxl py-5">
+    {{-- <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -211,12 +199,12 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="img-border">
-                        <img class="img-fluid" src="img/feature.jpg" alt="">
+                        <img class="img-fluid" src="images/feature.jpg" alt="">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Feature End -->
 
 
@@ -228,86 +216,20 @@
                 <h1 class="display-6 mb-4">En savoir plus sur nos projets complets</h1>
             </div>
             <div class="owl-carousel project-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="project-item border rounded h-100 p-4" data-dot="01">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="img/project-1.jpg" alt="">
-                        <a href="img/project-1.jpg" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>UI / UX Design</h6>
-                    <span>Digital agency website design and development</span>
-                </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="02">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="img/project-2.jpg" alt="">
-                        <a href="img/project-2.jpg" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>UI / UX Design</h6>
-                    <span>Digital agency website design and development</span>
-                </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="03">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="img/project-3.jpg" alt="">
-                        <a href="img/project-2.jpg" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>UI / UX Design</h6>
-                    <span>Digital agency website design and development</span>
-                </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="04">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="img/project-4.jpg" alt="">
-                        <a href="img/project-4.jpg" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>UI / UX Design</h6>
-                    <span>Digital agency website design and development</span>
-                </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="05">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="img/project-5.jpg" alt="">
-                        <a href="img/project-5.jpg" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>UI / UX Design</h6>
-                    <span>Digital agency website design and development</span>
-                </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="06">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="img/project-6.jpg" alt="">
-                        <a href="img/project-6.jpg" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>UI / UX Design</h6>
-                    <span>Digital agency website design and development</span>
-                </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="07">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="img/project-7.jpg" alt="">
-                        <a href="img/project-7.jpg" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>UI / UX Design</h6>
-                    <span>Digital agency website design and development</span>
-                </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="08">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="img/project-8.jpg" alt="">
-                        <a href="img/project-8.jpg" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>UI / UX Design</h6>
-                    <span>Digital agency website design and development</span>
-                </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="09">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="img/project-9.jpg" alt="">
-                        <a href="img/project-9.jpg" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>UI / UX Design</h6>
-                    <span>Digital agency website design and development</span>
-                </div>
-                <div class="project-item border rounded h-100 p-4" data-dot="10">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded" src="img/project-10.jpg" alt="">
-                        <a href="img/project-10.jpg" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
-                    </div>
-                    <h6>UI / UX Design</h6>
-                    <span>Digital agency website design and development</span>
-                </div>
+                @if (count($projects)>0)
+                    @foreach ($projects as $project)
+                        <div class="project-item border rounded h-100 p-4" data-dot="0{{$loop->iteration}}">
+                            <div class="position-relative mb-4">
+                                <img class="img-fluid rounded" src="{{ asset('images/' . $project->image_url) }}" alt="">
+                                <a href="{{ asset('images/' . $project->image_url) }}" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
+                            </div>
+                            <h6>{{$project->name}}</h6>
+                            <span>Pour la société: {{$project->company_client}}</span>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="">Il y a aucun projets ce moment là.</div>
+                @endif
             </div>
         </div>
     </div>
@@ -322,54 +244,34 @@
                 <h1 class="display-6 mb-4">Nous sommes une équipe créative pour votre projet de rêve</h1>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item text-center p-4">
-                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="img/team-1.jpg" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Nom Complet</h5>
-                                <span>Status</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item text-center p-4">
-                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="img/team-2.jpg" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Nom Complet</h5>
-                                <span>Status</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-instagram"></i></a>
+                @if (count($members) > 0)
+                    @php
+                        $time_counter = 1;
+                    @endphp
+                    @foreach ($members as $member)
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{$time_counter}}s">
+                            <div class="team-item text-center p-4">
+                                <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="{{ asset('images/' . $member->image_url) }}" alt="Image d'un membre">
+                                <div class="team-text">
+                                    <div class="team-title">
+                                        <h5>{{$member->name}}</h5>
+                                        <span>{{$member->status}}</span>
+                                    </div>
+                                    <div class="team-social">
+                                        <a class="btn btn-square btn-primary rounded-circle" href="{{$member->social_links()->where('name', 'fb')->first()->link}}"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-square btn-primary rounded-circle" href="{{$member->social_links()->where('name', 'twitter')->first()->link}}"><i class="fab fa-twitter"></i></a>
+                                        <a class="btn btn-square btn-primary rounded-circle" href="{{$member->social_links()->where('name', 'insta')->first()->link}}"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item text-center p-4">
-                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="img/team-3.jpg" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Nom Complet</h5>
-                                <span>Status</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        @php
+                            $time_counter +=2
+                        @endphp
+                    @endforeach
+                @else
+                    <div class="">Il y a aucun membre dans l'équipe</div>
+                @endif
             </div>
         </div>
     </div>
@@ -380,50 +282,26 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                <h1 class="display-6 mb-4">What Our Clients Say!</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">Témoignage</h6>
+                <h1 class="display-6 mb-4">Ce que disent nos clients!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item bg-light rounded p-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <img class="flex-shrink-0 rounded-circle border p-1" src="img/testimonial-1.jpg" alt="">
-                        <div class="ms-4">
-                            <h5 class="mb-1">Nom du Client</h5>
-                            <span>Profession</span>
+                @if (count($reviews) > 0)
+                    @foreach ($reviews as $review)
+                        <div class="testimonial-item bg-light rounded p-4">
+                            <div class="d-flex align-items-center mb-4">
+                                <img class="flex-shrink-0 rounded-circle border p-1" src="{{ asset('images/' . $review->image_url) }}" alt="Image du visiteur">
+                                <div class="ms-4">
+                                    <h5 class="mb-1">{{$review->client_name}}</h5>
+                                    <span>{{$review->profession}}</span>
+                                </div>
+                            </div>
+                            <p class="mb-0">{{$review->comment}}</p>
                         </div>
-                    </div>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
-                <div class="testimonial-item bg-light rounded p-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <img class="flex-shrink-0 rounded-circle border p-1" src="img/testimonial-2.jpg" alt="">
-                        <div class="ms-4">
-                            <h5 class="mb-1">Nom du Client</h5>
-                            <span>Profession</span>
-                        </div>
-                    </div>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
-                <div class="testimonial-item bg-light rounded p-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <img class="flex-shrink-0 rounded-circle border p-1" src="img/testimonial-3.jpg" alt="">
-                        <div class="ms-4">
-                            <h5 class="mb-1">Nom du Client</h5>
-                            <span>Profession</span>
-                        </div>
-                    </div>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
-                <div class="testimonial-item bg-light rounded p-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <img class="flex-shrink-0 rounded-circle border p-1" src="img/testimonial-4.jpg" alt="">
-                        <div class="ms-4">
-                            <h5 class="mb-1">Nom du Client</h5>
-                            <span>Profession</span>
-                        </div>
-                    </div>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
+                    @endforeach
+                @else
+                    <div class="">Il y a aucun commentaire.</div>
+                @endif
             </div>
         </div>
     </div>
