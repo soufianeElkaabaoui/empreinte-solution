@@ -13,102 +13,34 @@
                 <h1 class="display-6 mb-4">Nous sommes une équipe créative pour votre projet de rêve</h1>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item text-center p-4">
-                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="img/team-1.jpg" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Nom Complet</h5>
-                                <span>Status</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item text-center p-4">
-                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="img/team-2.jpg" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Nom Complet</h5>
-                                <span>Status</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-instagram"></i></a>
+                @if (count($members) > 0)
+                    @php
+                        $time_counter = 1;
+                    @endphp
+                    @foreach ($members as $member)
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{$time_counter}}s">
+                            <div class="team-item text-center p-4">
+                                <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="{{ asset('images/' . $member->image_url) }}" alt="Image d'un membre">
+                                <div class="team-text">
+                                    <div class="team-title">
+                                        <h5>{{$member->name}}</h5>
+                                        <span>{{$member->status}}</span>
+                                    </div>
+                                    <div class="team-social">
+                                        <a class="btn btn-square btn-primary rounded-circle" href="{{$member->social_links()->where('name', 'fb')->first()->link}}"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-square btn-primary rounded-circle" href="{{$member->social_links()->where('name', 'twitter')->first()->link}}"><i class="fab fa-twitter"></i></a>
+                                        <a class="btn btn-square btn-primary rounded-circle" href="{{$member->social_links()->where('name', 'insta')->first()->link}}"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item text-center p-4">
-                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="img/team-3.jpg" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Nom Complet</h5>
-                                <span>Status</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item text-center p-4">
-                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="img/team-2.jpg" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Nom Complet</h5>
-                                <span>Status</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item text-center p-4">
-                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="img/team-3.jpg" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Nom Complet</h5>
-                                <span>Status</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item text-center p-4">
-                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="img/team-1.jpg" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Nom Complet</h5>
-                                <span>Status</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        @php
+                            $time_counter +=2
+                        @endphp
+                    @endforeach
+                @else
+                    <div class="">Il y a aucun membre dans l'équipe</div>
+                @endif
             </div>
         </div>
     </div>

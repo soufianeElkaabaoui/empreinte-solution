@@ -67,7 +67,7 @@
                         <a href="testimonial.html" class="dropdown-item">Lettrage 3D</a>
                     </div>
                 </div>
-                <a href="team.html" class="nav-item nav-link">Notre Equipe</a>
+                <a href="{{ route('members.index') }}" class="nav-item nav-link">Notre Equipe</a>
                 <a href="project.html" class="nav-item nav-link">Projets</a>
                 <a href="contact.html" class="nav-item nav-link">Contactez-nous</a>
             </div>
