@@ -2,10 +2,12 @@
 
 namespace App\View\Components;
 
+use App\Models\Service;
 use Illuminate\View\Component;
 
 class Header extends Component
 {
+    public $services;
     /**
      * Create a new component instance.
      *
@@ -13,7 +15,7 @@ class Header extends Component
      */
     public function __construct()
     {
-        //
+        $this->services = Service::all();
     }
 
     /**

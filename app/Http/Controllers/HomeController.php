@@ -55,7 +55,7 @@ class HomeController extends Controller
     }
     private function getMembers()
     {
-        $members = Member::all();
+        $members = Member::paginate(15);
         return $members;
     }
     private function getReviews()
