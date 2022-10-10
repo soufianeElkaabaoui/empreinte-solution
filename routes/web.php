@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +22,7 @@ Route::get('/about', function ()
 {
     return view('about');
 })->name('about');
-Route::get('/services', function ()
-{
-    return view('service');
-})->name('services');
+Route::resources([
+    'services' => ServiceController::class,
+    'members' => MemberController::class,
+]);
