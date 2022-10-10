@@ -26,7 +26,7 @@
                                 <small>SEO & Founder</small>
                             </div>
                         </div>
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Voir nos services</a>
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="{{ route('service') }}">Voir nos services</a>
                     </div>
                 </div>
             </div>
