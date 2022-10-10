@@ -22,6 +22,9 @@ class CreateCompanyTable extends Migration
             $table->text('adress_location');
             $table->time('opening_hour');
             $table->time('closing_hour');
+            $table->string('facebook_url');
+            $table->string('insta_url');
+            $table->string('twitter_url');
             $table->timestamps();
         });
     }
