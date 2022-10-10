@@ -4,6 +4,9 @@
         <i class="fa fa-laptop-code fa-2x text-primary position-absolute top-50 start-50 translate-middle"></i>
     </div>
     <!-- Spinner End -->
+@extends('layouts.app')
+@section('title', 'Service page')
+@section('content')
     <!-- Service Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -24,4 +27,5 @@
         </div>
     </div>
     <!-- Service End -->
+@endsection
 
