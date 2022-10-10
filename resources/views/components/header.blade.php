@@ -62,9 +62,13 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
-                        <a href="feature.html" class="dropdown-item">Design</a>
-                        <a href="team.html" class="dropdown-item">Print</a>
-                        <a href="testimonial.html" class="dropdown-item">Lettrage 3D</a>
+                        @if (count($services))
+                            @foreach ($services as $service)
+                                <a href="{{ route('services.show', ['service'=>$service->id]) }}" class="dropdown-item">{{$service->name}}</a>
+                            @endforeach
+                        @else
+                            <a href="#" class="dropdown-item">Pas de projet</a>
+                        @endif
                     </div>
                 </div>
                 <a href="{{ route('members.index') }}" class="nav-item nav-link">Notre Equipe</a>
@@ -75,3 +79,4 @@
     </nav>
     <!-- Navbar End -->
 </div>
+

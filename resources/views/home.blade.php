@@ -133,7 +133,7 @@
                     @endphp
                     @foreach ($services as $service)
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{$time_counter}}s">
-                            <a class="service-item d-block rounded text-center h-100 p-4" href="{{ route('services', ['id'=>$service->id]) }}">
+                            <a class="service-item d-block rounded text-center h-100 p-4" href="{{ route('services.show', ['service'=>$service->id]) }}">
                                 <img class="img-fluid rounded mb-4" src="{{ asset('images/' . $service->image_url) }}" alt="image de service">
                                 <h4 class="mb-0">{{$service->name}}</h4>
                             </a>
