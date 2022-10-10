@@ -242,7 +242,7 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="section-title bg-white text-center text-primary px-3">Nos Team</h6>
+                <h6 class="section-title bg-white text-center text-primary px-3">Notre Equipe</h6>
                 <h1 class="display-6 mb-4">Nous sommes une équipe créative pour votre projet de rêve</h1>
             </div>
             <div class="row g-4">
