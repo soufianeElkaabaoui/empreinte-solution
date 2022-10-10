@@ -2,10 +2,12 @@
 
 namespace App\View\Components;
 
+use App\Models\Company;
 use Illuminate\View\Component;
 
 class Footer extends Component
 {
+    public $company;
     /**
      * Create a new component instance.
      *
@@ -13,7 +15,7 @@ class Footer extends Component
      */
     public function __construct()
     {
-        //
+        $this->company = Company::first();
     }
 
     /**

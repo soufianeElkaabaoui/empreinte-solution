@@ -14,6 +14,6 @@ class Member extends Model
      */
     public function social_links()
     {
-        return $this->hasMany(Social_link::class);
+        return $this->hasMany(SocialLink::class);
     }
 }
