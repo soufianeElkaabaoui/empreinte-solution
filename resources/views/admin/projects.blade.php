@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="./assets/img/imanecom.ico">
 
-  <title>Imane Com Dashboard</title> 
+  <title>Imane Com Dashboard</title>
 
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css"
@@ -47,9 +47,9 @@
               <div class="d-flex order-lg-0">
                 <a href="#" class="btn-lg mr-1 btn bg-gradient-primary d-flex align-items-center legitRipple">
                   <i class="fas fa-plus-circle position-left mr-4"></i>Add new</a>
-                  <a href="#deleteEmployeeModal" class="btn btn-danger ms-3 d-flex align-items-center" data-toggle="modal"><i class="material-icons"></i> <span>Delete</span></a>						
+                  <a href="#deleteEmployeeModal" class="btn btn-danger ms-3 d-flex align-items-center" data-toggle="modal"><i class="material-icons"></i> <span>Delete</span></a>
 
-                  
+
                 </div>
                 <div class="btn-group heading-btn ms-3">
                   <button type="button" class="btn bg-gray-200 btn-lg btn-icon dropdown-toggle legitRipple"
@@ -86,105 +86,38 @@
                   <th>Name</th>
                   <th>Image</th>
                   <th>Client Name</th>
-                  <th>Service ID</th>
+                  <th>Service Type</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <span class="custom-checkbox">
-                      <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                      <label for="checkbox1"></label>
-                    </span>
-                  </td>
-                  <td>Thomas Hardy</td>
-                  <td>thomashardy@mail.com</td>
-                  <td>89 Chiaroscuro Rd, Portland, USA</td>
-                  <td>1</td>
-                  <td>
-                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="custom-checkbox">
-                      <input type="checkbox" id="checkbox2" name="options[]" value="1">
-                      <label for="checkbox2"></label>
-                    </span>
-                  </td>
-                  <td>Dominique Perrier</td>
-                  <td>dominiqueperrier@mail.com</td>
-                  <td>Obere Str. 57, Berlin, Germany</td>
-                  <td>1</td>
-                  <td>
-                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="custom-checkbox">
-                      <input type="checkbox" id="checkbox3" name="options[]" value="1">
-                      <label for="checkbox3"></label>
-                    </span>
-                  </td>
-                  <td>Maria Anders</td>
-                  <td>mariaanders@mail.com</td>
-                  <td>25, rue Lauriston, Paris, France</td>
-                  <td>2</td>
-                  <td>
-                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="custom-checkbox">
-                      <input type="checkbox" id="checkbox4" name="options[]" value="1">
-                      <label for="checkbox4"></label>
-                    </span>
-                  </td>
-                  <td>Fran Wilson</td>
-                  <td>franwilson@mail.com</td>
-                  <td>C/ Araquil, 67, Madrid, Spain</td>
-                  <td>3</td>
-                  <td>
-                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-                  </td>
-                </tr>					
-                <tr>
-                  <td>
-                    <span class="custom-checkbox">
-                      <input type="checkbox" id="checkbox5" name="options[]" value="1">
-                      <label for="checkbox5"></label>
-                    </span>
-                  </td>
-                  <td>Martin Blank</td>
-                  <td>martinblank@mail.com</td>
-                  <td>Via Monte Bianco 34, Turin, Italy</td>
-                  <td>1</td>
-                  <td>
-                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
-                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
-                  </td>
-                </tr> 
+                @if (count($projects) > 0)
+                    @foreach ($projects as $project)
+                        <tr>
+                            <td>
+                                <span class="custom-checkbox">
+                                <input type="checkbox" id="checkbox{{$loop->iteration}}" name="options[]" value="1">
+                                <label for="checkbox{{$loop->iteration}}"></label>
+                                </span>
+                            </td>
+                            <td>{{$project->name}}</td>
+                            <td><img src="{{ asset('images/' . $project->image_url) }}" alt="Image du projet"></td>
+                            <td>{{$project->company_client}}</td>
+                            <td>{{$project->service->name}}</td>
+                            <td>
+                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Delete"></i></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    <tr>
+                        <td colspan="5">Il y a aucun projets.</td>
+                    </tr>
+                @endif
               </tbody>
             </table>
-            <div class="clearfix">
-              <div class="hint-text m-2 mb-4">Showing <b>5</b> out of <b>25</b> entries</div>
-              <ul class="pagination">
-                <li class="page-item  m-2 "><a href="#">Previous</a></li>
-                <li class="page-item active "><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                <li class="page-item"><a href="#" class="page-link">4</a></li>
-                <li class="page-item"><a href="#" class="page-link">5</a></li>
-                <li class="page-item"><a href="#" class="page-link">Next</a></li>
-              </ul>  
-            </div>
+            {{ $projects->links('vendor.pagination.custom-pagination') }}
             <!-- END customer-list -->
 
           </div> <!-- END card -->
