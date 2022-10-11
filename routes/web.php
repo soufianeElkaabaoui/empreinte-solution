@@ -21,9 +21,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/home', function () {
+    return view('/admin/home');
+})->name('Home');
+Route::get('/company', function () {
+    return view('/admin/company');
+})->name('Company');
 Route::get('/about', function ()
 {
     return view('about');
@@ -38,5 +41,5 @@ Route::resources([
     'companies' => CompanyController::class,
 ]);
 /*--- Admin area's routes ---*/
-Route::get('/master/home', [HomeController::class, 'index']);
+Route::get('/master/home', [HomeController::class, 'index'])->name('Dashboard');
 
