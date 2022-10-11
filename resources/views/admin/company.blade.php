@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="./assets/img/imanecom.ico">
 
-  <title>Imane Com Dashboard</title> 
+  <title>Imane Com Dashboard</title>
 
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css"
@@ -41,16 +41,15 @@
           <div class="card bg-white mr-4 w-100" >
             <div class="box-container p-4 d-flex justify-content-around">
               <div class="box">
-                  <p> <span class="text-dark text-lg font-weight-bolder">Name :</span> ImaneCom</p>
-                  <p> <span class="text-dark text-lg font-weight-bolder">Logo Url :</span> ---------</p>
-                  <p> <span class="text-dark text-lg font-weight-bolder">Phone Number :</span> 05 24 43 07 49</p>
-                  <p> <span class="text-dark text-lg font-weight-bolder">Email :</span> imanecom@outlook.fr</p>
+                  <p> <span class="text-dark text-lg font-weight-bolder">Nom de la société :</span> {{$company->name}}</p>
+                  <p> <span class="text-dark text-lg font-weight-bolder">Logo :</span> <img src="{{$company->logo_url}}" alt="Logo de la société"></p>
+                  <p> <span class="text-dark text-lg font-weight-bolder">N° de telephone :</span> {{$company->phone_number}}</p>
+                  <p> <span class="text-dark text-lg font-weight-bolder">Email :</span> {{$company->email}}</p>
               </div>
               <div class="box">
-                  <p> <span class="text-dark text-lg font-weight-bolder">Adress Location :</span> 61, Rue Yougouslavie, Passage Ghandouri,<br> Mag n°60 40000-Guéliz-Marrakech (devant cinéma colisée)</p>
-                  <p> <span class="text-dark text-lg font-weight-bolder">Opening Hour :</span>9:00 </p>
-                  <p> <span class="text-dark text-lg font-weight-bolder">Closing Hour :</span> 18:00</p>
-                  <p> <span class="text-dark text-lg font-weight-bolder">Years Experience :</span> +10</p>
+                  <p> <span class="text-dark text-lg font-weight-bolder">Adresse Location :</span> {{$company->adress_location}}</p>
+                  <p> <span class="text-dark text-lg font-weight-bolder">Heure d'ouverture :</span> {{$company->opening_hour}}</p>
+                  <p> <span class="text-dark text-lg font-weight-bolder">Heure de fermeture :</span> {{$company->closing_hour}}</p>
               </div>
           </div>
           <!-- END customer-list -->
