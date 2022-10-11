@@ -71,7 +71,7 @@
                         @endif
                     </div>
                 </div>
-                <a href="{{ route('members.index') }}" class="nav-item nav-link">Notre Equipe</a>
+                <a href="{{ route('team.index') }}" class="nav-item nav-link">Notre Equipe</a>
                 <a href="project.html" class="nav-item nav-link">Projets</a>
                 <a href="contact.html" class="nav-item nav-link">Contactez-nous</a>
             </div>
