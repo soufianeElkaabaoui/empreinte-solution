@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\MemberController as AdminMemberController;
 use App\Http\Controllers\admin\ProjectController;
@@ -34,6 +35,7 @@ Route::resources([
     'masterServices' => AdminServiceController::class,
     'projects' => ProjectController::class,
     'reviews' => ReviewController::class,
+    'companies' => CompanyController::class,
 ]);
 /*--- Admin area's routes ---*/
 Route::get('/master/home', [HomeController::class, 'index']);
