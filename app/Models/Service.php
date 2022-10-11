@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
+    /**
+     * Get the projects for this service.
+     */
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
