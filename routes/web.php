@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +27,6 @@ Route::resources([
     'services' => ServiceController::class,
     'members' => MemberController::class,
 ]);
+/*--- Admin area's routes ---*/
+Route::get('/master/home', [HomeController::class, 'index']);
+
