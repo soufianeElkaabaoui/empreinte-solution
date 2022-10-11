@@ -19,7 +19,7 @@
                     <a class="btn btn-link" href="{{ route('about') }}">Qui somme-nous?</a>
                     <a class="btn btn-link" href="{{ route('contact') }}">Contactez-nous</a>
                     <a class="btn btn-link" href="#">Nos Services</a>
-                    <a class="btn btn-link" href="{{ route('members.index') }}">Notre Equipe</a>
+                    <a class="btn btn-link" href="{{ route('team.index') }}">Notre Equipe</a>
                     <a class="btn btn-link" href="#">Projets</a>
                 </div>
             </div>
