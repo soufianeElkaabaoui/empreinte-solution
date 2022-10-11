@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\MemberController as AdminMemberController;
+use App\Http\Controllers\admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,7 @@ Route::resources([
     'services' => ServiceController::class,
     'team' => MemberController::class,
     'members' => AdminMemberController::class,
+    'masterServices' => AdminServiceController::class,
 ]);
 /*--- Admin area's routes ---*/
 Route::get('/master/home', [HomeController::class, 'index']);
