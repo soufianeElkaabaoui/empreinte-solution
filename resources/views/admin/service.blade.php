@@ -95,7 +95,7 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        {{-- <tbody>
+                        <tbody>
                             @if (count($services) > 0)
                                 @foreach ($services as $service)
                                     <tr>
@@ -125,9 +125,9 @@
                                     <td colspan="5">Il y a aucun service.</td>
                                 </tr>
                             @endif
-                        </tbody> --}}
+                        </tbody>
                     </table>
-                    {{-- {{ $services->links('vendor.pagination.custom-pagination') }} --}}
+                    {{ $services->links('vendor.pagination.custom-pagination') }}
                     <!-- END customer-list -->
 
                 </div> <!-- END card -->

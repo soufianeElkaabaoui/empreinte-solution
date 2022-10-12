@@ -58,7 +58,7 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="./service.html">
+                        <a class="nav-link text-white " href="../service">
 
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">draw</i>
@@ -70,7 +70,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="./members.html">
+                        <a class="nav-link text-white " href="../members">
 
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">people</i>
@@ -94,7 +94,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="./social_links.html">
+                        <a class="nav-link text-white " href="../social_links">
 
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">share</i>
@@ -106,7 +106,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="./projects.html">
+                        <a class="nav-link text-white " href="../projects">
 
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">dashboard</i>
@@ -118,7 +118,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="./reviews.html">
+                        <a class="nav-link text-white " href="../reviews">
 
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">reviews</i>
@@ -135,7 +135,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="./profile.html">
+                        <a class="nav-link text-white " href="../profile">
 
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">person</i>
@@ -147,7 +147,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="./sign-in.html">
+                        <a class="nav-link text-white " href="../sign_in">
 
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">login</i>

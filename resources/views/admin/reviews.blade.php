@@ -99,7 +99,7 @@
                   <th>Actions</th>
                 </tr>
               </thead>
-              {{-- <tbody>
+              <tbody>
                 @if (count($reviews) > 0)
                     @foreach ($reviews as $review)
                         <tr>
@@ -124,9 +124,9 @@
                         <td colspan="6">Il y a aucun commentaire.</td>
                     </tr>
                 @endif
-              </tbody> --}}
+              </tbody>
             </table>
-            {{-- {{ $reviews->links('vendor.pagination.custom-pagination') }} --}}
+            {{ $reviews->links('vendor.pagination.custom-pagination') }}
             <!-- END customer-list -->
 
           </div> <!-- END card -->
