@@ -26,17 +26,13 @@
   };
 })();
 
-//make tabs color
-debugger
-let nav_link = document.getElementsByClassName('nav-link');
-nav_link.forEach(nav_link => {
-  nav_link.onclick = function (params) {
-    debugger
-    document.getElementsByClassName('nav-link').classList.add('active');
-  }
+const actualBtn = document.getElementById('member_img');
 
-});
+const fileChosen = document.getElementById('file-chosen');
 
+actualBtn.addEventListener('change', function(){
+  fileChosen.textContent = this.files[0].name
+})
 // Verify navbar blur on scroll
 if (document.getElementById('navbarBlur')) {
   navbarBlurOnScroll('navbarBlur');

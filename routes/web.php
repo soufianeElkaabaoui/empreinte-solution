@@ -27,6 +27,27 @@ Route::get('/home', function () {
 Route::get('/company', function () {
     return view('/admin/company');
 })->name('Company');
+Route::get('/members', function () {
+    return view('/admin/members');
+})->name('Members');
+Route::get('/projets', function () {
+    return view('/admin/projects');
+})->name('Projets');
+Route::get('/reviews', function () {
+    return view('/admin/reviews');
+})->name('Reviews');
+Route::get('/service', function () {
+    return view('/admin/service');
+})->name('Services');
+Route::get('/social_links', function () {
+    return view('/admin/social_links');
+})->name('Social Links');
+Route::get('/log_in', function () {
+    return view('/admin/sign_in');
+})->name('log_in');
+Route::get('/profile', function () {
+    return view('/admin/profile');
+})->name('profile');
 Route::get('/about', function ()
 {
     return view('about');

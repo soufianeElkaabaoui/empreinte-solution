@@ -2745,9 +2745,13 @@ progress {
 .form-control:focus {
   color: #495057;
   background-color: transparent;
-  border-color: transparent;
   outline: 0;
   box-shadow: none;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
 }
 
 .form-control::-webkit-date-and-time-value {
@@ -2893,7 +2897,6 @@ textarea.form-control-lg {
 }
 
 .form-select:focus {
-  border-color: transparent;
   outline: 0;
   box-shadow: none;
 }
@@ -3334,8 +3337,6 @@ textarea.form-control-lg {
 
 .input-group> :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
   margin-left: -1px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
 }
 
 .valid-feedback {
@@ -3399,7 +3400,6 @@ textarea.form-control.is-valid {
 .form-select.is-valid:not([multiple]):not([size]),
 .form-select.is-valid:not([multiple])[size="1"] {
   padding-right: 1rem;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8'%3e%3cpath fill='%2366d432' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
   background-position: right 0 center, center right 1rem;
   background-size: 16px 12px, 1rem 1rem;
 }
@@ -6258,19 +6258,19 @@ fieldset:disabled .btn {
 .btn-close {
   box-sizing: content-box;
   width: 1em;
-  height: 1em;
-  padding: 0.25em 0.25em;
-  color: #fff;
-  background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+  color: var(--bs-code-color);
   border: 0;
   border-radius: 0.375rem;
-  opacity: 0.5;
+  font-size: 1.5rem;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
 }
-
-.btn-close:hover {
+.btn-close:hover{
+  background-color: #0b7414;
   color: #fff;
-  text-decoration: none;
-  opacity: 0.75;
 }
 
 .btn-close:focus {
@@ -22430,9 +22430,6 @@ label,
   transition: 0.2s ease all;
 }
 
-.form-control {
-  border: none;
-}
 
 .form-control.is-invalid {
   border: 1px solid #d2d6da;
@@ -22461,9 +22458,12 @@ label,
 
 .input-group .input-group-text {
   position: absolute;
-  padding: .75rem 0;
-  right: 0;
+  padding: .60rem 0;
+  right: 20px;
   border-right: 0 !important;
+}
+select#drop_service {
+  padding-left: 15px;
 }
 
 .input-group .input-group-text i {
@@ -27336,14 +27336,26 @@ span.flatpickr-weekday {
   top: auto;
   right: 28px;
 }
+.lbl_img_upload {
+  background-color: gray;
+  color: white;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  border-radius: 5rem 0 0 5rem;
+  -webkit-border-radius: 5rem 0 0 5rem;
+  -moz-border-radius: 5rem 0 0 5rem;
+  -ms-border-radius: 5rem 0 0 5rem;
+  -o-border-radius: 5rem 0 0 5rem;
+}
 
-/* PrismJS 1.23.0
-https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
-/**
- * prism.js default theme for JavaScript, CSS and HTML
- * Based on dabblet (http://dabblet.com)
- * @author Lea Verou
- */
+#file-chosen{
+  margin-left: 0.3rem;
+  font-family: sans-serif;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
   color: black;
