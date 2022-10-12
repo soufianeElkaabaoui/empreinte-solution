@@ -362,12 +362,19 @@
     @endsection
     <!-- JavaScript Libraries -->
     <!--   Core JS Files   -->
+    <script src= {{asset("js/bootstrap.min.js")}}></script>
+    <script src= {{asset("js/bootstrap.js")}}></script>
+    <script src= {{asset("js/bootstrap.bundle.js")}}></script>
+    <script src= {{asset("js/bootstrap.bundle.min.js")}}></script>
+    <script src= {{asset("js/bootstrap.esm.js")}}></script>
+    <script src= {{asset("js/bootstrap.esm.min.js")}}></script>
     <script src={{asset("js/popper.min.js")}}></script>
     <script src= {{asset("js/core/bootstrap.min.js")}}></script>
     <script src= {{asset("js/plugins/perfect-scrollbar.min.js")}}></script>
     <script src={{asset("js/plugins/smooth-scrollbar.min.js")}}></script>
     <script src={{asset("js/material-dashboard.min.js?v=3.0.4")}}></script>
     <script src={{asset("js/material-dashboard.js")}}></script>
+
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
