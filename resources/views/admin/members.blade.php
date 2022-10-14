@@ -30,27 +30,28 @@
                                                 aria-label="Close">&times;</button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+                                            <form id="form_add_member" method="post" action="{{ route('members.store') }}" enctype="multipart/form-data">
                                                 {{-- <label for="recipient-name" class="form-label">Nom:</label> --}}
+                                                @csrf
                                                 <div class="input-group input-group-outline mb-3">
                                                     <label for="recipient-name" class="form-label">Nom</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
+                                                    <input type="text" name="member_name" class="form-control" id="recipient-name">
                                                 </div>
                                                 <label for="recipient-name" class="form-label">Image:</label>
                                                 <div class="input-group-outline mb-3 d-flex align-items-center">
-                                                    <input type="file" id="member_img" hidden>
+                                                    <input type="file" name="image_url" id="member_img" hidden>
                                                     <label for="member_img" class="lbl_img_upload">Choose File</label>
                                                     <span id="file-chosen">No file chosen</span>
                                                 </div>
                                                 {{-- <label for="recipient-name" class="form-label">Status:</label> --}}
                                                 <div class="input-group input-group-outline mb-3">
-                                                    <label for="recipient-name" class="form-label">Status</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
+                                                    <label for="recipient-name" class="form-label">Poste</label>
+                                                    <input type="text" name="member_status" class="form-control" id="recipient-name">
                                                 </div>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn bg-gradient-primary">Ajouter</button>
+                                            <button type="submit" form="form_add_member" class="btn bg-gradient-primary">Ajouter</button>
                                         </div>
                                     </div>
                                 </div>
@@ -109,7 +110,7 @@
                                             </span>
                                         </td>
                                         <td>{{ $member->name }}</td>
-                                        <td><img src="{{ asset('images/' . $member->image_url) }}" alt="Image du membre">
+                                        <td><img src="{{ asset($member->image_url) }}" width="100%" height="100%" alt="Image du membre">
                                         </td>
                                         <td>{{ $member->status }}</td>
                                         <td>
@@ -129,7 +130,7 @@
                             @endif
                         </tbody>
                     </table>
-                    {{ $members->links('vendor.pagination.custom-pagination') }}
+                    {{ $members->links('vendor.pagination.custom-pagination', ['members' => $members]) }}
                     <!-- END customer-list -->
 
                 </div> <!-- END card -->
