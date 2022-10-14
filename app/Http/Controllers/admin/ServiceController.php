@@ -37,7 +37,17 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // check if the file exist && there were no problems uploading the file:
+        if ($request->hasFile('image_url') && $request->file('image_url')->isValid()) {
+            $path = $request->file('image_url')->store('images'); // upload the image.
+            $service = new Service;
+            $service->name = $request->service_name;
+            $service->image_url = $path;
+            $service->description = $request->service_description;
+            $service->save();
+            return back()->with('status', 'Bien ajoutée.');
+        }
+        return back()->with('status', 'Probléme du serveur');
     }
 
     /**
