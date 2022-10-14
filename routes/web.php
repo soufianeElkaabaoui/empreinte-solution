@@ -9,7 +9,6 @@ use App\Http\Controllers\admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\UploadImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,7 +44,6 @@ Route::resources([
 ]);
 /*--- Admin area's routes ---*/
 Route::get('/master/home', [AdminHomeController::class, 'index'])->name('Dashboard');
-Route::post('/upload-image', UploadImageController::class)->name('uploading-image');
 Route::get('/contact',function ()
 {
     return view('contact');
