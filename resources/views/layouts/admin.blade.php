@@ -70,7 +70,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="../members">
+                        <a class="nav-link text-white " href="{{ route('members.index') }}">
 
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">people</i>
@@ -372,7 +372,7 @@
     <script src= {{asset("js/core/bootstrap.min.js")}}></script>
     <script src= {{asset("js/plugins/perfect-scrollbar.min.js")}}></script>
     <script src={{asset("js/plugins/smooth-scrollbar.min.js")}}></script>
-    <script src={{asset("js/material-dashboard.min.js?v=3.0.4")}}></script>
+    <script src={{asset("js/material-dashboard.js.map")}}></script>
     <script src={{asset("js/material-dashboard.js")}}></script>
 
     <script>

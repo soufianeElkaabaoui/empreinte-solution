@@ -37,7 +37,17 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // check if the file exist && there were no problems uploading the file:
+        if ($request->hasFile('image_url') && $request->file('image_url')->isValid()) {
+            $path = $request->file('image_url')->store('images'); // upload the image.
+            $member = new Member;
+            $member->name = $request->member_name;
+            $member->image_url = $path;
+            $member->status = $request->member_status;
+            $member->save();
+            return back()->with('status', 'Bien ajoutée.');
+        }
+        return back()->with('status','Probléme du serveur');
     }
 
     /**
