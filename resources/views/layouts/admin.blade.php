@@ -14,8 +14,8 @@
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
 
     <!-- Nucleo Icons -->
-    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href={{ asset('/stylesheet/nucleo-icons.css') }} rel="stylesheet" />
+    <link href={{ asset('/stylesheet/nucleo-svg.css') }} rel="stylesheet" />
 
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
@@ -82,7 +82,8 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="{{ route('companies.show', ['company' => 1, 'page_name' => 'company info']) }}">
+                        <a class="nav-link text-white "
+                            href="{{ route('companies.show', ['company' => 1, 'page_name' => 'company info']) }}">
 
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">business</i>
@@ -169,7 +170,8 @@
                         <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark"
                                     href="javascript:;">Pages</a></li>
-                            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">@yield('title')</li>
+                            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">@yield('title')
+                            </li>
                         </ol>
                         <h6 class="font-weight-bolder mb-0">@yield('title')</h6>
 
@@ -185,12 +187,12 @@
                                     <i class="fa fa-user me-sm-1"></i>
                                 </a>
                             </li>
-                            <li class="nav-item px-3 d-flex align-items-center">
+                            {{-- <li class="nav-item px-3 d-flex align-items-center">
                                 <a href="javascript:;" class="nav-link text-body p-0">
                                     <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
                                 </a>
-                            </li>
-                            <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                            </li> --}}
+                            {{-- <li class="nav-item dropdown pe-2 d-flex align-items-center">
                                 <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-bell cursor-pointer"></i>
@@ -275,7 +277,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </div>
@@ -283,7 +285,7 @@
             {{-- will be used to contain the page main content --}}
             @yield('content')
         </main>
-        <div class="fixed-plugin">
+        {{-- <div class="fixed-plugin">
             <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
                 <i class="material-icons py-2">settings</i>
             </a>
@@ -303,10 +305,10 @@
                 <hr class="horizontal dark my-1">
                 <div class="card-body pt-sm-3 pt-0">
                     <!-- Sidebar Backgrounds -->
-                    {{-- <div>
+                    <div>
                         <h6 class="mb-0">Sidebar Colors</h6>
-                    </div> --}}
-                    {{-- <a href="javascript:void(0)" class="switch-trigger background-color">
+                    </div>
+                    <a href="javascript:void(0)" class="switch-trigger background-color">
                         <div class="badge-colors my-2 text-start">
                             <span class="badge filter bg-gradient-primary active" data-color="primary"
                                 onclick="sidebarColor(this)"></span>
@@ -321,7 +323,7 @@
                             <span class="badge filter bg-gradient-danger" data-color="danger"
                                 onclick="sidebarColor(this)"></span>
                         </div>
-                    </a> --}}
+                    </a>
                     <!-- Sidenav Type -->
                     <div class="mt-3">
                         <h6 class="mb-0">Sidenav Type</h6>
@@ -330,8 +332,8 @@
                     <div class="d-flex">
                         <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark"
                             onclick="sidebarType(this)">Dark</button>
-                        {{-- <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent"
-                            onclick="sidebarType(this)">Transparent</button> --}}
+                        <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent"
+                            onclick="sidebarType(this)">Transparent</button>
                         <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white"
                             onclick="sidebarType(this)">White</button>
                     </div>
@@ -355,25 +357,24 @@
                     <hr class="horizontal dark my-sm-4">
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
     @section('scripts')
         <script async defer src="https://buttons.github.io/buttons.js"></script>
     @endsection
     <!-- JavaScript Libraries -->
     <!--   Core JS Files   -->
-    <script src= {{asset("js/bootstrap.min.js")}}></script>
-    <script src= {{asset("js/bootstrap.js")}}></script>
-    <script src= {{asset("js/bootstrap.bundle.js")}}></script>
-    <script src= {{asset("js/bootstrap.bundle.min.js")}}></script>
-    <script src= {{asset("js/bootstrap.esm.js")}}></script>
-    <script src= {{asset("js/bootstrap.esm.min.js")}}></script>
-    <script src={{asset("js/popper.min.js")}}></script>
-    <script src= {{asset("js/core/bootstrap.min.js")}}></script>
-    <script src= {{asset("js/plugins/perfect-scrollbar.min.js")}}></script>
-    <script src={{asset("js/plugins/smooth-scrollbar.min.js")}}></script>
-    <script src={{asset("js/material-dashboard.js.map")}}></script>
-    <script src={{asset("js/material-dashboard.js")}}></script>
+    <script src={{ asset('js/bootstrap.min.js') }}></script>
+    <script src={{ asset('js/bootstrap.js') }}></script>
+    {{-- <script src= {{asset("js/bootstrap.bundle.js")}}></script>
+    <script src= {{asset("js/bootstrap.bundle.min.js")}}></script> --}}
+    <script src={{ asset('js/bootstrap.esm.js') }}></script>
+    <script src={{ asset('js/bootstrap.esm.min.js') }}></script>
+    <script src={{ asset('js/core/popper.min.js') }}></script>
+    <script src={{ asset('js/core/bootstrap.min.js') }}></script>
+    <script src={{ asset('js/plugins/perfect-scrollbar.min.js') }}></script>
+    <script src={{ asset('js/plugins/smooth-scrollbar.min.js') }}></script>
+    <script src={{ asset('js/material-dashboard.js') }}></script>
 
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
@@ -384,9 +385,6 @@
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
     </script>
-
-    <!-- Template Javascript -->
-    <script src={{asset("js/main.js")}}></script>
 </body>
 
 </html>

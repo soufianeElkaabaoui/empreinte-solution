@@ -13,7 +13,7 @@
                     </div>
                     <div class="text-end pt-1">
                         <p class="text-lg-start mb-0 mt-5 text-capitalize">Années Expériences</p>
-                        <h4 class="mb-0">{{ $years_experience }}</h4>
+                        {{-- <h4 class="mb-0">{{ $years_experience }}</h4> --}}
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
@@ -57,7 +57,7 @@
                     </div>
                     <div class="text-end pt-1">
                         <p class="text-lg-start mb-0 mt-5 text-capitalize">Members</p>
-                        <h4 class="mb-0">{{ $nb_members }}</h4>
+                        {{-- <h4 class="mb-0">{{ $nb_members }}</h4> --}}
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
@@ -101,7 +101,7 @@
                     </div>
                     <div class="text-end pt-1">
                         <p class="text-lg-start mb-0 mt-5 text-capitalize">Projets Terminés</p>
-                        <h4 class="mb-0">{{ $nb_projects_finished }}</h4>
+                        {{-- <h4 class="mb-0">{{ $nb_projects_finished }}</h4> --}}
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
@@ -146,7 +146,7 @@
                     </div>
                     <div class="text-end pt-1">
                         <p class="text-lg-start mb-0 mt-5 text-capitalize">Client Satisfait</p>
-                        <h4 class="mb-0">{{ $nb_clients }}</h4>
+                        {{-- <h4 class="mb-0">{{ $nb_clients }}</h4> --}}
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">

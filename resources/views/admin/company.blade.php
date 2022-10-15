@@ -24,7 +24,8 @@
                     <!-- END customer-list -->
                 </div> <!-- END card -->
                 <button class="btn bg-gradient-primary shadow-success w-30 mt-4" type="button" data-bs-toggle="modal"
-                    data-bs-target="#modal_company">Modifier</button>
+                    data-bs-target="#modal_company">Modifier
+                </button>
                 <!-- Modal -->
                 <div class="modal fade" id="modal_company" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
