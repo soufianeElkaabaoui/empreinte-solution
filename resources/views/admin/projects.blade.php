@@ -30,33 +30,36 @@
                                       aria-label="Close">&times;</button>
                               </div>
                               <div class="modal-body">
-                                <form>
+                                <form id="form_add_project" action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
                                   <div class="input-group input-group-outline mb-3">
-                                      <label for="recipient-name" class="form-label">Nom</label>
-                                      <input type="text" class="form-control" id="recipient-name">
+                                      <label for="project_name" class="form-label">Nom du projet</label>
+                                      <input type="text" name="project_name" class="form-control" id="project_name">
                                   </div>
                                   <div class="input-group-outline mb-3 d-flex align-items-center">
-                                    <input type="file" id="member_img" hidden>
-                                    <label for="member_img" class="lbl_img_upload">Choisir Image</label>
+                                    <input type="file" name="image_url" id="project_img" hidden>
+                                    <label for="project_img" class="lbl_img_upload">Choisir Image</label>
                                     <span id="file-chosen">Aucune Image choisie</span>
                                   </div>
                                   <div class="input-group input-group-outline mb-3">
-                                      <label for="recipient-name" class="form-label">Nom du Client:</label>
-                                      <input type="text" class="form-control" id="recipient-name">
+                                      <label for="project_owner" class="form-label">Nom de la société</label>
+                                      <input type="text" name="project_owner" class="form-control" id="project_owner">
                                   </div>
                                   <div class="input-group input-group-outline mb-3">
-                                    <label class="input-group-text" for="drop_service">Choisir</label>
-                                    <select class="form-select" id="drop_service">
-                                      <option selected>Type de Services</option>
-                                      <option value="1">One</option>
-                                      <option value="2">Two</option>
-                                      <option value="3">Three</option>
+                                    <label class="input-group-text" for="project_type">Choisir</label>
+                                    <select class="form-select" name="project_type" id="project_type">
+                                      <option selected>Choisir services</option>
+                                      @if (count($services) > 0)
+                                          @foreach ($services as $service)
+                                            <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                          @endforeach
+                                      @endif
                                     </select>
                                   </div>
                               </form>
                               </div>
                               <div class="modal-footer">
-                                  <button type="button" class="btn bg-gradient-primary">Ajouter</button>
+                                  <button type="submit" form="form_add_project" class="btn bg-gradient-primary">Ajouter</button>
                               </div>
                           </div>
                       </div>
@@ -115,7 +118,7 @@
                                 </span>
                             </td>
                             <td>{{$project->name}}</td>
-                            <td><img src="{{ asset('images/' . $project->image_url) }}" alt="Image du projet"></td>
+                            <td><img src="{{ asset($project->image_url) }}" width="100%" height="100%" alt="Image du projet"></td>
                             <td>{{$project->company_client}}</td>
                             <td>{{$project->service->name}}</td>
                             <td>
