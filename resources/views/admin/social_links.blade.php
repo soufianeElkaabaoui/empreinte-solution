@@ -30,28 +30,31 @@
                                                 aria-label="Close">&times;</button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+                                            <form id="form_add_social_link" action="{{ route('social-links.store') }}" method="POST" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="input-group input-group-outline mb-3">
-                                                    <label for="recipient-name" class="form-label">Nom</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
+                                                    <label for="social_media_name" class="form-label">Nom du social media</label>
+                                                    <input type="text" name="social_media_name" class="form-control" id="social_media_name">
                                                 </div>
                                                 <div class="input-group input-group-outline mb-3">
-                                                    <label for="recipient-name" class="form-label">Link</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
+                                                    <label for="social_media_link" class="form-label">Link</label>
+                                                    <input type="text" name="social_media_link" class="form-control" id="social_media_link">
                                                 </div>
                                                 <div class="input-group input-group-outline mb-3">
                                                     <label class="input-group-text" for="drop_service">Choisir</label>
-                                                    <select class="form-select" id="drop_service">
-                                                        <option selected>ID du Membre</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                    <select class="form-select" name="member" id="drop_service">
+                                                        <option selected>Le membre concerné</option>
+                                                        @if (count($members) > 0)
+                                                            @foreach ($members as $member)
+                                                                <option value="{{ $member->id }}">{{ $member->name }}</option>
+                                                            @endforeach
+                                                        @endif
                                                     </select>
                                                 </div>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn bg-gradient-primary">Ajouter</button>
+                                            <button type="submit" form="form_add_social_link" class="btn bg-gradient-primary">Ajouter</button>
                                         </div>
                                     </div>
                                 </div>
@@ -92,96 +95,108 @@
                                         <label for="selectAll"></label>
                                     </span>
                                 </th>
-                                <th>Name</th>
-                                <th>Link</th>
-                                <th>Member ID</th>
+                                <th>Nom du social media</th>
+                                <th>Lien</th>
+                                <th>Nom du membre </th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
-                                    </span>
-                                </td>
-                                <td>Thomas Hardy</td>
-                                <td>thomashardy@mail.com</td>
-                                <td>89 Chiaroscuro Rd, Portland, USA</td>
-                                <td>
-                                    <button class="edit border-0" type="button" data-bs-toggle="modal"
-                                        data-bs-target="#edit_modal"><i class="material-icons" data-toggle="tooltip"
-                                            title="" data-original-title="Edit"></i></button>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="edit_modal" data-bs-backdrop="static"
-                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdropLabel">Modifier un social link
-                                                    </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form>
-                                                        <div class="input-group input-group-outline mb-3">
-                                                            <label for="recipient-name" class="form-label">Nom</label>
-                                                            <input type="text" class="form-control" id="recipient-name">
+                            @if (count($members) > 0)
+                                @foreach ($members as $member)
+                                    @if (count($member->social_links) > 0)
+                                        @foreach ($member->social_links as $social_link)
+                                            <tr>
+                                                <td>
+                                                    <span class="custom-checkbox">
+                                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                                        <label for="checkbox1"></label>
+                                                    </span>
+                                                </td>
+                                                <td>{{ $social_link->name }}</td>
+                                                <td>{{ $social_link->link }}</td>
+                                                <td>{{ $member->name }}</td>
+                                                <td>
+                                                    <button class="edit border-0" type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#edit_modal"><i class="material-icons" data-toggle="tooltip"
+                                                            title="" data-original-title="Edit"></i></button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="edit_modal" data-bs-backdrop="static"
+                                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="staticBackdropLabel">Modifier un social link
+                                                                    </h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                        aria-label="Close">&times;</button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form>
+                                                                        <div class="input-group input-group-outline mb-3">
+                                                                            <label for="recipient-name" class="form-label">Nom</label>
+                                                                            <input type="text" class="form-control" id="recipient-name">
+                                                                        </div>
+                                                                        <div class="input-group input-group-outline mb-3">
+                                                                            <label for="recipient-name" class="form-label">Link</label>
+                                                                            <input type="text" class="form-control" id="recipient-name">
+                                                                        </div>
+                                                                        <div class="input-group input-group-outline mb-3">
+                                                                            <label class="input-group-text" for="drop_service">Choisir</label>
+                                                                            <select class="form-select" id="drop_service">
+                                                                                <option selected>ID du Membre</option>
+                                                                                <option value="1">One</option>
+                                                                                <option value="2">Two</option>
+                                                                                <option value="3">Three</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button"
+                                                                        class="btn bg-gradient-primary">Modifier</button>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="input-group input-group-outline mb-3">
-                                                            <label for="recipient-name" class="form-label">Link</label>
-                                                            <input type="text" class="form-control" id="recipient-name">
+                                                    </div>
+                                                    <button class="delete border-0" data-bs-toggle="modal"
+                                                        data-bs-target="#delete_modal">
+                                                        <i class="material-icons" data-toggle="tooltip" title=""
+                                                            data-original-title="Delete">
+                                                        </i>
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="delete_modal" tabindex="-1"
+                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Vous êtes sûre ?</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Fermer</button>
+                                                                    <button type="button" class="btn bg-gradient-primary">Oui ,
+                                                                        Supprimer</button>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="input-group input-group-outline mb-3">
-                                                            <label class="input-group-text" for="drop_service">Choisir</label>
-                                                            <select class="form-select" id="drop_service">
-                                                                <option selected>ID du Membre</option>
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
-                                                            </select>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button"
-                                                        class="btn bg-gradient-primary">Modifier</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="delete border-0" data-bs-toggle="modal"
-                                        data-bs-target="#delete_modal">
-                                        <i class="material-icons" data-toggle="tooltip" title=""
-                                            data-original-title="Delete">
-                                        </i>
-                                    </button>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="delete_modal" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Vous êtes sûre ?</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Fermer</button>
-                                                    <button type="button" class="btn bg-gradient-primary">Oui ,
-                                                        Supprimer</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="4">Il y a aucun membre. Veuillez remplir les membres.</td>
+                                </tr>
+                            @endif
                         </tbody>
                     </table>
                     <!-- END customer-list -->
