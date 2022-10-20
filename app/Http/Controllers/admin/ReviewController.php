@@ -37,7 +37,18 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // check if the file exist && there were no problems uploading the file:
+        if ($request->hasFile('image_url') && $request->file('image_url')->isValid()) {
+            $path = $request->file('image_url')->store('images'); // upload the image.
+            $review = new Review;
+            $review->client_name = $request->reviewer_name;
+            $review->profession = $request->reviewer_profession;
+            $review->image_url = $path;
+            $review->comment = $request->reviewer_comment;
+            $review->save();
+            return back()->with('status', 'Bien ajoutée.');
+        }
+        return back()->with('status', 'Probléme du serveur');
     }
 
     /**

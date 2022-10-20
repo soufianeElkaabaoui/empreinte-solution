@@ -30,28 +30,29 @@
                                                 aria-label="Close">&times;</button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+                                            <form id="form_add_review" action="{{ route('reviews.store') }}" method="POST" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="input-group input-group-outline mb-3">
-                                                    <label for="recipient-name" class="form-label">Nom du Client</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
+                                                    <label for="reviewer_name" class="form-label">Nom du Client</label>
+                                                    <input type="text" name="reviewer_name" class="form-control" id="reviewer_name">
                                                 </div>
                                                 <div class="input-group input-group-outline mb-3">
-                                                    <label for="recipient-name" class="form-label">Profession</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
+                                                    <label for="reviewer_profession" class="form-label">Profession</label>
+                                                    <input type="text" name="reviewer_profession" class="form-control" id="reviewer_profession">
                                                 </div>
                                                 <div class="input-group-outline mb-3 d-flex align-items-center">
-                                                    <input type="file" id="member_img" hidden>
-                                                    <label for="member_img" class="lbl_img_upload">Choisir Image</label>
+                                                    <input type="file" name="image_url" id="review_img" hidden>
+                                                    <label for="review_img" class="lbl_img_upload">Choisir Image</label>
                                                     <span id="file-chosen">Aucune Image choisie</span>
                                                 </div>
                                                 <div class="input-group input-group-outline mb-3">
-                                                    <label for="recipient-name" class="form-label">Commentaire</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
+                                                    <label for="reviewer_comment" class="form-label">Commentaire</label>
+                                                    <input type="text" name="reviewer_comment" class="form-control" id="reviewer_comment">
                                                 </div>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn bg-gradient-primary">Ajouter</button>
+                                            <button type="submit" form="form_add_review" class="btn bg-gradient-primary">Ajouter</button>
                                         </div>
                                     </div>
                                 </div>
@@ -112,11 +113,11 @@
                                         </td>
                                         <td>{{ $review->client_name }}</td>
                                         <td>{{ $review->profession }}</td>
-                                        <td><img src="{{ asset('images/' . $review->image_url) }}" alt="Image du visiteur">
+                                        <td><img src="{{ asset($review->image_url) }}" width="100%" height="100%" alt="Image du visiteur">
                                         </td>
                                         <th>{{ $review->comment }}</th>
                                         <td>
-                                            <button class="edit border-0" type="button" data-bs-toggle="modal"
+                                            <button class="edit border-0" type="button" data-reviewer="{{ $review->id }}" data-bs-toggle="modal"
                                                 data-bs-target="#edit_modal"><i class="material-icons" data-toggle="tooltip"
                                                     title="" data-original-title="Edit"></i></button>
                                             <!-- Modal -->
@@ -161,7 +162,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button class="delete border-0" data-bs-toggle="modal"
+                                            <button data-reviewer="{{ $review->id }}" class="delete border-0" data-bs-toggle="modal"
                                                 data-bs-target="#delete_modal">
                                                 <i class="material-icons" data-toggle="tooltip" title=""
                                                     data-original-title="Delete">
