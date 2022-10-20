@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -16,7 +17,8 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::paginate(5);
-        return view('admin.projects', compact('projects'));
+        $services = Service::all();
+        return view('admin.projects', compact('projects', 'services'));
     }
 
     /**
@@ -37,7 +39,24 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'project_type' => 'required|numeric',
+        ]);
+        // check if the file exist && there were no problems uploading the file:
+        if ($request->hasFile('image_url') && $request->file('image_url')->isValid()) {
+            if ($serivce = Service::find($request->project_type)) {
+                $path = $request->file('image_url')->store('images'); // upload the image.
+                $project = new Project;
+                $project->name = $request->project_name;
+                $project->company_client = $request->project_owner;
+                $project->image_url = $path;
+                $serivce->projects()->save($project);
+                return back()->with('status', 'Bien ajoutée.');
+            }else {
+                return back()->with('status', 'Remplir d\'abord les services.');
+            }
+        }
+        return back()->with('status', 'Probléme du serveur');
     }
 
     /**
