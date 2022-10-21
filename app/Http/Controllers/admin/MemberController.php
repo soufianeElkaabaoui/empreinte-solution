@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MemberController extends Controller
 {
@@ -81,7 +82,16 @@ class MemberController extends Controller
      */
     public function update(Request $request, Member $member)
     {
-        //
+        // check if the file exist && there were no problems uploading the file:
+        if ($request->hasFile('image_url') && $request->file('image_url')->isValid()) {
+            Storage::delete($member->image_url);
+            $path = $request->file('image_url')->store('images'); // upload the image.
+            $member->image_url = $path;
+        }
+        $member->name = $request->member_name;
+        $member->status = $request->member_status;
+        $member->save();
+        return back()->with('status', 'Bien modifié.');
     }
 
     /**

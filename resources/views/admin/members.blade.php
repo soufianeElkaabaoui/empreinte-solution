@@ -129,27 +129,27 @@
                                                     aria-label="Close">&times;</button>
                                             </div>
                                             <div class="modal-body">
-                                                <form>
-                                                    {{-- <label for="recipient-name" class="form-label">Nom:</label> --}}
+                                                <form id="form_edit_member" method="post" action="{{ route('members.update', ['member' => $member->id]) }}" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="input-group input-group-outline mb-3">
-                                                        <label for="recipient-name" class="form-label">Nom</label>
-                                                        <input type="text" class="form-control" id="recipient-name">
+                                                        <label for="member_name" class="form-label">Nom du member</label>
+                                                        <input type="text" name="member_name" class="form-control" id="member_name">
                                                     </div>
-                                                    <label for="recipient-name" class="form-label">Image:</label>
+                                                    <label for="member_img" class="form-label">Image:</label>
                                                     <div class="input-group-outline mb-3 d-flex align-items-center">
-                                                        <input type="file" id="member_img" hidden>
+                                                        <input type="file" name="image_url" id="member_img" hidden>
                                                         <label for="member_img" class="lbl_img_upload">Choose File</label>
-                                                        <span id="file-chosen">No file chosen</span>
+                                                        <span id="file-chosen">Aucun fichier séléctionné</span>
                                                     </div>
-                                                    {{-- <label for="recipient-name" class="form-label">Status:</label> --}}
                                                     <div class="input-group input-group-outline mb-3">
-                                                        <label for="recipient-name" class="form-label">Status</label>
-                                                        <input type="text" class="form-control" id="recipient-name">
+                                                        <label for="member_status" class="form-label">Poste</label>
+                                                        <input type="text" name="member_status" class="form-control" id="member_status">
                                                     </div>
                                                 </form>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn bg-gradient-primary">Modifier</button>
+                                                <button type="submit" form="form_edit_member" class="btn bg-gradient-primary">Modifier</button>
                                             </div>
                                         </div>
                                     </div>
