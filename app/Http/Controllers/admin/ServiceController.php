@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
@@ -79,9 +80,18 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, Service $masterService)
     {
-        //
+        // check if the file exist && there were no problems uploading the file:
+        if ($request->hasFile('image_url') && $request->file('image_url')->isValid()) {
+            Storage::delete($masterService->image_url);
+            $path = $request->file('image_url')->store('images'); // upload the image.
+            $masterService->image_url = $path;
+        }
+        $masterService->name = $request->service_name;
+        $masterService->description = $request->service_description;
+        $masterService->save();
+        return back()->with('status', 'Bien ajoutée.');
     }
 
     /**

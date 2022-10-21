@@ -130,25 +130,27 @@
                                                                 aria-label="Close">&times;</button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form>
+                                                            <form id="form_edit_service" method="post" action="{{ route('masterServices.update', ['masterService' => $service->id]) }}" enctype="multipart/form-data">
+                                                                @csrf
+                                                                @method('PUT')
                                                                 <div class="input-group input-group-outline mb-3">
-                                                                    <label for="recipient-name" class="form-label">Nom</label>
-                                                                    <input type="text" class="form-control" id="recipient-name">
+                                                                    <label for="service_name" class="form-label">Nom du service</label>
+                                                                    <input type="text" name="service_name" class="form-control" id="service_name" value="{{ $service->name }}">
                                                                 </div>
-                                                                <label for="recipient-name" class="form-label">Image:</label>
+                                                                <label for="service_img" class="form-label">Image:</label>
                                                                 <div class="input-group-outline mb-3 d-flex align-items-center">
-                                                                    <input type="file" id="member_img" hidden>
-                                                                    <label for="member_img" class="lbl_img_upload">Choose File</label>
+                                                                    <input type="file" name="image_url" id="service_img" hidden>
+                                                                    <label for="service_img" class="lbl_img_upload">Choose File</label>
                                                                     <span id="file-chosen">No file chosen</span>
                                                                 </div>
                                                                 <div class="input-group input-group-outline mb-3">
-                                                                    <label for="recipient-name" class="form-label">Description</label>
-                                                                    <input type="text" class="form-control" id="recipient-name">
+                                                                    <label for="service_description" class="form-label">Description</label>
+                                                                    <input type="text" name="service_description" class="form-control" id="service_description" value="{{ $service->description }}">
                                                                 </div>
                                                             </form>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button"
+                                                            <button type="submit" form="form_edit_service"
                                                                 class="btn bg-gradient-primary">Modifier</button>
                                                         </div>
                                                     </div>
