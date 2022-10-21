@@ -11,6 +11,8 @@ use App\Http\Controllers\admin\SocialLinkController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ServiceController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,3 +54,10 @@ Route::get('/contact',function ()
     return view('contact');
 })->name('contact');
 Route::post('login', [SignInController::class, 'Login'])->name('login');
+Route::get('logout', function (Request $request)
+{
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect()->route('log_in');
+})->name('logout');
