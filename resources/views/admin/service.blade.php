@@ -174,11 +174,15 @@
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
+                                                            <form id="form_delete_service" action="{{ route('masterServices.destroy', ['masterService' => $service->id]) }}" method="post">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                            </form>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Fermer</button>
-                                                            <button type="button" class="btn bg-gradient-primary">Oui ,
+                                                            <button type="submit" form="form_delete_service" class="btn bg-gradient-primary">Oui ,
                                                                 Supprimer</button>
                                                         </div>
                                                     </div>

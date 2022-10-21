@@ -77,7 +77,7 @@ class ServiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Service  $service
+     * @param  \App\Models\Service  $masterService
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Service $masterService)
@@ -97,11 +97,13 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Service  $service
+     * @param  \App\Models\Service  $masterService
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy(Service $masterService)
     {
-        //
+        Storage::delete($masterService->image_url);
+        $masterService->delete();
+        return back()->with('status', 'Bien supprimé.');
     }
 }
