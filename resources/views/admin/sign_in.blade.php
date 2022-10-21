@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="./assets/img/imanecom.ico">
 
-    <title>Imane Com Dashboard</title>
+    <title>Connexion</title>
 
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
@@ -46,29 +46,29 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <form role="form" class="text-start">
+                                    <form role="form" class="text-start" action="{{ route('login') }}" method="POST">
+                                        @csrf
                                         <div class="input-group input-group-outline my-3">
                                             <label for="email" class="form-label">Email</label>
-                                            <input id="email" type="email" class="form-control">
+                                            <input id="email" type="email" name="email" class="form-control">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label" for="password">Password</label>
-                                            <input type="password" id="password" class="form-control">
-                                        </div>
-                                        <div class="form-check form-switch d-flex align-items-center mb-3">
-                                            <input class="form-check-input" type="checkbox" id="rememberMe" checked>
-                                            <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember
-                                                me</label>
+                                            <input type="password" name="password" id="password" class="form-control">
                                         </div>
                                         <div class="text-center">
-                                            <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign
-                                                in</button>
+                                            <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Se connecter</button>
                                         </div>
                                         <p class="mt-4 text-sm text-center">
-                                            Don't have an account?
+                                            Vous n'avez pas d'un compte?
                                             <a href="./sign-up.html"
-                                                class="text-primary text-gradient font-weight-bold">Sign up</a>
+                                                class="text-primary text-gradient font-weight-bold">S'enregistrer</a>
                                         </p>
+                                        @if ($errors->has('status'))
+                                            <p class="mt-4 text-sm text-center text-danger text-gradient font-weight-bold">
+                                                {{$errors->first('status')}}
+                                            </p>
+                                        @endif
                                     </form>
                                 </div>
                             </div>
