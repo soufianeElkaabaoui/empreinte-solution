@@ -57,8 +57,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav me-auto p-3 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Acceuil</a>
-                <a href="about.html" class="nav-item nav-link">Qui somme-nous?</a>
+                <a href="index" class="nav-item nav-link active">Acceuil</a>
+                <a href="about" class="nav-item nav-link">Qui somme-nous?</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
@@ -72,8 +72,8 @@
                     </div>
                 </div>
                 <a href="{{ route('team.index') }}" class="nav-item nav-link">Notre Equipe</a>
-                <a href="project.html" class="nav-item nav-link">Projets</a>
-                <a href="contact.html" class="nav-item nav-link">Contactez-nous</a>
+                <a href="project" class="nav-item nav-link">Projets</a>
+                <a href="contact" class="nav-item nav-link">Contactez-nous</a>
             </div>
         </div>
     </nav>
