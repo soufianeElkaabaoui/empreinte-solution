@@ -4,7 +4,7 @@
         <div class="row align-items-center top-bar">
             <div class="col-lg-4 col-md-12 text-center text-lg-start">
                 <a href="" class="navbar-brand m-0 p-0">
-                    <img src="img/logo.png" alt="">
+                    <img src={{asset("img/slogan.png")}} class="w-100" alt="">
                 </a>
             </div>
             <div class="col-lg-8 col-md-7 d-none d-lg-block">

@@ -43,8 +43,8 @@
             <div class="sidenav-header">
                 <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                     aria-hidden="true" id="iconSidenav"></i>
-                <a class="navbar-brand m-0" href=" #" target="_blank">
-                    <img src="./assets/img/logo.png" class="navbar-brand-img h-100" alt="main_logo">
+                <a class="navbar-brand m-0" href="/master/home">
+                    <img src={{asset("img/logo.png")}} class="navbar-brand-img h-100" alt="main_logo">
                     <span class=" mb-1 text-uppercase text-lg text-white font-weight-bolder opacity-8 d-block p-2">
                         Dashboard
                     </span>
@@ -183,10 +183,19 @@
                         </div>
                         <ul class="navbar-nav  justify-content-end">
                             <li class="nav-item d-flex align-items-center">
-                                <a href="./pages/profile.html" class="nav-link text-body font-weight-bold px-0">
+                                <a href="../profile" class="nav-link text-body font-weight-bold px-0">
                                     <i class="fa fa-user me-sm-1"></i>
                                 </a>
                             </li>
+                            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                                <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                                  <div class="sidenav-toggler-inner">
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                  </div>
+                                </a>
+                              </li>
                             {{-- <li class="nav-item px-3 d-flex align-items-center">
                                 <a href="javascript:;" class="nav-link text-body p-0">
                                     <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>

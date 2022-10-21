@@ -98,7 +98,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="img-border">
-                        <img class="img-fluid" src="images/about.jpg" alt="">
+                        <img class="img-fluid" src={{asset("img/about.jpg")}} alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -106,7 +106,7 @@
                         <h6 class="section-title bg-white text-start text-primary pe-3">Qui somme-nous?</h6>
                         <p>Notre équipe se compose de spécialistes de la publicité, de créatifs et de designersNotre démarche : Créer des concepts novateurs, élaborer différentes stratégies de communication et réaliser des produits adaptés à vos besoinsNous concevons et réalisons vos logos, chartes graphiques, documents imprimés administratifs et commerciaux, cartes de visites, chemises commerciales, plaquettes commerciales, dépliants, papiers en-tete, CD-Rom et DVD, signalétiques sur véhicules / magasins, panneaux, etc...</p>
                         <div class="d-flex align-items-center mb-4 pb-2">
-                            <img class="flex-shrink-0 rounded-circle" src="images/team-1.jpg" alt="" style="width: 50px; height: 50px;">
+                            <img class="flex-shrink-0 rounded-circle" src={{asset("img/team-1.jpg")}} alt="" style="width: 50px; height: 50px;">
                             <div class="ps-4">
                                 <h6>Ahmed</h6>
                                 <small>Founder</small>

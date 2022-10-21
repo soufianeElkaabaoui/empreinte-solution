@@ -13,11 +13,10 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h6 class="section-title bg-white text-center text-primary px-3">Contact Us</h6>
-                <h1 class="display-6 mb-4">If You Have Any Query, Please Feel Free Contact Us</h1>
+                <h1 class="display-6 mb-4">If You Have Any Question, Please Feel Free Contact Us</h1>
             </div>
             <div class="row g-0 justify-content-center">
                 <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.5s">
-                    <p class="text-center mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
                     <form>
                         <div class="row g-3">
                             <div class="col-md-6">
