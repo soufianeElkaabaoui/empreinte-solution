@@ -12,17 +12,14 @@
             <div class="row gx-4 mb-2">
                 <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                        <img src="../assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                        <img src="{{ asset($user->image_url) }}" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                     </div>
                 </div>
                 <div class="col-auto my-auto">
                     <div class="h-100">
                         <h5 class="mb-1">
-                            Si Ahmed
+                             {{$user->name}}
                         </h5>
-                        <p class="mb-0 font-weight-normal text-sm">
-                            CEO / Co-Founder
-                        </p>
                     </div>
                 </div>
             </div>
@@ -52,40 +49,36 @@
                                                             aria-label="Close">&times;</button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form>
+                                                        <form id="form_edit_profile" action="{{ route('users.update', ['user'=>$user->id]) }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            @method('PUT')
                                                             <div class="input-group input-group-outline mb-3">
-                                                                <label for="recipient-name" class="form-label">Profile Information</label>
+                                                                <label for="user_name"
+                                                                    class="form-label">Votre Nom complet</label>
                                                                 <input type="text" class="form-control"
-                                                                    id="recipient-name">
+                                                                    id="user_name" name="user_name" value="{{ $user->name }}">
                                                             </div>
                                                             <div class="input-group input-group-outline mb-3">
-                                                                <label for="recipient-name"
-                                                                    class="form-label">Full Name</label>
-                                                                <input type="text" class="form-control"
-                                                                    id="recipient-name">
-                                                            </div>
-                                                            <div class="input-group input-group-outline mb-3">
-                                                              <label for="recipient-name"
-                                                                  class="form-label">Mobile</label>
-                                                              <input type="text" class="form-control"
-                                                                  id="recipient-name">
-                                                          </div>
-                                                            <div class="input-group input-group-outline mb-3">
-                                                                <label for="recipient-name"
+                                                                <label for="user_email"
                                                                     class="form-label">Email</label>
                                                                 <input type="text" class="form-control"
-                                                                    id="recipient-name">
+                                                                    id="user_email" name="user_email" value="{{ $user->email }}">
+                                                            </div>
+                                                            <div class="input-group-outline mb-3 d-flex align-items-center">
+                                                                <input type="file" name="image_url" id="user_img" hidden onchange="changeTextContent(this, '')">
+                                                                <label for="user_img" class="lbl_img_upload">Choisir Image</label>
+                                                                <span id="file-chosen">Aucune Image choisie</span>
                                                             </div>
                                                             <div class="input-group input-group-outline mb-3">
-                                                              <label for="recipient-name"
-                                                                  class="form-label">Location</label>
-                                                              <input type="text" class="form-control"
-                                                                  id="recipient-name">
-                                                          </div>
+                                                                <label for="user_password"
+                                                                    class="form-label">Nouveau mot de passe</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="user_password" name="user_password">
+                                                            </div>
                                                         </form>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button"
+                                                        <button type="submit" form="form_edit_profile"
                                                             class="btn bg-gradient-primary">Ajouter</button>
                                                     </div>
                                                 </div>
@@ -95,21 +88,14 @@
                                 </div>
                             </div>
                             <div class="card-body p-3">
-                                <p class="text-sm">
-                                    Hi, I’m Si Ahmed, Decisions: If you can’t decide, the answer is no. If two equally
-                                    difficult paths, choose the one more painful in the short term (pain avoidance is
-                                    creating an illusion of equality).
-                                </p>
                                 <hr class="horizontal gray-light my-4">
                                 <ul class="list-group">
-                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full
-                                            Name:</strong> &nbsp; Si Ahmed</li>
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                            class="text-dark">Mobile:</strong> &nbsp; (212) 5 24 43 07 49</li>
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                            class="text-dark">Email:</strong> &nbsp; imanecom@outlook.fr</li>
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                            class="text-dark">Location:</strong> &nbsp; Marrakech</li>
+                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm">
+                                        <strong class="text-dark">Nom Complet:</strong> &nbsp; {{$user->name}}
+                                    </li>
+                                    <li class="list-group-item border-0 ps-0 text-sm">
+                                        <strong class="text-dark">Email:</strong> &nbsp; {{$user->email}}
+                                    </li>
                                 </ul>
                             </div>
                         </div>

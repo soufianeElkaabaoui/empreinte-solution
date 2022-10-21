@@ -1,3 +1,7 @@
+@php
+    use Illuminate\Support\Facades\Auth;
+@endphp
+
 <html lang="en">
 
 <head>
@@ -143,7 +147,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="../profile">
+                        <a class="nav-link text-white " href="{{ route('users.show', ['user'=>Auth::id()]) }}">
 
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">person</i>
