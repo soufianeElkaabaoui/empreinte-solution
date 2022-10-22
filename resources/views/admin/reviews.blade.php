@@ -118,10 +118,10 @@
                                         <th>{{ $review->comment }}</th>
                                         <td>
                                             <button class="edit border-0" type="button" data-reviewer="{{ $review->id }}" data-bs-toggle="modal"
-                                                data-bs-target="#edit_modal"><i class="material-icons" data-toggle="tooltip"
+                                                data-bs-target="#edit_modal{{ $loop->iteration }}"><i class="material-icons" data-toggle="tooltip"
                                                     title="" data-original-title="Edit"></i></button>
                                             <!-- Modal -->
-                                            <div class="modal fade" id="edit_modal" data-bs-backdrop="static"
+                                            <div class="modal fade" id="edit_modal{{ $loop->iteration }}" data-bs-backdrop="static"
                                                 data-bs-keyboard="false" tabindex="-1"
                                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
@@ -135,28 +135,30 @@
                                                                 aria-label="Close">&times;</button>
                                                         </div>
                                                         <div class="modal-body">
-                                                          <form>
-                                                            <div class="input-group input-group-outline mb-3">
-                                                                <label for="recipient-name" class="form-label">Nom du Client</label>
-                                                                <input type="text" class="form-control" id="recipient-name">
-                                                            </div>
-                                                            <div class="input-group input-group-outline mb-3">
-                                                                <label for="recipient-name" class="form-label">Profession</label>
-                                                                <input type="text" class="form-control" id="recipient-name">
-                                                            </div>
-                                                            <div class="input-group-outline mb-3 d-flex align-items-center">
-                                                                <input type="file" id="member_img" hidden>
-                                                                <label for="member_img" class="lbl_img_upload">Choisir Image</label>
-                                                                <span id="file-chosen">Aucune Image choisie</span>
-                                                            </div>
-                                                            <div class="input-group input-group-outline mb-3">
-                                                                <label for="recipient-name" class="form-label">Commentaire</label>
-                                                                <input type="text" class="form-control" id="recipient-name">
-                                                            </div>
-                                                        </form>
+                                                            <form id="form_edit_review{{ $loop->iteration }}" action="{{ route('reviews.update', ['review'=>$review->id]) }}" method="POST" enctype="multipart/form-data">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <div class="input-group input-group-outline mb-3">
+                                                                    <label for="reviewer_name" class="form-label">Nom du Client</label>
+                                                                    <input type="text" name="reviewer_name" class="form-control" id="reviewer_name" value="{{ $review->client_name }}">
+                                                                </div>
+                                                                <div class="input-group input-group-outline mb-3">
+                                                                    <label for="reviewer_profession" class="form-label">Profession</label>
+                                                                    <input type="text" name="reviewer_profession" class="form-control" id="reviewer_profession" value="{{ $review->profession }}">
+                                                                </div>
+                                                                <div class="input-group-outline mb-3 d-flex align-items-center">
+                                                                    <input type="file" name="image_url" id="review_img{{$loop->iteration}}" hidden onchange="changeTextContent(this, {{$loop->iteration}})">
+                                                                    <label for="review_img{{$loop->iteration}}" class="lbl_img_upload">Choisir Image</label>
+                                                                    <span id="file-chosen{{$loop->iteration}}">Aucune Image choisie</span>
+                                                                </div>
+                                                                <div class="input-group input-group-outline mb-3">
+                                                                    <label for="reviewer_comment" class="form-label">Commentaire</label>
+                                                                    <input type="text" name="reviewer_comment" class="form-control" id="reviewer_comment" value="{{ $review->comment }}">
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button"
+                                                            <button type="submit" form="form_edit_review{{ $loop->iteration }}"
                                                                 class="btn bg-gradient-primary">Modifier</button>
                                                         </div>
                                                     </div>
