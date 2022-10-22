@@ -134,7 +134,7 @@
                                                     @method('PUT')
                                                     <div class="input-group input-group-outline mb-3">
                                                         <label for="member_name" class="form-label">Nom du member</label>
-                                                        <input type="text" name="member_name" class="form-control" id="member_name">
+                                                        <input type="text" name="member_name" class="form-control" id="member_name" value="{{ $member->name }}">
                                                     </div>
                                                     <label for="member_img" class="form-label">Image:</label>
                                                     <div class="input-group-outline mb-3 d-flex align-items-center">
@@ -144,7 +144,7 @@
                                                     </div>
                                                     <div class="input-group input-group-outline mb-3">
                                                         <label for="member_status" class="form-label">Poste</label>
-                                                        <input type="text" name="member_status" class="form-control" id="member_status">
+                                                        <input type="text" name="member_status" class="form-control" id="member_status" value="{{ $member->status }}">
                                                     </div>
                                                 </form>
                                             </div>
