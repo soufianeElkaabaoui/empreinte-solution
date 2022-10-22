@@ -31,7 +31,6 @@
                                         </div>
                                         <div class="modal-body">
                                             <form id="form_add_member" method="post" action="{{ route('members.store') }}" enctype="multipart/form-data">
-                                                {{-- <label for="recipient-name" class="form-label">Nom:</label> --}}
                                                 @csrf
                                                 <div class="input-group input-group-outline mb-3">
                                                     <label for="recipient-name" class="form-label">Nom</label>
@@ -43,10 +42,25 @@
                                                     <label for="member_img" class="lbl_img_upload">Choose File</label>
                                                     <span id="file-chosen">No file chosen</span>
                                                 </div>
-                                                {{-- <label for="recipient-name" class="form-label">Status:</label> --}}
                                                 <div class="input-group input-group-outline mb-3">
                                                     <label for="recipient-name" class="form-label">Poste</label>
                                                     <input type="text" name="member_status" class="form-control" id="recipient-name">
+                                                </div>
+                                                <div class="input-group input-group-outline mb-3">
+                                                    <label for="member_fb_url" class="form-label">Lien de Facebook</label>
+                                                    <input type="text" name="member_fb_url" class="form-control" id="member_fb_url">
+                                                </div>
+                                                <div class="input-group input-group-outline mb-3">
+                                                    <label for="member_insta_url" class="form-label">Lien de Instagram</label>
+                                                    <input type="text" name="member_insta_url" class="form-control" id="member_insta_url">
+                                                </div>
+                                                <div class="input-group input-group-outline mb-3">
+                                                    <label for="member_twitter_url" class="form-label">Lien de Twitter</label>
+                                                    <input type="text" name="member_twitter_url" class="form-control" id="member_twitter_url">
+                                                </div>
+                                                <div class="input-group input-group-outline mb-3">
+                                                    <label for="member_linkedin_url" class="form-label">Lien de LinkedIn</label>
+                                                    <input type="text" name="member_linkedin_url" class="form-control" id="member_linkedin_url">
                                                 </div>
                                             </form>
                                         </div>
@@ -95,6 +109,10 @@
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Status</th>
+                                <th>Lien du Facebook</th>
+                                <th>Lien du Instagram</th>
+                                <th>Lien du Twitter</th>
+                                <th>Lien du LinkedIn</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -113,6 +131,10 @@
                                         <td><img src="{{ asset($member->image_url) }}" width="100%" height="100%" alt="Image du membre">
                                         </td>
                                         <td>{{ $member->status }}</td>
+                                        <td>{{ $member->facebook_url }}</td>
+                                        <td>{{ $member->instagram_url }}</td>
+                                        <td>{{ $member->twitter_url }}</td>
+                                        <td>{{ $member->linkedin_url }}</td>
                             <td>
                                 <button class="edit border-0" type="button" data-bs-toggle="modal"
                                     data-bs-target="#edit_modal"><i class="material-icons" data-toggle="tooltip"
@@ -145,6 +167,22 @@
                                                     <div class="input-group input-group-outline mb-3">
                                                         <label for="member_status" class="form-label">Poste</label>
                                                         <input type="text" name="member_status" class="form-control" id="member_status" value="{{ $member->status }}">
+                                                    </div>
+                                                    <div class="input-group input-group-outline mb-3">
+                                                        <label for="member_fb_url" class="form-label">Lien de Facebook</label>
+                                                        <input type="text" name="member_fb_url" class="form-control" id="member_fb_url" value="{{ $member->facebook_url }}">
+                                                    </div>
+                                                    <div class="input-group input-group-outline mb-3">
+                                                        <label for="member_insta_url" class="form-label">Lien de Instagram</label>
+                                                        <input type="text" name="member_insta_url" class="form-control" id="member_insta_url" value="{{ $member->instagram_url }}">
+                                                    </div>
+                                                    <div class="input-group input-group-outline mb-3">
+                                                        <label for="member_twitter_url" class="form-label">Lien de Twitter</label>
+                                                        <input type="text" name="member_twitter_url" class="form-control" id="member_twitter_url" value="{{ $member->twitter_url }}">
+                                                    </div>
+                                                    <div class="input-group input-group-outline mb-3">
+                                                        <label for="member_linkedin_url" class="form-label">Lien de LinkedIn</label>
+                                                        <input type="text" name="member_linkedin_url" class="form-control" id="member_linkedin_url" value="{{ $member->linkedin_url }}">
                                                     </div>
                                                 </form>
                                             </div>

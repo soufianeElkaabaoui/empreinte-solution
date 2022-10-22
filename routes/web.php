@@ -7,7 +7,6 @@ use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\admin\SignInController;
-use App\Http\Controllers\admin\SocialLinkController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ServiceController;
@@ -45,7 +44,6 @@ Route::resources([
     'projects' => ProjectController::class,
     'reviews' => ReviewController::class,
     'companies' => CompanyController::class,
-    'social-links' => SocialLinkController::class,
 ]);
 /*--- Admin area's routes ---*/
 Route::get('/master/home', [AdminHomeController::class, 'index'])->name('Dashboard');

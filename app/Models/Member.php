@@ -8,12 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model
 {
     use HasFactory;
-
-    /**
-     * Get the social media for this member.
-     */
-    public function social_links()
-    {
-        return $this->hasMany(SocialLink::class);
-    }
 }
