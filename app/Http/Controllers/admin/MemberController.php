@@ -45,6 +45,10 @@ class MemberController extends Controller
             $member->name = $request->member_name;
             $member->image_url = $path;
             $member->status = $request->member_status;
+            $member->facebook_url = $request->member_fb_url;
+            $member->instagram_url = $request->member_insta_url;
+            $member->twitter_url = $request->member_twitter_url;
+            $member->linkedin_url = $request->member_linkedin_url;
             $member->save();
             return back()->with('status', 'Bien ajoutée.');
         }
@@ -90,6 +94,10 @@ class MemberController extends Controller
         }
         $member->name = $request->member_name;
         $member->status = $request->member_status;
+        $member->facebook_url = $request->member_fb_url;
+        $member->instagram_url = $request->member_insta_url;
+        $member->twitter_url = $request->member_twitter_url;
+        $member->linkedin_url = $request->member_linkedin_url;
         $member->save();
         return back()->with('status', 'Bien modifié.');
     }

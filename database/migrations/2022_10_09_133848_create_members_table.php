@@ -18,6 +18,10 @@ class CreateMembersTable extends Migration
             $table->string('name');
             $table->string('image_url');
             $table->string('status');
+            $table->string('facebook_url')->nullable();
+            $table->string('instagram_url')->nullable();
+            $table->string('twitter_url')->nullable();
+            $table->string('linkedin_url')->nullable();
             $table->timestamps();
         });
     }
