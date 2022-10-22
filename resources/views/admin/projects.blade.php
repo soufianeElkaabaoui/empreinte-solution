@@ -123,10 +123,10 @@
                             <td>{{$project->service->name}}</td>
                             <td>
                               <button class="edit border-0" type="button" data-bs-toggle="modal"
-                              data-bs-target="#edit_modal"><i class="material-icons" data-toggle="tooltip"
+                              data-bs-target="#edit_modal{{$loop->iteration}}"><i class="material-icons" data-toggle="tooltip"
                                   title="" data-original-title="Edit"></i></button>
                           <!-- Modal -->
-                          <div class="modal fade" id="edit_modal" data-bs-backdrop="static" data-bs-keyboard="false"
+                          <div class="modal fade" id="edit_modal{{$loop->iteration}}" data-bs-backdrop="static" data-bs-keyboard="false"
                               tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                               <div class="modal-dialog">
                                   <div class="modal-content">
@@ -137,33 +137,37 @@
                                               aria-label="Close">&times;</button>
                                       </div>
                                       <div class="modal-body">
-                                        <form>
+                                        <form id="form_edit_project{{$loop->iteration}}" action="{{ route('projects.update', ['project'=>$project->id]) }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
                                           <div class="input-group input-group-outline mb-3">
-                                              <label for="recipient-name" class="form-label">Nom</label>
-                                              <input type="text" class="form-control" id="recipient-name">
+                                              <label for="project_name" class="form-label">Nom du projet</label>
+                                              <input type="text" name="project_name" class="form-control" id="project_name" value="{{$project->name}}">
                                           </div>
                                           <div class="input-group-outline mb-3 d-flex align-items-center">
-                                            <input type="file" id="member_img" hidden>
-                                            <label for="member_img" class="lbl_img_upload">Choisir Image</label>
-                                            <span id="file-chosen">Aucune Image choisie</span>
+                                            <input type="file" name="image_url" id="member_img{{$loop->iteration}}" hidden onchange="changeTextContent(this, {{$loop->iteration}})">
+                                            <label for="member_img{{$loop->iteration}}" class="lbl_img_upload">Choisir Image</label>
+                                            <span id="file-chosen{{$loop->iteration}}">Aucune Image choisie</span>
                                           </div>
                                           <div class="input-group input-group-outline mb-3">
-                                              <label for="recipient-name" class="form-label">Nom du Client:</label>
-                                              <input type="text" class="form-control" id="recipient-name">
+                                              <label for="project_owner" class="form-label">Nom de la société</label>
+                                              <input type="text" name="project_owner" class="form-control" id="project_owner"  value="{{$project->company_client}}">
                                           </div>
                                           <div class="input-group input-group-outline mb-3">
-                                            <label class="input-group-text" for="drop_service">Choisir</label>
-                                            <select class="form-select" id="drop_service">
-                                              <option selected>Type de Services</option>
-                                              <option value="1">One</option>
-                                              <option value="2">Two</option>
-                                              <option value="3">Three</option>
+                                            <label class="input-group-text" for="project_type">Choisir</label>
+                                            <select class="form-select" name="project_type" id="project_type">
+                                              <option>Choisir services</option>
+                                              @if (count($services) > 0)
+                                                  @foreach ($services as $service)
+                                                    <option value="{{ $service->id }}" {{$service->id == $project->service->id ? 'selected' : ''}}>{{ $service->name }}</option>
+                                                  @endforeach
+                                              @endif
                                             </select>
                                           </div>
                                       </form>
                                       </div>
                                       <div class="modal-footer">
-                                          <button type="button" class="btn bg-gradient-primary">Modifier</button>
+                                          <button type="submit" form="form_edit_project{{$loop->iteration}}" class="btn bg-gradient-primary">Modifier</button>
                                       </div>
                                   </div>
                               </div>
@@ -197,7 +201,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="5">Il y a aucun projets.</td>
+                        <td colspan="6">Il y a aucun projets.</td>
                     </tr>
                 @endif
               </tbody>

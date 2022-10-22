@@ -809,10 +809,8 @@ function darkMode(el) {
     el.removeAttribute("checked");
   }
 }
-const actualBtn = document.getElementById('member_img');
 
-const fileChosen = document.getElementById('file-chosen');
-
-actualBtn.addEventListener('change', function () {
-  fileChosen.textContent = this.files[0].name
-});
+function changeTextContent(sender, input_id) {
+    const fileChosen = document.getElementById('file-chosen' + input_id);
+    fileChosen.textContent = sender.files[0].name
+}

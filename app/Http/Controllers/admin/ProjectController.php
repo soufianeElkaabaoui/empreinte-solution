@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -53,7 +54,7 @@ class ProjectController extends Controller
                 $serivce->projects()->save($project);
                 return back()->with('status', 'Bien ajoutée.');
             }else {
-                return back()->with('status', 'Remplir d\'abord les services.');
+                return back()->with('status', 'Le service est introuvable.');
             }
         }
         return back()->with('status', 'Probléme du serveur');
@@ -90,7 +91,24 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $validated = $request->validate([
+            'project_type' => 'required|numeric',
+        ]);
+        // check if the file exist && there were no problems uploading the file:
+        if ($request->hasFile('image_url') && $request->file('image_url')->isValid()) {
+            Storage::delete($project->image_url);
+            $path = $request->file('image_url')->store('images'); // upload the image.
+            $project->image_url = $path;
+        }
+        if ($serivce = Service::find($request->project_type)) {
+            $project->name = $request->project_name;
+            $project->company_client = $request->project_owner;
+            $serivce->projects()->save($project);
+            $project->save();
+            return back()->with('status', 'Bien modifié.');
+        } else {
+            return back()->with('status', 'Le service est introuvable.');
+        }
     }
 
     /**
