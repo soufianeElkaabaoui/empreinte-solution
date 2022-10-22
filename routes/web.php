@@ -36,6 +36,10 @@ Route::get('/about', function ()
 {
     return view('about');
 })->name('about');
+Route::get('/acceuil', function ()
+{
+    return view('/admin/company_information');
+})->name('acceuil');
 Route::resources([
     'services' => ServiceController::class,
     'team' => MemberController::class,
