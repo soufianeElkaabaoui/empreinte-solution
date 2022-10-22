@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ReviewController extends Controller
 {
@@ -82,7 +83,17 @@ class ReviewController extends Controller
      */
     public function update(Request $request, Review $review)
     {
-        //
+        // check if the file exist && there were no problems uploading the file:
+            if ($request->hasFile('image_url') && $request->file('image_url')->isValid()) {
+                Storage::delete($review->image_url);
+                $path = $request->file('image_url')->store('images'); // upload the image.
+                $review->image_url = $path;
+            }
+            $review->client_name = $request->reviewer_name;
+            $review->profession = $request->reviewer_profession;
+            $review->comment = $request->reviewer_comment;
+            $review->save();
+            return back()->with('status', 'Bien modifié.');
     }
 
     /**
