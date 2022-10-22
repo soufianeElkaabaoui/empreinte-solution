@@ -102,6 +102,8 @@ class MemberController extends Controller
      */
     public function destroy(Member $member)
     {
-        //
+        Storage::delete($member->image_url);
+        $member->delete();
+        return back()->with('status', 'Bien supprimé.');
     }
 }
