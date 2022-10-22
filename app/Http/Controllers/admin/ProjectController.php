@@ -119,6 +119,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        Storage::delete($project->image_url);
+        $project->delete();
+        return back()->with('status', 'Bien supprimé.');
     }
 }
