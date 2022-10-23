@@ -163,13 +163,13 @@
                                                 </div>
                                             </div>
                                             <button data-reviewer="{{ $review->id }}" class="delete border-0" data-bs-toggle="modal"
-                                                data-bs-target="#delete_modal">
+                                                data-bs-target="#delete_modal{{ $loop->iteration }}">
                                                 <i class="material-icons" data-toggle="tooltip" title=""
                                                     data-original-title="Delete">
                                                 </i>
                                             </button>
                                             <!-- Modal -->
-                                            <div class="modal fade" id="delete_modal" tabindex="-1"
+                                            <div class="modal fade" id="delete_modal{{ $loop->iteration }}" tabindex="-1"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
@@ -180,11 +180,15 @@
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
+                                                            <form id="form_delete_review{{ $loop->iteration }}" action="{{ route('reviews.destroy', ['review'=>$review->id]) }}" method="post">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                            </form>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Fermer</button>
-                                                            <button type="button" class="btn bg-gradient-primary">Oui ,
+                                                            <button type="submit" form="form_delete_review{{ $loop->iteration }}" class="btn bg-gradient-primary">Oui ,
                                                                 Supprimer</button>
                                                         </div>
                                                     </div>

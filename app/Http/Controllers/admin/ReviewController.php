@@ -104,6 +104,8 @@ class ReviewController extends Controller
      */
     public function destroy(Review $review)
     {
-        //
+        Storage::delete($review->image_url);
+        $review->delete();
+        return back()->with('status', 'Bien supprimé.');
     }
 }
