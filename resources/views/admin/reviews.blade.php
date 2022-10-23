@@ -111,7 +111,7 @@
                                         </td>
                                         <td>{{ $review->client_name }}</td>
                                         <td>{{ $review->profession }}</td>
-                                        <td><img src="{{ asset($review->image_url) }}" width="100%" height="100%" alt="Image du visiteur">
+                                        <td><img src="{{ asset($review->image_url) }}" width="50%" alt="Image du visiteur">
                                         </td>
                                         <th>{{ $review->comment }}</th>
                                         <td>

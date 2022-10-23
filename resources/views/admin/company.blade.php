@@ -11,7 +11,7 @@
                     <div class="box-container p-4 d-flex justify-content-around">
                     <div class="box">
                         <p> <span class="text-dark text-lg font-weight-bolder">Nom de la société :</span> {{$company->name}}</p>
-                        <p> <span class="text-dark text-lg font-weight-bolder">Logo :</span> <img width="50" height="50" src="{{asset($company->logo_url)}}" alt="Logo de la société"></p>
+                        <p> <span class="text-dark text-lg font-weight-bolder">Logo :</span> <img width="78%" height="50" src="{{asset($company->logo_url)}}" alt="Logo de la société"></p>
                         <p> <span class="text-dark text-lg font-weight-bolder">N° de telephone :</span> {{$company->phone_number}}</p>
                         <p> <span class="text-dark text-lg font-weight-bolder">Email :</span> {{$company->email}}</p>
                     </div>
