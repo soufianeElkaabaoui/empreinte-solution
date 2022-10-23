@@ -70,8 +70,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-danger ms-3 d-flex align-items-center" data-toggle="modal"><i
-                                    class="material-icons"></i> <span>Supprimer</span></a>
                         </div>
                         <div class="btn-group heading-btn ms-3">
                             <button type="button" class="btn bg-gray-200 btn-lg btn-icon dropdown-toggle legitRipple"
@@ -100,12 +98,6 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="selectAll">
-                                        <label for="selectAll"></label>
-                                    </span>
-                                </th>
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Status</th>
@@ -120,13 +112,6 @@
                             @if (count($members))
                                 @foreach ($members as $member)
                                     <tr>
-                                        <td>
-                                            <span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox{{ $loop->iteration }}" name="options[]"
-                                                    value="1">
-                                                <label for="checkbox{{ $loop->iteration }}"></label>
-                                            </span>
-                                        </td>
                                         <td>{{ $member->name }}</td>
                                         <td><img src="{{ asset($member->image_url) }}" width="100%" height="100%" alt="Image du membre">
                                         </td>

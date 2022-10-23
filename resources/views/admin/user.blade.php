@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-    Projets
+    users
 @endsection
 @section('content')
     <div class="content-wrapper">
@@ -25,41 +25,28 @@
                       <div class="modal-dialog">
                           <div class="modal-content">
                               <div class="modal-header">
-                                  <h5 class="modal-title" id="staticBackdropLabel">Ajouter un nouveau projet</h5>
+                                  <h5 class="modal-title" id="staticBackdropLabel">Ajouter un nouveau user</h5>
                                   <button type="button" class="btn-close" data-bs-dismiss="modal"
                                       aria-label="Close">&times;</button>
                               </div>
                               <div class="modal-body">
-                                <form id="form_add_project" action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
+                                <form id="form_add_user" action="" method="POST">
                                   <div class="input-group input-group-outline mb-3">
-                                      <label for="project_name" class="form-label">Nom du projet</label>
-                                      <input type="text" name="project_name" class="form-control" id="project_name">
-                                  </div>
-                                  <div class="input-group-outline mb-3 d-flex align-items-center">
-                                    <input type="file" name="image_url" id="project_img" hidden>
-                                    <label for="project_img" class="lbl_img_upload">Choisir Image</label>
-                                    <span id="file-chosen">Aucune Image choisie</span>
+                                      <label for="user_name" class="form-label">Nom User</label>
+                                      <input type="text" name="user_name" class="form-control" id="user_name">
                                   </div>
                                   <div class="input-group input-group-outline mb-3">
-                                      <label for="project_owner" class="form-label">Nom de la société</label>
-                                      <input type="text" name="project_owner" class="form-control" id="project_owner">
+                                      <label for="user_owner" class="form-label">Email</label>
+                                      <input type="email" name="user_owner" class="form-control" id="user_owner">
                                   </div>
                                   <div class="input-group input-group-outline mb-3">
-                                    <label class="input-group-text" for="project_type">Choisir</label>
-                                    <select class="form-select" name="project_type" id="project_type">
-                                      <option selected>Choisir services</option>
-                                      @if (count($services) > 0)
-                                          @foreach ($services as $service)
-                                            <option value="{{ $service->id }}">{{ $service->name }}</option>
-                                          @endforeach
-                                      @endif
-                                    </select>
-                                  </div>
+                                    <label for="user_owner" class="form-label">Password</label>
+                                    <input type="text" name="user_owner" class="form-control" id="user_owner">
+                                </div>
                               </form>
                               </div>
                               <div class="modal-footer">
-                                  <button type="submit" form="form_add_project" class="btn bg-gradient-primary">Ajouter</button>
+                                  <button type="submit" form="form_add_user" class="btn bg-gradient-primary">Ajouter</button>
                               </div>
                           </div>
                       </div>
@@ -92,79 +79,71 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Image</th>
-                  <th>Client Name</th>
-                  <th>Service Type</th>
+                  <th>Nom User</th>
+                  <th>Email</th>
+                  <th>Password</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                @if (count($projects) > 0)
-                    @foreach ($projects as $project)
                         <tr>
-                            <td>{{$project->name}}</td>
-                            <td><img src="{{ asset($project->image_url) }}" width="100%" height="100%" alt="Image du projet"></td>
-                            <td>{{$project->company_client}}</td>
-                            <td>{{$project->service->name}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td>
                               <button class="edit border-0" type="button" data-bs-toggle="modal"
-                              data-bs-target="#edit_modal{{$loop->iteration}}"><i class="material-icons" data-toggle="tooltip"
+                              data-bs-target="#edit_modal"><i class="material-icons" data-toggle="tooltip"
                                   title="" data-original-title="Edit"></i></button>
                           <!-- Modal -->
-                          <div class="modal fade" id="edit_modal{{$loop->iteration}}" data-bs-backdrop="static" data-bs-keyboard="false"
+                          <div class="modal fade" id="edit_modal" data-bs-backdrop="static" data-bs-keyboard="false"
                               tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                               <div class="modal-dialog">
                                   <div class="modal-content">
                                       <div class="modal-header">
-                                          <h5 class="modal-title" id="staticBackdropLabel">Modifier un projet
+                                          <h5 class="modal-title" id="staticBackdropLabel">Modifier un user
                                           </h5>
                                           <button type="button" class="btn-close" data-bs-dismiss="modal"
                                               aria-label="Close">&times;</button>
                                       </div>
                                       <div class="modal-body">
-                                        <form id="form_edit_project{{$loop->iteration}}" action="{{ route('projects.update', ['project'=>$project->id]) }}" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            @method('PUT')
+                                        <form>
                                           <div class="input-group input-group-outline mb-3">
-                                              <label for="project_name" class="form-label">Nom du projet</label>
-                                              <input type="text" name="project_name" class="form-control" id="project_name" value="{{$project->name}}">
+                                              <label for="recipient-name" class="form-label">Nom</label>
+                                              <input type="text" class="form-control" id="recipient-name">
                                           </div>
                                           <div class="input-group-outline mb-3 d-flex align-items-center">
-                                            <input type="file" name="image_url" id="member_img{{$loop->iteration}}" hidden onchange="changeTextContent(this, {{$loop->iteration}})">
-                                            <label for="member_img{{$loop->iteration}}" class="lbl_img_upload">Choisir Image</label>
-                                            <span id="file-chosen{{$loop->iteration}}">Aucune Image choisie</span>
+                                            <input type="file" id="member_img" hidden>
+                                            <label for="member_img" class="lbl_img_upload">Choisir Image</label>
+                                            <span id="file-chosen">Aucune Image choisie</span>
                                           </div>
                                           <div class="input-group input-group-outline mb-3">
-                                              <label for="project_owner" class="form-label">Nom de la société</label>
-                                              <input type="text" name="project_owner" class="form-control" id="project_owner"  value="{{$project->company_client}}">
+                                              <label for="recipient-name" class="form-label">Nom du Client:</label>
+                                              <input type="text" class="form-control" id="recipient-name">
                                           </div>
                                           <div class="input-group input-group-outline mb-3">
-                                            <label class="input-group-text" for="project_type">Choisir</label>
-                                            <select class="form-select" name="project_type" id="project_type">
-                                              <option>Choisir services</option>
-                                              @if (count($services) > 0)
-                                                  @foreach ($services as $service)
-                                                    <option value="{{ $service->id }}" {{$service->id == $project->service->id ? 'selected' : ''}}>{{ $service->name }}</option>
-                                                  @endforeach
-                                              @endif
+                                            <label class="input-group-text" for="drop_service">Choisir</label>
+                                            <select class="form-select" id="drop_service">
+                                              <option selected>Type de Services</option>
+                                              <option value="1">One</option>
+                                              <option value="2">Two</option>
+                                              <option value="3">Three</option>
                                             </select>
                                           </div>
                                       </form>
                                       </div>
                                       <div class="modal-footer">
-                                          <button type="submit" form="form_edit_project{{$loop->iteration}}" class="btn bg-gradient-primary">Modifier</button>
+                                          <button type="button" class="btn bg-gradient-primary">Modifier</button>
                                       </div>
                                   </div>
                               </div>
                           </div>
-                          <button class="delete border-0"  data-bs-toggle="modal" data-bs-target="#delete_modal{{$loop->iteration}}">
+                          <button class="delete border-0"  data-bs-toggle="modal" data-bs-target="#delete_modal">
                               <i class="material-icons" data-toggle="tooltip" title=""
                                   data-original-title="Delete">
                               </i>
                           </button>
                           <!-- Modal -->
-                          <div class="modal fade" id="delete_modal{{$loop->iteration}}" tabindex="-1"
+                          <div class="modal fade" id="delete_modal" tabindex="-1"
                               aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
                                   <div class="modal-content">
@@ -174,29 +153,21 @@
                                               aria-label="Close"></button>
                                       </div>
                                       <div class="modal-body">
-                                        <form id="form_delete_project{{$loop->iteration}}" action="{{ route('projects.destroy', ['project'=>$project->id]) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
                                       </div>
                                       <div class="modal-footer">
                                           <button type="button" class="btn btn-secondary"
                                               data-bs-dismiss="modal">Fermer</button>
-                                          <button type="submit" form="form_delete_project{{$loop->iteration}}" class="btn bg-gradient-primary">Oui , Supprimer</button>
+                                          <button type="button" class="btn bg-gradient-primary">Oui , Supprimer</button>
                                       </div>
                                   </div>
                               </div>
                           </div>                            </td>
                         </tr>
-                    @endforeach
-                @else
                     <tr>
-                        <td colspan="6">Il y a aucun projets.</td>
+                        <td colspan="5">Il y a aucun user</td>
                     </tr>
-                @endif
               </tbody>
             </table>
-            {{ $projects->links('vendor.pagination.custom-pagination') }}
             <!-- END customer-list -->
 
           </div> <!-- END card -->

@@ -3,7 +3,7 @@
     <div class="container-fluid py-4 px-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="row align-items-center top-bar">
             <div class="col-lg-4 col-md-12 text-center text-lg-start">
-                <a href="" class="navbar-brand m-0 p-0">
+                <a href="/" class="navbar-brand m-0 p-0">
                     <img src={{asset("img/slogan.png")}} class="w-100" alt="">
                 </a>
             </div>
@@ -57,7 +57,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav me-auto p-3 p-lg-0">
-                <a href="index" class="nav-item nav-link active">Acceuil</a>
+                <a href="/" class="nav-item nav-link active">Acceuil</a>
                 <a href="about" class="nav-item nav-link">Qui somme-nous?</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
