@@ -818,3 +818,7 @@ $('#close-btn').click(function(){
   $('.alert').removeClass("show");
   $('.alert').addClass("hide");
 })
+setTimeout(function(){
+  $('.alert').removeClass("show");
+  $('.alert').addClass("hide");
+},3000);

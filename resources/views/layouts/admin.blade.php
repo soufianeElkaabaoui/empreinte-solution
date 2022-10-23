@@ -37,7 +37,7 @@
     @show
 
     <div>
-        <div class="alert show">
+        <div class="alert show showAlert">
             <span class="fas fa-check"></span>
             <span class="msg">Added Successfully</span>
             <span class="close-btn" id="close-btn">
