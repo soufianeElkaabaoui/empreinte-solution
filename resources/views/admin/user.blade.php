@@ -107,28 +107,21 @@
                                                     aria-label="Close">&times;</button>
                                             </div>
                                             <div class="modal-body">
-                                                <form>
-                                                <div class="input-group input-group-outline mb-3">
-                                                    <label for="recipient-name" class="form-label">Nom</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
-                                                </div>
-                                                <div class="input-group input-group-outline mb-3">
-                                                    <label for="recipient-name" class="form-label">Nom du Client:</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
-                                                </div>
-                                                <div class="input-group input-group-outline mb-3">
-                                                    <label class="input-group-text" for="drop_service">Choisir</label>
-                                                    <select class="form-select" id="drop_service">
-                                                    <option selected>Type de Services</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                    </select>
-                                                </div>
-                                            </form>
+                                                <form id="form_edit_user" action="{{ route('users.update', ['user'=>$user->id]) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <div class="input-group input-group-outline mb-3">
+                                                        <label for="user_name" class="form-label">Nom d'utilisateur</label>
+                                                        <input type="text" name="user_name" class="form-control" id="user_name" value="{{ $user->name }}">
+                                                    </div>
+                                                    <div class="input-group input-group-outline mb-3">
+                                                        <label for="user_email" class="form-label">Email</label>
+                                                        <input type="email" name="user_email" class="form-control" id="user_email" value="{{ $user->email }}">
+                                                    </div>
+                                                </form>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn bg-gradient-primary">Modifier</button>
+                                                <button type="submit" form="form_edit_user" class="btn bg-gradient-primary">Modifier</button>
                                             </div>
                                         </div>
                                     </div>
