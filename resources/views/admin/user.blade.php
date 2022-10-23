@@ -142,11 +142,15 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
+                                                <form id="form_delete_user" action="{{ route('users.destroy', ['user'=>$user->id]) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Fermer</button>
-                                                <button type="button" class="btn bg-gradient-primary">Oui , Supprimer</button>
+                                                <button type="submit" form="form_delete_user" class="btn bg-gradient-primary">Oui , Supprimer</button>
                                             </div>
                                         </div>
                                     </div>
