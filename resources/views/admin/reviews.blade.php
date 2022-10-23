@@ -57,8 +57,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-danger ms-3 d-flex align-items-center" data-toggle="modal"><i
-                                    class="material-icons"></i> <span>Supprimer</span></a>
                         </div>
                         <div class="btn-group heading-btn ms-3">
                             <button type="button" class="btn bg-gray-200 btn-lg btn-icon dropdown-toggle legitRipple"

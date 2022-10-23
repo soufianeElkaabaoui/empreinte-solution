@@ -40,6 +40,10 @@ Route::get('/acceuil', function ()
 {
     return view('/admin/company_information');
 })->name('acceuil');
+Route::get('/user', function ()
+{
+    return view('/admin/user');
+})->name('user');
 Route::resources([
     'services' => ServiceController::class,
     'team' => MemberController::class,
