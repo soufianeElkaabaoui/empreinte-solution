@@ -11,7 +11,7 @@
                     <div class="box-container p-4 d-flex justify-content-around">
                     <div class="box">
                         <p> <span class="text-dark text-lg font-weight-bolder">Nom de la société :</span> {{$company->name}}</p>
-                        <p> <span class="text-dark text-lg font-weight-bolder">Logo :</span> <img src="{{$company->logo_url}}" alt="Logo de la société"></p>
+                        <p> <span class="text-dark text-lg font-weight-bolder">Logo :</span> <img width="50" height="50" src="{{asset($company->logo_url)}}" alt="Logo de la société"></p>
                         <p> <span class="text-dark text-lg font-weight-bolder">N° de telephone :</span> {{$company->phone_number}}</p>
                         <p> <span class="text-dark text-lg font-weight-bolder">Email :</span> {{$company->email}}</p>
                     </div>
@@ -37,40 +37,42 @@
                                     aria-label="Close">&times;</button>
                             </div>
                             <div class="modal-body">
-                                <form>
+                                <form id="form_edit_company" action="{{ route('companies.update', ['company'=>$company->id]) }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
                                     <div class="input-group input-group-outline mb-3">
-                                        <label for="recipient-name" class="form-label">Nom</label>
-                                        <input type="text" class="form-control" id="recipient-name">
+                                        <label for="company_name" class="form-label">Nom</label>
+                                        <input type="text" name="company_name" class="form-control" id="company_name" value="{{$company->name}}">
                                     </div>
                                     <div class="input-group-outline mb-3 d-flex align-items-center">
-                                      <input type="file" id="member_img" hidden>
-                                      <label for="member_img" class="lbl_img_upload">Choisir Logo</label>
+                                      <input type="file" name="image_url" id="company_img" hidden onchange="changeTextContent(this, '')">
+                                      <label for="company_img" class="lbl_img_upload">Choisir Logo</label>
                                       <span id="file-chosen">Aucun logo choisi</span>
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
-                                        <label for="recipient-name" class="form-label">Numéro de téléphone:</label>
-                                        <input type="text" class="form-control" id="recipient-name">
+                                        <label for="comapny_phone" class="form-label">Numéro de téléphone:</label>
+                                        <input type="text" name="comapny_phone" class="form-control" id="comapny_phone" value="{{$company->phone_number}}">
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
-                                        <label for="recipient-name" class="form-label">Email:</label>
-                                        <input type="text" class="form-control" id="recipient-name">
+                                        <label for="company_email" class="form-label">Email:</label>
+                                        <input type="text" name="company_email" class="form-control" id="company_email" value="{{$company->email}}">
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
-                                        <label for="recipient-name" class="form-label">Adresse:</label>
-                                        <input type="text" class="form-control" id="recipient-name">
+                                        <label for="company_adresse" class="form-label">Adresse:</label>
+                                        <input type="text" name="company_adresse" class="form-control" id="company_adresse" value="{{$company->adress_location}}">
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
-                                        <label for="recipient-name" class="form-label">Heures d'ouverture:</label>
-                                        <input type="text" class="form-control" id="recipient-name">
+                                        <label for="comapny_open_hour" class="form-label">Heures d'ouverture:</label>
+                                        <input type="time" name="comapny_open_hour" class="form-control" id="comapny_open_hour" value="{{$company->opening_hour}}">
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
-                                        <label for="recipient-name" class="form-label">Heures de fermeture:</label>
-                                        <input type="text" class="form-control" id="recipient-name">
+                                        <label for="company_close_hour" class="form-label">Heures de fermeture:</label>
+                                        <input type="time" name="company_close_hour" class="form-control" id="company_close_hour" value="{{$company->closing_hour}}">
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn bg-gradient-primary">Confirmer</button>
+                                <button type="submit" form="form_edit_company" class="btn bg-gradient-primary">Confirmer</button>
                             </div>
                         </div>
                     </div>
