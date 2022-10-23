@@ -813,3 +813,8 @@ function changeTextContent(sender, input_id) {
     const fileChosen = document.getElementById('file-chosen' + input_id);
     fileChosen.textContent = sender.files[0].name
 }
+
+$('#close-btn').click(function(){
+  $('.alert').removeClass("show");
+  $('.alert').addClass("hide");
+})
