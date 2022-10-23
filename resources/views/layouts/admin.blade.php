@@ -26,6 +26,7 @@
     <!-- CSS Files -->
 
     <link href={{ asset('/stylesheet/material-dashboard.css') }} rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 
 </head>
 
@@ -36,6 +37,13 @@
     @show
 
     <div>
+        <div class="alert show">
+            <span class="fas fa-check"></span>
+            <span class="msg">Added Successfully</span>
+            <span class="close-btn" id="close-btn">
+                <span class="fas fa-times"></span>
+            </span>
+        </div>
         <aside
             class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
             id="sidenav-main">
