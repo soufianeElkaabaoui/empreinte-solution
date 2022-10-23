@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\admin\SignInController;
+use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ServiceController;
@@ -40,10 +41,6 @@ Route::get('/acceuil', function ()
 {
     return view('/admin/company_information');
 })->name('acceuil');
-Route::get('/user', function ()
-{
-    return view('/admin/user');
-})->name('user');
 Route::resources([
     'services' => ServiceController::class,
     'team' => MemberController::class,
@@ -52,6 +49,7 @@ Route::resources([
     'projects' => ProjectController::class,
     'reviews' => ReviewController::class,
     'companies' => CompanyController::class,
+    'users' => UserController::class,
 ]);
 /*--- Admin area's routes ---*/
 Route::get('/master/home', [AdminHomeController::class, 'index'])->name('Dashboard');
