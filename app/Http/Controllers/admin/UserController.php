@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -59,7 +60,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('admin.profile', compact('user'));
     }
 
     /**
@@ -86,8 +87,17 @@ class UserController extends Controller
             'user_name' => 'required',
             'user_email' => 'email|required',
         ]);
+        // check if the file exist && there were no problems uploading the file:
+        if ($request->hasFile('image_url') && $request->file('image_url')->isValid()) {
+            Storage::delete($user->image_url);
+            $path = $request->file('image_url')->store('images'); // upload the image.
+            $user->image_url = $path;
+        }
         $user->name = $request->user_name;
         $user->email = $request->user_email;
+        if ($request->has('user_password')) {
+            $user->password = Hash::make($request->user_passowrd);
+        }
         $user->save();
         return back()->with('status', 'Bien modifié.');
     }
