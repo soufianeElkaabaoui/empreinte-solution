@@ -74,8 +74,7 @@
 
                     </div>
 
-
-                    <table class="table table-striped table-hover">
+                    <div class="table-responsive"><table class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -196,6 +195,8 @@
                             @endif
                         </tbody>
                     </table>
+                </div>
+                    
                     {{ $members->links('vendor.pagination.custom-pagination', ['members' => $members]) }}
                     <!-- END customer-list -->
 
