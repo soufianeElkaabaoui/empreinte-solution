@@ -40,6 +40,9 @@
     <div class="container">
         {{-- will be used to contain the page main content --}}
         @yield('content')
+            <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
     </div>
     <x-footer />
     @section('scripts')
