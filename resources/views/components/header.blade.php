@@ -72,7 +72,6 @@
                     </div>
                 </div>
                 <a href="{{ route('team.index') }}" class="nav-item nav-link">Notre Equipe</a>
-                <a href="project" class="nav-item nav-link">Projets</a>
                 <a href="contact" class="nav-item nav-link">Contactez-nous</a>
             </div>
         </div>
