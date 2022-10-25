@@ -27,7 +27,7 @@
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Ajouter un nouveau membre</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close">&times;</button>
+                                                aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                         </div>
                                         <div class="modal-body">
                                             <form id="form_add_member" method="post" action="{{ route('members.store') }}" enctype="multipart/form-data">
@@ -112,7 +112,7 @@
                                                 <h5 class="modal-title" id="staticBackdropLabel">Modifier un membre
                                                 </h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">&times;</button>
+                                                    aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                             </div>
                                             <div class="modal-body">
                                                 <form id="form_edit_member" method="post" action="{{ route('members.update', ['member' => $member->id]) }}" enctype="multipart/form-data">
@@ -169,7 +169,7 @@
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Vous êtes sûre ?</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
+                                                    aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                             </div>
                                             <div class="modal-body">
                                                 <form id="form_delete_member" action="{{ route('members.destroy', ['member'=>$member->id]) }}" method="post">

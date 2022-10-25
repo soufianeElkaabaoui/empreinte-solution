@@ -34,7 +34,7 @@
                             <div class="modal-header">
                                 <h5 class="modal-title" id="staticBackdropLabel">Modifier company</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close">&times;</button>
+                                    aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                             </div>
                             <div class="modal-body">
                                 <form id="form_edit_company" action="{{ route('companies.update', ['company'=>$company->id]) }}" method="POST" enctype="multipart/form-data">
