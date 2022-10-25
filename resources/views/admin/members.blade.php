@@ -71,26 +71,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="btn-group heading-btn ms-3">
-                            <button type="button" class="btn bg-gray-200 btn-lg btn-icon dropdown-toggle legitRipple"
-                                data-toggle="dropdown">
-                                <i class="fas fa-upload mr-4"></i>
-                            </button>
-                        </div>
-
-                        <div class="order-lg-1 ">
-                            <form name="rp-search-form" id="rp-search-form" action=""
-                                class="form-inline justify-content-center">
-                                <div class="form-group">
-                                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                                        <div class="input-group input-group-outline">
-                                            <label class="form-label">Chercher Ici...</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
 
                     </div>
 
