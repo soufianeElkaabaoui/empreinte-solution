@@ -56,7 +56,7 @@
     <script src={{ asset('lib/lightbox/js/lightbox.min.js') }}></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src={{asset("js/main.js")}}></script>
 </body>
 
 </html>
