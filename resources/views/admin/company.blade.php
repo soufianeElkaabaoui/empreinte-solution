@@ -14,11 +14,14 @@
                         <p> <span class="text-dark text-lg font-weight-bolder">Logo :</span> <img width="78%" height="50" src="{{asset($company->logo_url)}}" alt="Logo de la société"></p>
                         <p> <span class="text-dark text-lg font-weight-bolder">N° de telephone :</span> {{$company->phone_number}}</p>
                         <p> <span class="text-dark text-lg font-weight-bolder">Email :</span> {{$company->email}}</p>
+                        <p> <span class="text-dark text-lg font-weight-bolder">Adresse Location :</span> {{$company->adress_location}}</p>
                     </div>
                     <div class="box">
-                        <p> <span class="text-dark text-lg font-weight-bolder">Adresse Location :</span> {{$company->adress_location}}</p>
                         <p> <span class="text-dark text-lg font-weight-bolder">Heure d'ouverture :</span> {{$company->opening_hour}}</p>
                         <p> <span class="text-dark text-lg font-weight-bolder">Heure de fermeture :</span> {{$company->closing_hour}}</p>
+                        <p> <span class="text-dark text-lg font-weight-bolder">Instagram Link :</span></p>
+                        <p> <span class="text-dark text-lg font-weight-bolder">Facebook Link :</span></p>
+                        <p> <span class="text-dark text-lg font-weight-bolder">Twitter Link :</span></p>
                     </div>
                   </div>
                     <!-- END customer-list -->
@@ -60,6 +63,18 @@
                                     <div class="input-group input-group-outline mb-3">
                                         <label for="company_adresse" class="form-label">Adresse:</label>
                                         <input type="text" name="company_adresse" class="form-control" id="company_adresse" value="{{$company->adress_location}}">
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3">
+                                        <label for="company_adresse" class="form-label">Facebook Link:</label>
+                                        <input type="text" name="company_facebook" class="form-control" id="company_facebook" value="">
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3">
+                                        <label for="company_adresse" class="form-label">Instagram Link:</label>
+                                        <input type="text" name="company_instagram" class="form-control" id="company_instagram" value="">
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3">
+                                        <label for="company_adresse" class="form-label">Twitter Link:</label>
+                                        <input type="text" name="company_twitter" class="form-control" id="company_twitter" value="">
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
                                         <label for="comapny_open_hour" class="form-label">Heures d'ouverture:</label>
