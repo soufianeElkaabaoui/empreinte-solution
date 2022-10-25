@@ -59,11 +59,6 @@
                                         <div class="text-center">
                                             <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Se connecter</button>
                                         </div>
-                                        <p class="mt-4 text-sm text-center">
-                                            Vous n'avez pas d'un compte?
-                                            <a href="./sign-up.html"
-                                                class="text-primary text-gradient font-weight-bold">S'enregistrer</a>
-                                        </p>
                                         @if ($errors->has('status'))
                                             <p class="mt-4 text-sm text-center text-danger text-gradient font-weight-bold">
                                                 {{$errors->first('status')}}
