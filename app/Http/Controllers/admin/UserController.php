@@ -96,7 +96,7 @@ class UserController extends Controller
         $user->name = $request->user_name;
         $user->email = $request->user_email;
         if ($request->has('user_password')) {
-            $user->password = Hash::make($request->user_passowrd);
+            $user->password = Hash::make($request->user_password);
         }
         $user->save();
         return back()->with('status', 'Bien modifié.');
