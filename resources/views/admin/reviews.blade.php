@@ -27,7 +27,7 @@
                                             <h5 class="modal-title" id="staticBackdropLabel">Ajouter un nouveau Commentaire
                                             </h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close">&times;</button>
+                                                aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                         </div>
                                         <div class="modal-body">
                                             <form id="form_add_review" action="{{ route('reviews.store') }}" method="POST" enctype="multipart/form-data">
@@ -111,7 +111,7 @@
                                                             </h5>
                                                             <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal"
-                                                                aria-label="Close">&times;</button>
+                                                                aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <form id="form_edit_review{{ $loop->iteration }}" action="{{ route('reviews.update', ['review'=>$review->id]) }}" method="POST" enctype="multipart/form-data">
@@ -158,7 +158,7 @@
                                                             <h5 class="modal-title" id="exampleModalLabel">Vous êtes sûre
                                                                 ?</h5>
                                                             <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                data-bs-dismiss="modal" aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <form id="form_delete_review{{ $loop->iteration }}" action="{{ route('reviews.destroy', ['review'=>$review->id]) }}" method="post">

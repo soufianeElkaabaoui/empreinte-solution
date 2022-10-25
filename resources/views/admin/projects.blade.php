@@ -27,7 +27,7 @@
                               <div class="modal-header">
                                   <h5 class="modal-title" id="staticBackdropLabel">Ajouter un nouveau projet</h5>
                                   <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                      aria-label="Close">&times;</button>
+                                      aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                               </div>
                               <div class="modal-body">
                                 <form id="form_add_project" action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
@@ -100,7 +100,7 @@
                                           <h5 class="modal-title" id="staticBackdropLabel">Modifier un projet
                                           </h5>
                                           <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                              aria-label="Close">&times;</button>
+                                              aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                       </div>
                                       <div class="modal-body">
                                         <form id="form_edit_project{{$loop->iteration}}" action="{{ route('projects.update', ['project'=>$project->id]) }}" method="POST" enctype="multipart/form-data">
@@ -151,7 +151,7 @@
                                       <div class="modal-header">
                                           <h5 class="modal-title" id="exampleModalLabel">Vous êtes sûre ?</h5>
                                           <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                              aria-label="Close"></button>
+                                              aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                       </div>
                                       <div class="modal-body">
                                         <form id="form_delete_project{{$loop->iteration}}" action="{{ route('projects.destroy', ['project'=>$project->id]) }}" method="post">

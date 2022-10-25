@@ -27,7 +27,7 @@
                               <div class="modal-header">
                                   <h5 class="modal-title" id="staticBackdropLabel">Ajouter un nouveau user</h5>
                                   <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                      aria-label="Close">&times;</button>
+                                      aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                               </div>
                               <div class="modal-body">
                                 <form id="form_add_user" action="{{ route('users.store') }}" method="POST">
@@ -84,7 +84,7 @@
                                                 <h5 class="modal-title" id="staticBackdropLabel">Modifier un user
                                                 </h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">&times;</button>
+                                                    aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                             </div>
                                             <div class="modal-body">
                                                 <form id="form_edit_user" action="{{ route('users.update', ['user'=>$user->id]) }}" method="POST">
@@ -119,7 +119,7 @@
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Vous êtes sûre ?</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
+                                                    aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                             </div>
                                             <div class="modal-body">
                                                 <form id="form_delete_user" action="{{ route('users.destroy', ['user'=>$user->id]) }}" method="post">

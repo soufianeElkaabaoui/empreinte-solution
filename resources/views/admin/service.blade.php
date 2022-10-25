@@ -27,7 +27,7 @@
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Ajouter un nouveau Service</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close">&times;</button>
+                                                aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                         </div>
                                         <div class="modal-body">
                                           <form id="form_add_service" method="post" action="{{ route('masterServices.store') }}" enctype="multipart/form-data">
@@ -93,7 +93,7 @@
                                                             </h5>
                                                             <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal"
-                                                                aria-label="Close">&times;</button>
+                                                                aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <form id="form_edit_service" method="post" action="{{ route('masterServices.update', ['masterService' => $service->id]) }}" enctype="multipart/form-data">
@@ -101,7 +101,7 @@
                                                                 @method('PUT')
                                                                 <div class="input-group input-group-outline mb-3">
                                                                     <label for="service_name" class="form-label">Nom du service</label>
-                                                                    <input type="text" name="service_name" class="form-control" id="service_name" value="{{ $service->name }}">
+                                                                    <input type="text" name="service_name" class="form-control " id="service_name" value="{{ $service->name }}">
                                                                 </div>
                                                                 <label for="service_img" class="form-label">Image:</label>
                                                                 <div class="input-group-outline mb-3 d-flex align-items-center">
@@ -137,7 +137,7 @@
                                                             <h5 class="modal-title" id="exampleModalLabel">Vous êtes sûre
                                                                 ?</h5>
                                                             <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                data-bs-dismiss="modal" aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <form id="form_delete_service" action="{{ route('masterServices.destroy', ['masterService' => $service->id]) }}" method="post">
