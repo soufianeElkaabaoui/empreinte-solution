@@ -41,13 +41,15 @@
     @show
 
     <div>
-        <div class="alert show showAlert">
-            <span class="fas fa-check"></span>
-            <span class="msg">Added Successfully</span>
-            <span class="close-btn" id="close-btn">
-                <span class="fas fa-times"></span>
-            </span>
-        </div>
+        @if (session('status'))
+            <div class="alert show showAlert">
+                <span class="fas fa-check"></span>
+                <span class="msg">{{session('status')}}</span>
+                <span class="close-btn" id="close-btn">
+                    <span class="fas fa-times"></span>
+                </span>
+            </div>
+        @endif
         <aside
             class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
             id="sidenav-main">
