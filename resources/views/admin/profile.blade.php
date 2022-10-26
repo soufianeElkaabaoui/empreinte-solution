@@ -52,13 +52,13 @@
                                                         <form id="form_edit_profile" action="{{ route('users.update', ['user'=>$user->id]) }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
                                                             @method('PUT')
-                                                            <div class="input-group input-group-outline mb-3">
+                                                            <div class="input-group input-group-outline mb-3 is-filled">
                                                                 <label for="user_name"
                                                                     class="form-label">Votre Nom complet</label>
                                                                 <input type="text" class="form-control"
                                                                     id="user_name" name="user_name" value="{{ $user->name }}">
                                                             </div>
-                                                            <div class="input-group input-group-outline mb-3">
+                                                            <div class="input-group input-group-outline mb-3 is-filled">
                                                                 <label for="user_email"
                                                                     class="form-label">Email</label>
                                                                 <input type="text" class="form-control"

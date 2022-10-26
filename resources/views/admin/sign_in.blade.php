@@ -48,11 +48,11 @@
                                 <div class="card-body">
                                     <form role="form" class="text-start" action="{{ route('login') }}" method="POST">
                                         @csrf
-                                        <div class="input-group input-group-outline my-3">
+                                        <div class="input-group input-group-outline my-3 is-filled">
                                             <label for="email" class="form-label">Email</label>
                                             <input id="email" type="email" name="email" class="form-control">
                                         </div>
-                                        <div class="input-group input-group-outline mb-3">
+                                        <div class="input-group input-group-outline mb-3 is-filled">
                                             <label class="form-label" for="password">Password</label>
                                             <input type="password" name="password" id="password" class="form-control">
                                         </div>

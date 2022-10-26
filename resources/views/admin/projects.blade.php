@@ -106,7 +106,7 @@
                                         <form id="form_edit_project{{$loop->iteration}}" action="{{ route('projects.update', ['project'=>$project->id]) }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
-                                          <div class="input-group input-group-outline mb-3">
+                                          <div class="input-group input-group-outline mb-3 is-filled">
                                               <label for="project_name" class="form-label">Nom du projet</label>
                                               <input type="text" name="project_name" class="form-control" id="project_name" value="{{$project->name}}">
                                           </div>
@@ -115,7 +115,7 @@
                                             <label for="member_img{{$loop->iteration}}" class="lbl_img_upload">Choisir Image</label>
                                             <span id="file-chosen{{$loop->iteration}}">Aucune Image choisie</span>
                                           </div>
-                                          <div class="input-group input-group-outline mb-3">
+                                          <div class="input-group input-group-outline mb-3 is-filled">
                                               <label for="project_owner" class="form-label">Nom de la société</label>
                                               <input type="text" name="project_owner" class="form-control" id="project_owner"  value="{{$project->company_client}}">
                                           </div>

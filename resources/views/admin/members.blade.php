@@ -118,7 +118,7 @@
                                                 <form id="form_edit_member" method="post" action="{{ route('members.update', ['member' => $member->id]) }}" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PUT')
-                                                    <div class="input-group input-group-outline mb-3">
+                                                    <div class="input-group input-group-outline mb-3 is-filled">
                                                         <label for="member_name" class="form-label">Nom du member</label>
                                                         <input type="text" name="member_name" class="form-control" id="member_name" value="{{ $member->name }}">
                                                     </div>
@@ -128,23 +128,23 @@
                                                         <label for="member_img" class="lbl_img_upload">Choose File</label>
                                                         <span id="file-chosen">Aucun fichier séléctionné</span>
                                                     </div>
-                                                    <div class="input-group input-group-outline mb-3">
+                                                    <div class="input-group input-group-outline mb-3 is-filled">
                                                         <label for="member_status" class="form-label">Poste</label>
                                                         <input type="text" name="member_status" class="form-control" id="member_status" value="{{ $member->status }}">
                                                     </div>
-                                                    <div class="input-group input-group-outline mb-3">
+                                                    <div class="input-group input-group-outline mb-3 is-filled">
                                                         <label for="member_fb_url" class="form-label">Lien de Facebook</label>
                                                         <input type="text" name="member_fb_url" class="form-control" id="member_fb_url" value="{{ $member->facebook_url }}">
                                                     </div>
-                                                    <div class="input-group input-group-outline mb-3">
+                                                    <div class="input-group input-group-outline mb-3 is-filled">
                                                         <label for="member_insta_url" class="form-label">Lien de Instagram</label>
                                                         <input type="text" name="member_insta_url" class="form-control" id="member_insta_url" value="{{ $member->instagram_url }}">
                                                     </div>
-                                                    <div class="input-group input-group-outline mb-3">
+                                                    <div class="input-group input-group-outline mb-3 is-filled">
                                                         <label for="member_twitter_url" class="form-label">Lien de Twitter</label>
                                                         <input type="text" name="member_twitter_url" class="form-control" id="member_twitter_url" value="{{ $member->twitter_url }}">
                                                     </div>
-                                                    <div class="input-group input-group-outline mb-3">
+                                                    <div class="input-group input-group-outline mb-3 is-filled">
                                                         <label for="member_linkedin_url" class="form-label">Lien de LinkedIn</label>
                                                         <input type="text" name="member_linkedin_url" class="form-control" id="member_linkedin_url" value="{{ $member->linkedin_url }}">
                                                     </div>
