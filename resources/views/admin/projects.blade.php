@@ -37,7 +37,7 @@
                                       <input type="text" name="project_name" class="form-control" id="project_name">
                                   </div>
                                   <div class="input-group-outline mb-3 d-flex align-items-center">
-                                    <input type="file" name="image_url" id="project_img" hidden>
+                                    <input type="file" name="image_url" id="project_img" hidden onchange="changeTextContent(this, '')">
                                     <label for="project_img" class="lbl_img_upload">Choisir Image</label>
                                     <span id="file-chosen">Aucune Image choisie</span>
                                   </div>
@@ -107,21 +107,21 @@
                                             @csrf
                                             @method('PUT')
                                           <div class="input-group input-group-outline mb-3 is-filled">
-                                              <label for="project_name" class="form-label">Nom du projet</label>
-                                              <input type="text" name="project_name" class="form-control" id="project_name" value="{{$project->name}}">
+                                              <label for="project_name{{ $loop->iteration }}" class="form-label">Nom du projet</label>
+                                              <input type="text" name="project_name" class="form-control" id="project_name{{ $loop->iteration }}" value="{{$project->name}}">
                                           </div>
                                           <div class="input-group-outline mb-3 d-flex align-items-center">
-                                            <input type="file" name="image_url" id="member_img{{$loop->iteration}}" hidden onchange="changeTextContent(this, {{$loop->iteration}})">
-                                            <label for="member_img{{$loop->iteration}}" class="lbl_img_upload">Choisir Image</label>
+                                            <input type="file" name="image_url" id="project_img{{$loop->iteration}}" hidden onchange="changeTextContent(this, {{$loop->iteration}})">
+                                            <label for="project_img{{$loop->iteration}}" class="lbl_img_upload">Choisir Image</label>
                                             <span id="file-chosen{{$loop->iteration}}">Aucune Image choisie</span>
                                           </div>
                                           <div class="input-group input-group-outline mb-3 is-filled">
-                                              <label for="project_owner" class="form-label">Nom de la société</label>
-                                              <input type="text" name="project_owner" class="form-control" id="project_owner"  value="{{$project->company_client}}">
+                                              <label for="project_owner{{ $loop->iteration }}" class="form-label">Nom de la société</label>
+                                              <input type="text" name="project_owner" class="form-control" id="project_owner{{ $loop->iteration }}"  value="{{$project->company_client}}">
                                           </div>
                                           <div class="input-group input-group-outline mb-3">
-                                            <label class="input-group-text" for="project_type">Choisir</label>
-                                            <select class="form-select" name="project_type" id="project_type">
+                                            <label class="input-group-text" for="project_type{{ $loop->iteration }}">Choisir</label>
+                                            <select class="form-select" name="project_type" id="project_type{{ $loop->iteration }}">
                                               <option>Choisir services</option>
                                               @if (count($services) > 0)
                                                   @foreach ($services as $service)
@@ -171,7 +171,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="6">Il y a aucun projets.</td>
+                        <td colspan="5">Il y a aucun projets.</td>
                     </tr>
                 @endif
               </tbody>

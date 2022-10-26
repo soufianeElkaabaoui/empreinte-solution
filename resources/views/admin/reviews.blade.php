@@ -41,7 +41,7 @@
                                                     <input type="text" name="reviewer_profession" class="form-control" id="reviewer_profession">
                                                 </div>
                                                 <div class="input-group-outline mb-3 d-flex align-items-center">
-                                                    <input type="file" name="image_url" id="review_img" hidden>
+                                                    <input type="file" name="image_url" id="review_img" hidden onchange="changeTextContent(this, '')">
                                                     <label for="review_img" class="lbl_img_upload">Choisir Image</label>
                                                     <span id="file-chosen">Aucune Image choisie</span>
                                                 </div>
@@ -105,12 +105,12 @@
                                                                 @csrf
                                                                 @method('PUT')
                                                                 <div class="input-group input-group-outline mb-3 is-filled">
-                                                                    <label for="reviewer_name" class="form-label">Nom du Client</label>
-                                                                    <input type="text" name="reviewer_name" class="form-control" id="reviewer_name" value="{{ $review->client_name }}">
+                                                                    <label for="reviewer_name{{ $loop->iteration }}" class="form-label">Nom du Client</label>
+                                                                    <input type="text" name="reviewer_name" class="form-control" id="reviewer_name{{ $loop->iteration }}" value="{{ $review->client_name }}">
                                                                 </div>
                                                                 <div class="input-group input-group-outline mb-3 is-filled">
-                                                                    <label for="reviewer_profession" class="form-label">Profession</label>
-                                                                    <input type="text" name="reviewer_profession" class="form-control" id="reviewer_profession" value="{{ $review->profession }}">
+                                                                    <label for="reviewer_profession{{ $loop->iteration }}" class="form-label">Profession</label>
+                                                                    <input type="text" name="reviewer_profession" class="form-control" id="reviewer_profession{{ $loop->iteration }}" value="{{ $review->profession }}">
                                                                 </div>
                                                                 <div class="input-group-outline mb-3 d-flex align-items-center">
                                                                     <input type="file" name="image_url" id="review_img{{$loop->iteration}}" hidden onchange="changeTextContent(this, {{$loop->iteration}})">
@@ -118,8 +118,8 @@
                                                                     <span id="file-chosen{{$loop->iteration}}">Aucune Image choisie</span>
                                                                 </div>
                                                                 <div class="input-group input-group-outline mb-3 is-filled">
-                                                                    <label for="reviewer_comment" class="form-label">Commentaire</label>
-                                                                    <input type="text" name="reviewer_comment" class="form-control" id="reviewer_comment" value="{{ $review->comment }}">
+                                                                    <label for="reviewer_comment{{ $loop->iteration }}" class="form-label">Commentaire</label>
+                                                                    <input type="text" name="reviewer_comment" class="form-control" id="reviewer_comment{{ $loop->iteration }}" value="{{ $review->comment }}">
                                                                 </div>
                                                             </form>
                                                         </div>
