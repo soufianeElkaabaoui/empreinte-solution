@@ -37,7 +37,21 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $company = new Company;
+        // check if the file exist && there were no problems uploading the file:
+        if ($request->hasFile('image_url') && $request->file('image_url')->isValid()) {
+            Storage::delete($company->logo_url);
+            $path = $request->file('image_url')->store('images'); // upload the image.
+            $company->logo_url = $path;
+        }
+        $company->name = $request->company_name;
+        $company->phone_number = $request->comapny_phone;
+        $company->email = $request->company_email;
+        $company->adress_location = $request->company_adresse;
+        $company->opening_hour = $request->comapny_open_hour;
+        $company->closing_hour = $request->company_close_hour;
+        $company->save();
+        return redirect('/master/home')->with('status', 'Bien modifié.');
     }
 
     /**
