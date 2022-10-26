@@ -38,8 +38,8 @@
                                             </div>
                                             <label for="recipient-name" class="form-label">Image:</label>
                                             <div class="input-group-outline mb-3 d-flex align-items-center">
-                                                <input type="file" name="image_url" id="member_img" hidden>
-                                                <label for="member_img" class="lbl_img_upload">Choose File</label>
+                                                <input type="file" name="image_url" id="service_img" hidden onchange="changeTextContent(this, '')">
+                                                <label for="service_img" class="lbl_img_upload">Choose File</label>
                                                 <span id="file-chosen">No file chosen</span>
                                             </div>
                                             <div class="input-group input-group-outline mb-3">
@@ -79,10 +79,10 @@
                                         <td>{{ $service->description }}</td>
                                         <td>
                                             <button class="edit border-0" type="button" data-bs-toggle="modal"
-                                                data-bs-target="#edit_modal"><i class="material-icons" data-toggle="tooltip"
+                                                data-bs-target="#edit_modal{{ $loop->iteration }}"><i class="material-icons" data-toggle="tooltip"
                                                     title="" data-original-title="Edit"></i></button>
                                             <!-- Modal -->
-                                            <div class="modal fade" id="edit_modal" data-bs-backdrop="static"
+                                            <div class="modal fade" id="edit_modal{{ $loop->iteration }}" data-bs-backdrop="static"
                                                 data-bs-keyboard="false" tabindex="-1"
                                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
@@ -96,40 +96,40 @@
                                                                 aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form id="form_edit_service" method="post" action="{{ route('masterServices.update', ['masterService' => $service->id]) }}" enctype="multipart/form-data">
+                                                            <form id="form_edit_service{{ $loop->iteration }}" method="post" action="{{ route('masterServices.update', ['masterService' => $service->id]) }}" enctype="multipart/form-data">
                                                                 @csrf
                                                                 @method('PUT')
                                                                 <div class="input-group input-group-outline mb-3 is-filled">
-                                                                    <label for="service_name" class="form-label">Nom du service</label>
-                                                                    <input type="text" name="service_name" class="form-control " id="service_name" value="{{ $service->name }}">
+                                                                    <label for="service_name{{ $loop->iteration }}" class="form-label">Nom du service</label>
+                                                                    <input type="text" name="service_name" class="form-control " id="service_name{{ $loop->iteration }}" value="{{ $service->name }}">
                                                                 </div>
-                                                                <label for="service_img" class="form-label">Image:</label>
+                                                                <label for="service_img{{ $loop->iteration }}" class="form-label">Image:</label>
                                                                 <div class="input-group-outline mb-3 d-flex align-items-center">
-                                                                    <input type="file" name="image_url" id="service_img" hidden>
-                                                                    <label for="service_img" class="lbl_img_upload">Choose File</label>
-                                                                    <span id="file-chosen">No file chosen</span>
+                                                                    <input type="file" name="image_url" id="service_img{{ $loop->iteration }}" hidden onchange="changeTextContent(this, {{ $loop->iteration }})">
+                                                                    <label for="service_img{{ $loop->iteration }}" class="lbl_img_upload">Choose File</label>
+                                                                    <span id="file-chosen{{ $loop->iteration }}">No file chosen</span>
                                                                 </div>
                                                                 <div class="input-group input-group-outline mb-3 is-filled">
-                                                                    <label for="service_description" class="form-label">Description</label>
-                                                                    <input type="text" name="service_description" class="form-control" id="service_description" value="{{ $service->description }}">
+                                                                    <label for="service_description{{ $loop->iteration }}" class="form-label">Description</label>
+                                                                    <input type="text" name="service_description" class="form-control" id="service_description{{ $loop->iteration }}" value="{{ $service->description }}">
                                                                 </div>
                                                             </form>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="submit" form="form_edit_service"
+                                                            <button type="submit" form="form_edit_service{{ $loop->iteration }}"
                                                                 class="btn bg-gradient-primary">Modifier</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <button class="delete border-0" data-bs-toggle="modal"
-                                                data-bs-target="#delete_modal">
+                                                data-bs-target="#delete_modal{{ $loop->iteration }}">
                                                 <i class="material-icons" data-toggle="tooltip" title=""
                                                     data-original-title="Delete">
                                                 </i>
                                             </button>
                                             <!-- Modal -->
-                                            <div class="modal fade" id="delete_modal" tabindex="-1"
+                                            <div class="modal fade" id="delete_modal{{ $loop->iteration }}" tabindex="-1"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
@@ -140,7 +140,7 @@
                                                                 data-bs-dismiss="modal" aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form id="form_delete_service" action="{{ route('masterServices.destroy', ['masterService' => $service->id]) }}" method="post">
+                                                            <form id="form_delete_service{{ $loop->iteration }}" action="{{ route('masterServices.destroy', ['masterService' => $service->id]) }}" method="post">
                                                                 @csrf
                                                                 @method('DELETE')
                                                             </form>
@@ -148,7 +148,7 @@
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Fermer</button>
-                                                            <button type="submit" form="form_delete_service" class="btn bg-gradient-primary">Oui ,
+                                                            <button type="submit" form="form_delete_service{{ $loop->iteration }}" class="btn bg-gradient-primary">Oui ,
                                                                 Supprimer</button>
                                                         </div>
                                                     </div>
