@@ -90,11 +90,11 @@
                                                 <form id="form_edit_user" action="{{ route('users.update', ['user'=>$user->id]) }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
-                                                    <div class="input-group input-group-outline mb-3">
+                                                    <div class="input-group input-group-outline mb-3 is-filled">
                                                         <label for="user_name" class="form-label">Nom d'utilisateur</label>
                                                         <input type="text" name="user_name" class="form-control" id="user_name" value="{{ $user->name }}">
                                                     </div>
-                                                    <div class="input-group input-group-outline mb-3">
+                                                    <div class="input-group input-group-outline mb-3 is-filled">
                                                         <label for="user_email" class="form-label">Email</label>
                                                         <input type="email" name="user_email" class="form-control" id="user_email" value="{{ $user->email }}">
                                                     </div>

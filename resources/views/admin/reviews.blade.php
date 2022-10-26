@@ -66,12 +66,6 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="selectAll">
-                                        <label for="selectAll"></label>
-                                    </span>
-                                </th>
                                 <th>Client Name</th>
                                 <th>Profession</th>
                                 <th>Image</th>
@@ -83,13 +77,6 @@
                             @if (count($reviews) > 0)
                                 @foreach ($reviews as $review)
                                     <tr>
-                                        <td>
-                                            <span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox{{ $loop->iteration }}" name="options[]"
-                                                    value="1">
-                                                <label for="checkbox{{ $loop->iteration }}"></label>
-                                            </span>
-                                        </td>
                                         <td>{{ $review->client_name }}</td>
                                         <td>{{ $review->profession }}</td>
                                         <td><img src="{{ asset($review->image_url) }}" width="50%" alt="Image du visiteur">
@@ -117,11 +104,11 @@
                                                             <form id="form_edit_review{{ $loop->iteration }}" action="{{ route('reviews.update', ['review'=>$review->id]) }}" method="POST" enctype="multipart/form-data">
                                                                 @csrf
                                                                 @method('PUT')
-                                                                <div class="input-group input-group-outline mb-3">
+                                                                <div class="input-group input-group-outline mb-3 is-filled">
                                                                     <label for="reviewer_name" class="form-label">Nom du Client</label>
                                                                     <input type="text" name="reviewer_name" class="form-control" id="reviewer_name" value="{{ $review->client_name }}">
                                                                 </div>
-                                                                <div class="input-group input-group-outline mb-3">
+                                                                <div class="input-group input-group-outline mb-3 is-filled">
                                                                     <label for="reviewer_profession" class="form-label">Profession</label>
                                                                     <input type="text" name="reviewer_profession" class="form-control" id="reviewer_profession" value="{{ $review->profession }}">
                                                                 </div>
@@ -130,7 +117,7 @@
                                                                     <label for="review_img{{$loop->iteration}}" class="lbl_img_upload">Choisir Image</label>
                                                                     <span id="file-chosen{{$loop->iteration}}">Aucune Image choisie</span>
                                                                 </div>
-                                                                <div class="input-group input-group-outline mb-3">
+                                                                <div class="input-group input-group-outline mb-3 is-filled">
                                                                     <label for="reviewer_comment" class="form-label">Commentaire</label>
                                                                     <input type="text" name="reviewer_comment" class="form-control" id="reviewer_comment" value="{{ $review->comment }}">
                                                                 </div>

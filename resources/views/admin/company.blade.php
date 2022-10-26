@@ -43,7 +43,7 @@
                                 <form id="form_edit_company" action="{{ route('companies.update', ['company'=>$company->id]) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
-                                    <div class="input-group input-group-outline mb-3">
+                                    <div class="input-group input-group-outline mb-3 is-filled">
                                         <label for="company_name" class="form-label">Nom</label>
                                         <input type="text" name="company_name" class="form-control" id="company_name" value="{{$company->name}}">
                                     </div>
@@ -52,35 +52,35 @@
                                       <label for="company_img" class="lbl_img_upload">Choisir Logo</label>
                                       <span id="file-chosen">Aucun logo choisi</span>
                                     </div>
-                                    <div class="input-group input-group-outline mb-3">
+                                    <div class="input-group input-group-outline mb-3 is-filled">
                                         <label for="comapny_phone" class="form-label">Numéro de téléphone:</label>
                                         <input type="text" name="comapny_phone" class="form-control" id="comapny_phone" value="{{$company->phone_number}}">
                                     </div>
-                                    <div class="input-group input-group-outline mb-3">
+                                    <div class="input-group input-group-outline mb-3 is-filled">
                                         <label for="company_email" class="form-label">Email:</label>
                                         <input type="text" name="company_email" class="form-control" id="company_email" value="{{$company->email}}">
                                     </div>
-                                    <div class="input-group input-group-outline mb-3">
+                                    <div class="input-group input-group-outline mb-3 is-filled">
                                         <label for="company_adresse" class="form-label">Adresse:</label>
                                         <input type="text" name="company_adresse" class="form-control" id="company_adresse" value="{{$company->adress_location}}">
                                     </div>
-                                    <div class="input-group input-group-outline mb-3">
+                                    <div class="input-group input-group-outline mb-3 is-filled">
                                         <label for="company_adresse" class="form-label">Facebook Link:</label>
                                         <input type="text" name="company_facebook" class="form-control" id="company_facebook" value="">
                                     </div>
-                                    <div class="input-group input-group-outline mb-3">
+                                    <div class="input-group input-group-outline mb-3 is-filled">
                                         <label for="company_adresse" class="form-label">Instagram Link:</label>
                                         <input type="text" name="company_instagram" class="form-control" id="company_instagram" value="">
                                     </div>
-                                    <div class="input-group input-group-outline mb-3">
+                                    <div class="input-group input-group-outline mb-3 is-filled">
                                         <label for="company_adresse" class="form-label">Twitter Link:</label>
                                         <input type="text" name="company_twitter" class="form-control" id="company_twitter" value="">
                                     </div>
-                                    <div class="input-group input-group-outline mb-3">
+                                    <div class="input-group input-group-outline mb-3 is-filled">
                                         <label for="comapny_open_hour" class="form-label">Heures d'ouverture:</label>
                                         <input type="time" name="comapny_open_hour" class="form-control" id="comapny_open_hour" value="{{$company->opening_hour}}">
                                     </div>
-                                    <div class="input-group input-group-outline mb-3">
+                                    <div class="input-group input-group-outline mb-3 is-filled">
                                         <label for="company_close_hour" class="form-label">Heures de fermeture:</label>
                                         <input type="time" name="company_close_hour" class="form-control" id="company_close_hour" value="{{$company->closing_hour}}">
                                     </div>

@@ -99,7 +99,7 @@
                                                             <form id="form_edit_service" method="post" action="{{ route('masterServices.update', ['masterService' => $service->id]) }}" enctype="multipart/form-data">
                                                                 @csrf
                                                                 @method('PUT')
-                                                                <div class="input-group input-group-outline mb-3">
+                                                                <div class="input-group input-group-outline mb-3 is-filled">
                                                                     <label for="service_name" class="form-label">Nom du service</label>
                                                                     <input type="text" name="service_name" class="form-control " id="service_name" value="{{ $service->name }}">
                                                                 </div>
@@ -109,7 +109,7 @@
                                                                     <label for="service_img" class="lbl_img_upload">Choose File</label>
                                                                     <span id="file-chosen">No file chosen</span>
                                                                 </div>
-                                                                <div class="input-group input-group-outline mb-3">
+                                                                <div class="input-group input-group-outline mb-3 is-filled">
                                                                     <label for="service_description" class="form-label">Description</label>
                                                                     <input type="text" name="service_description" class="form-control" id="service_description" value="{{ $service->description }}">
                                                                 </div>
