@@ -91,7 +91,7 @@ class ServiceController extends Controller
         $masterService->name = $request->service_name;
         $masterService->description = $request->service_description;
         $masterService->save();
-        return back()->with('status', 'Bien ajoutée.');
+        return back()->with('status', 'Bien modifiée.');
     }
 
     /**
