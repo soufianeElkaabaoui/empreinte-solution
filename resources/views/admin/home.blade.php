@@ -31,16 +31,18 @@
                                         aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
-                                        <label for="recipient-name" class="form-label">Années D'expérience:</label>
+                                    <form id="form_edit_years_experience" action="{{ route('edit-years-experience', ['statistic'=>2]) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <label for="years_experience" class="form-label">Années D'expérience:</label>
                                         <div class="input-group input-group-outline mb-3">
-                                            <label for="recipient-name" class="form-label">Combien d'années?</label>
-                                            <input type="text" class="form-control" id="recipient-name">
+                                            <label for="years_experience" class="form-label">Combien d'années?</label>
+                                            <input type="text" name="years_experience" class="form-control" id="years_experience">
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn bg-gradient-primary">Confirmer</button>
+                                    <button type="submit" form="form_edit_years_experience" class="btn bg-gradient-primary">Confirmer</button>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +63,7 @@
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
-                <div class="card-footer p-3">
+                {{-- <div class="card-footer p-3">
                     <button class="btn bg-gradient-primary shadow-success w-100" type="button" data-bs-toggle="modal"
                         data-bs-target="#modal_Members">Modifier</button>
                     <!-- Modal -->
@@ -78,8 +80,8 @@
                                     <form>
                                         <label for="recipient-name" class="form-label">Members:</label>
                                         <div class="input-group input-group-outline mb-3">
-                                            <label for="recipient-name" class="form-label">Combien de membres?</label>
-                                            <input type="text" class="form-control" id="recipient-name">
+                                            <label for="nb_members" class="form-label">Combien de membres?</label>
+                                            <input type="text" class="form-control" id="nb_members">
                                         </div>
                                     </form>
                                 </div>
@@ -89,7 +91,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <div class="col-xl-3 col-sm-6 mt-8 mb-4">
@@ -120,16 +122,18 @@
                                         aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
-                                        <label for="recipient-name" class="form-label">Projets Terminés:</label>
+                                    <form id="form_edit_nb_projects_finished" action="{{ route('edit-nb-projects-finished', ['statistic'=>3]) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <label for="nb_projects_finished" class="form-label">Projets Terminés:</label>
                                         <div class="input-group input-group-outline mb-3">
-                                            <label for="recipient-name" class="form-label">Combien de projets?</label>
-                                            <input type="text" class="form-control" id="recipient-name">
+                                            <label for="nb_projects_finished" class="form-label">Combien de projets?</label>
+                                            <input type="text" name="nb_projects_finished" class="form-control" id="nb_projects_finished">
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn bg-gradient-primary">Confirmer</button>
+                                    <button type="submit" form="form_edit_nb_projects_finished" class="btn bg-gradient-primary">Confirmer</button>
                                 </div>
                             </div>
                         </div>
@@ -165,16 +169,18 @@
                                         aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
-                                        <label for="recipient-name" class="form-label">Client Satisfait:</label>
+                                    <form id="form_edit_nb_clients" action="{{ route('edit-nb-clients', ['statistic'=>1]) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <label for="nb_clients" class="form-label">Client Satisfait:</label>
                                         <div class="input-group input-group-outline mb-3">
-                                            <label for="recipient-name" class="form-label">Combien de clients?</label>
-                                            <input type="text" class="form-control" id="recipient-name">
+                                            <label for="nb_clients" class="form-label">Combien de clients?</label>
+                                            <input type="text" name="nb_clients" class="form-control" id="nb_clients">
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn bg-gradient-primary">Confirmer</button>
+                                    <button type="submit" form="form_edit_nb_clients" class="btn bg-gradient-primary">Confirmer</button>
                                 </div>
                             </div>
                         </div>

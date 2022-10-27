@@ -19,17 +19,17 @@ class HomeController extends Controller
     }
     private function getNbClients()
     {
-        $nb_clients = Statistic::where('name', 'clients')->select('name')->first();
+        $nb_clients = Statistic::where('name', 'clients')->select('numbers')->first()->numbers;
         return $nb_clients;
     }
     private function getYearsExperience()
     {
-        $years_experience = Statistic::where('name', 'years experience')->select('name')->first();
+        $years_experience = Statistic::where('name', 'years experience')->select('numbers')->first()->numbers;
         return $years_experience;
     }
     private function getNbProjectsFinished()
     {
-        $nb_projects_finished = Statistic::where('name', 'projects finished')->select('name')->first();
+        $nb_projects_finished = Statistic::where('name', 'projects finished')->select('numbers')->first()->numbers;
         return $nb_projects_finished;
     }
     private function getNbMembers()
