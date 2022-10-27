@@ -28,6 +28,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/login', function () {
+    if (Auth::check()) {
+        return back();
+    }
     return view('/admin/sign_in');
 })->name('login');
 Route::post('login', [SignInController::class, 'Login'])->name('login');
