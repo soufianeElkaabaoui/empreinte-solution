@@ -20,5 +20,21 @@ class DatabaseSeeder extends Seeder
             'email' => 'ahmed@imancom.com',
             'password' => Hash::make('Fanida@222'),
         ]);
+        DB::table('statistics')->insert(
+            [
+                [
+                    'name' => 'clients',
+                    'numbers' => '0',
+                ],
+                [
+                    'name' => 'years experience',
+                    'numbers' => '0',
+                ],
+                [
+                    'name' => 'projects finished',
+                    'numbers' => '0',
+                ],
+            ]
+        );
     }
 }
