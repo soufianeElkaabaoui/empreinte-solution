@@ -26,42 +26,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/log_in', function () {
+Route::get('/login', function () {
     return view('/admin/sign_in');
-})->name('log_in');
-Route::get('/profile', function () {
-    return view('/admin/profile');
-})->name('profile');
+})->name('login');
+Route::post('login', [SignInController::class, 'Login'])->name('login');
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', function ()
 {
     return view('about');
 })->name('about');
-Route::get('/acceuil', function ()
-{
-    return view('/admin/company_information');
-})->name('acceuil');
-Route::resources([
-    'services' => ServiceController::class,
-    'team' => MemberController::class,
-    'members' => AdminMemberController::class,
-    'masterServices' => AdminServiceController::class,
-    'projects' => ProjectController::class,
-    'reviews' => ReviewController::class,
-    'companies' => CompanyController::class,
-    'users' => UserController::class,
-]);
-/*--- Admin area's routes ---*/
-Route::get('/master/home', [AdminHomeController::class, 'index'])->name('Dashboard');
 Route::get('/contact',function ()
 {
     return view('contact');
 })->name('contact');
-Route::post('login', [SignInController::class, 'Login'])->name('login');
-Route::get('logout', function (Request $request)
-{
-    Auth::logout();
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
-    return redirect()->route('log_in');
-})->name('logout');
+// to protect this routes from unauthenticated users:
+Route::middleware('auth')->group(function (){
+    Route::resources([
+        'services' => ServiceController::class,
+        'team' => MemberController::class,
+        'members' => AdminMemberController::class,
+        'masterServices' => AdminServiceController::class,
+        'projects' => ProjectController::class,
+        'reviews' => ReviewController::class,
+        'companies' => CompanyController::class,
+        'users' => UserController::class,
+    ]);
+    Route::get('/acceuil', function () {
+        return view('/admin/company_information');
+    })->name('acceuil');
+    Route::get('logout', function (Request $request) {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login');
+    })->name('logout');
+    Route::get('/master/home', [AdminHomeController::class, 'index'])->name('Dashboard');
+});
