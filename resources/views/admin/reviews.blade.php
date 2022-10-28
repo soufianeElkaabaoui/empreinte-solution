@@ -62,116 +62,117 @@
 
                     </div>
 
-
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th>Client Name</th>
-                                <th>Profession</th>
-                                <th>Image</th>
-                                <th>Comment</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if (count($reviews) > 0)
-                                @foreach ($reviews as $review)
-                                    <tr>
-                                        <td>{{ $review->client_name }}</td>
-                                        <td>{{ $review->profession }}</td>
-                                        <td><img src="{{ asset($review->image_url) }}" width="50%" alt="Image du visiteur">
-                                        </td>
-                                        <th>{{ $review->comment }}</th>
-                                        <td>
-                                            <button class="edit border-0" type="button" data-reviewer="{{ $review->id }}" data-bs-toggle="modal"
-                                                data-bs-target="#edit_modal{{ $loop->iteration }}"><i class="material-icons" data-toggle="tooltip"
-                                                    title="" data-original-title="Edit"></i></button>
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="edit_modal{{ $loop->iteration }}" data-bs-backdrop="static"
-                                                data-bs-keyboard="false" tabindex="-1"
-                                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="staticBackdropLabel">Modifier un
-                                                                review
-                                                            </h5>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal"
-                                                                aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form id="form_edit_review{{ $loop->iteration }}" action="{{ route('reviews.update', ['review'=>$review->id]) }}" method="POST" enctype="multipart/form-data">
-                                                                @csrf
-                                                                @method('PUT')
-                                                                <div class="input-group input-group-outline mb-3 is-filled">
-                                                                    <label for="reviewer_name{{ $loop->iteration }}" class="form-label">Nom du Client</label>
-                                                                    <input type="text" name="reviewer_name" class="form-control" id="reviewer_name{{ $loop->iteration }}" value="{{ $review->client_name }}">
-                                                                </div>
-                                                                <div class="input-group input-group-outline mb-3 is-filled">
-                                                                    <label for="reviewer_profession{{ $loop->iteration }}" class="form-label">Profession</label>
-                                                                    <input type="text" name="reviewer_profession" class="form-control" id="reviewer_profession{{ $loop->iteration }}" value="{{ $review->profession }}">
-                                                                </div>
-                                                                <div class="input-group-outline mb-3 d-flex align-items-center">
-                                                                    <input type="file" name="image_url" id="review_img{{$loop->iteration}}" hidden onchange="changeTextContent(this, {{$loop->iteration}})">
-                                                                    <label for="review_img{{$loop->iteration}}" class="lbl_img_upload">Choisir Image</label>
-                                                                    <span id="file-chosen{{$loop->iteration}}">Aucune Image choisie</span>
-                                                                </div>
-                                                                <div class="input-group input-group-outline mb-3 is-filled">
-                                                                    <label for="reviewer_comment{{ $loop->iteration }}" class="form-label">Commentaire</label>
-                                                                    <input type="text" name="reviewer_comment" class="form-control" id="reviewer_comment{{ $loop->iteration }}" value="{{ $review->comment }}">
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="submit" form="form_edit_review{{ $loop->iteration }}"
-                                                                class="btn bg-gradient-primary">Modifier</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <button data-reviewer="{{ $review->id }}" class="delete border-0" data-bs-toggle="modal"
-                                                data-bs-target="#delete_modal{{ $loop->iteration }}">
-                                                <i class="material-icons" data-toggle="tooltip" title=""
-                                                    data-original-title="Delete">
-                                                </i>
-                                            </button>
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="delete_modal{{ $loop->iteration }}" tabindex="-1"
-                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Vous êtes sûre
-                                                                ?</h5>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form id="form_delete_review{{ $loop->iteration }}" action="{{ route('reviews.destroy', ['review'=>$review->id]) }}" method="post">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                            </form>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Fermer</button>
-                                                            <button type="submit" form="form_delete_review{{ $loop->iteration }}" class="btn bg-gradient-primary">Oui ,
-                                                                Supprimer</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            @else
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
                                 <tr>
-                                    <td colspan="6">Il y a aucun commentaire.</td>
+                                    <th>Client Name</th>
+                                    <th>Profession</th>
+                                    <th>Image</th>
+                                    <th>Comment</th>
+                                    <th>Actions</th>
                                 </tr>
-                            @endif
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @if (count($reviews) > 0)
+                                    @foreach ($reviews as $review)
+                                        <tr>
+                                            <td>{{ $review->client_name }}</td>
+                                            <td>{{ $review->profession }}</td>
+                                            <td><img src="{{ asset($review->image_url) }}" width="50%" alt="Image du visiteur">
+                                            </td>
+                                            <th>{{ $review->comment }}</th>
+                                            <td>
+                                                <button class="edit border-0" type="button" data-reviewer="{{ $review->id }}" data-bs-toggle="modal"
+                                                    data-bs-target="#edit_modal{{ $loop->iteration }}"><i class="material-icons" data-toggle="tooltip"
+                                                        title="" data-original-title="Edit"></i></button>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="edit_modal{{ $loop->iteration }}" data-bs-backdrop="static"
+                                                    data-bs-keyboard="false" tabindex="-1"
+                                                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="staticBackdropLabel">Modifier un
+                                                                    review
+                                                                </h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal"
+                                                                    aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form id="form_edit_review{{ $loop->iteration }}" action="{{ route('reviews.update', ['review'=>$review->id]) }}" method="POST" enctype="multipart/form-data">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    <div class="input-group input-group-outline mb-3 is-filled">
+                                                                        <label for="reviewer_name{{ $loop->iteration }}" class="form-label">Nom du Client</label>
+                                                                        <input type="text" name="reviewer_name" class="form-control" id="reviewer_name{{ $loop->iteration }}" value="{{ $review->client_name }}">
+                                                                    </div>
+                                                                    <div class="input-group input-group-outline mb-3 is-filled">
+                                                                        <label for="reviewer_profession{{ $loop->iteration }}" class="form-label">Profession</label>
+                                                                        <input type="text" name="reviewer_profession" class="form-control" id="reviewer_profession{{ $loop->iteration }}" value="{{ $review->profession }}">
+                                                                    </div>
+                                                                    <div class="input-group-outline mb-3 d-flex align-items-center">
+                                                                        <input type="file" name="image_url" id="review_img{{$loop->iteration}}" hidden onchange="changeTextContent(this, {{$loop->iteration}})">
+                                                                        <label for="review_img{{$loop->iteration}}" class="lbl_img_upload">Choisir Image</label>
+                                                                        <span id="file-chosen{{$loop->iteration}}">Aucune Image choisie</span>
+                                                                    </div>
+                                                                    <div class="input-group input-group-outline mb-3 is-filled">
+                                                                        <label for="reviewer_comment{{ $loop->iteration }}" class="form-label">Commentaire</label>
+                                                                        <input type="text" name="reviewer_comment" class="form-control" id="reviewer_comment{{ $loop->iteration }}" value="{{ $review->comment }}">
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="submit" form="form_edit_review{{ $loop->iteration }}"
+                                                                    class="btn bg-gradient-primary">Modifier</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button data-reviewer="{{ $review->id }}" class="delete border-0" data-bs-toggle="modal"
+                                                    data-bs-target="#delete_modal{{ $loop->iteration }}">
+                                                    <i class="material-icons" data-toggle="tooltip" title=""
+                                                        data-original-title="Delete">
+                                                    </i>
+                                                </button>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="delete_modal{{ $loop->iteration }}" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Vous êtes sûre
+                                                                    ?</h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"><span class="fas fa-times" aria-hidden="true"></span></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form id="form_delete_review{{ $loop->iteration }}" action="{{ route('reviews.destroy', ['review'=>$review->id]) }}" method="post">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Fermer</button>
+                                                                <button type="submit" form="form_delete_review{{ $loop->iteration }}" class="btn bg-gradient-primary">Oui ,
+                                                                    Supprimer</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="6">Il y a aucun commentaire.</td>
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
                     {{ $reviews->links('vendor.pagination.custom-pagination') }}
                     <!-- END customer-list -->
 
