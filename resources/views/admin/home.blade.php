@@ -63,8 +63,9 @@
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
-                {{-- <div class="card-footer p-3">
-                    <button class="btn bg-gradient-primary shadow-success w-100" type="button" data-bs-toggle="modal"
+                <div class="card-footer p-3">
+                    <hr class="mb-4">
+                    {{-- <button class="btn bg-gradient-primary shadow-success w-100" type="button" data-bs-toggle="modal"
                         data-bs-target="#modal_Members">Modifier</button>
                     <!-- Modal -->
                     <div class="modal modal-sm fade" id="modal_Members" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -90,8 +91,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div> --}}
+                    </div> --}}
+                </div>
             </div>
         </div>
         <div class="col-xl-3 col-sm-6 mt-8 mb-4">

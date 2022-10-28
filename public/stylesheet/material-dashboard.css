@@ -8880,6 +8880,9 @@ fieldset:disabled .btn {
 .w-100 {
   width: 100% !important;
 }
+.w-120{
+  width: 120% !important;
+}
 
 .w-auto {
   width: auto !important;
@@ -27730,6 +27733,27 @@ line-height: 40px;
   -moz-border-radius: 5rem;
   -ms-border-radius: 5rem;
   -o-border-radius: 5rem;
+}
+.profile{
+  display: flex;
+  flex-direction: row;
+}
+.mdl-mb{
+  display: none;
+}
+.mdl-mb-show{
+  display: block;
+}
+@media (max-width: 575.98px){
+  .mdl-mb{
+    display: block;
+  }
+  .mdl-mb-show{
+    display: none;
+  }
+  .profile{
+    display: block;
+  }
 }
 /* MS supports */
 @supports (-ms-overflow-style: none) {
