@@ -196,7 +196,7 @@
                         </div>
                         <ul class="navbar-nav  justify-content-end">
                             <li class="nav-item d-flex align-items-center">
-                                <a href="../profile" class="nav-link text-body font-weight-bold px-0">
+                                <a href="{{ route('users.show', ['user'=>Auth::id()]) }}" class="nav-link text-body font-weight-bold px-0">
                                     <i class="fa fa-user me-sm-1"></i>
                                 </a>
                             </li>
