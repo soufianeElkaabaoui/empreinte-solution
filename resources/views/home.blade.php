@@ -20,7 +20,7 @@
                     @endforeach
                 @endif
             </div>
-            <div class="carousel-inner">
+            <div class="carousel-inner mt-4">
                 @if (count($services) > 0)
                     @foreach ($services as $service)
                         <div class="carousel-item {{($loop->iteration == 1)? 'active': ''}}">
@@ -34,7 +34,9 @@
                         </div>
                     @endforeach
                 @else
-                    <div class="">Il y a aucun service ce moment là.</div>
+                    <div class="NoModeles">
+                        ~Il y a aucun service <br> ce moment là !!!~
+                    </div>
                 @endif
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
@@ -143,7 +145,7 @@
                         @endphp
                     @endforeach
                 @else
-                    <div class="col-12">Il ya aucun service ce moment là.</div>
+                    <div class="col-12 NoModeles">Il ya aucun service ce moment là.</div>
                 @endif
             </div>
         </div>
@@ -228,7 +230,7 @@
                         </div>
                     @endforeach
                 @else
-                    <div class="">Il y a aucun projets ce moment là.</div>
+                    <div class="NoModeles">Il y a aucun projets ce moment là.</div>
                 @endif
             </div>
         </div>
@@ -270,7 +272,7 @@
                         @endphp
                     @endforeach
                 @else
-                    <div class="">Il y a aucun membre dans l'équipe</div>
+                    <div class="NoModeles">Il y a aucun membre dans l'équipe</div>
                 @endif
             </div>
         </div>
@@ -300,7 +302,7 @@
                         </div>
                     @endforeach
                 @else
-                    <div class="">Il y a aucun commentaire.</div>
+                    <div class="NoModeles">Il y a aucun commentaire.</div>
                 @endif
             </div>
         </div>
