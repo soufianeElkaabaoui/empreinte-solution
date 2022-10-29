@@ -34,11 +34,11 @@
                                     </div>
                                     <div class="col-md-4 text-end mdl-mb">
                                         <a href="javascript:;" type="button"
-                                        data-bs-toggle="modal" data-bs-target="#modal_profile">
+                                        data-bs-toggle="modal" data-bs-target="#modal_profile1">
                                             <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip"
                                                 data-bs-placement="top" title="Edit Profile"></i>
                                         </a>
-                                        <div class="modal fade" id="modal_profile" data-bs-backdrop="static"
+                                        <div class="modal fade" id="modal_profile1" data-bs-backdrop="static"
                                             data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog">
