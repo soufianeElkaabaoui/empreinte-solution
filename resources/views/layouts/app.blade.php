@@ -30,9 +30,7 @@
     <!-- Template Stylesheet -->
     <link href={{ asset('stylesheet/style.css') }} rel="stylesheet">
     <title>@yield('title')</title>
-    @section('styles')
-        {{-- put here custom stylesheets that is unique for the page --}}
-    @show
+    @yield('stylesheets')
 </head>
 
 <body>
@@ -45,12 +43,10 @@
 
     </div>
     <x-footer />
-    @section('scripts')
-        {{-- put here custom scripts that is unique for the page --}}
-    @endsection
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    @yield('scripts')
     <script src={{ asset('lib/wow/wow.min.js') }}></script>
     <script src={{ asset('lib/easing/easing.min.js') }}></script>
     <script src={{ asset('lib/waypoints/waypoints.min.js') }}></script>
