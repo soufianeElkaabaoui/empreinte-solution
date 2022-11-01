@@ -220,7 +220,7 @@
             <div class="owl-carousel project-carousel wow fadeInUp" data-wow-delay="0.1s">
                 @if (count($projects)>0)
                     @foreach ($projects as $project)
-                        <div class="project-item border rounded h-100 p-4" data-dot="0{{$loop->iteration}}">
+                        <div class="project-item border rounded p-4" data-dot="0{{$loop->iteration}}">
                             <div class="position-relative mb-4">
                                 <img class="img-fluid rounded" src="{{ asset($project->image_url) }}" alt="">
                                 <a href="{{ asset($project->image_url) }}" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
