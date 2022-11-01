@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\admin\SignInController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ServiceController;
@@ -81,3 +82,4 @@ Route::middleware('auth')->group(function (){
         return back()->with('status', 'Bien modifié.');
     })->name('edit-years-experience');
 });
+Route::post('contact', [ContactController::class, 'index'])->name('contact');
