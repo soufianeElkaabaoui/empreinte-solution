@@ -2,12 +2,14 @@
 
 namespace App\View\Components;
 
+use App\Models\Company;
 use App\Models\Service;
 use Illuminate\View\Component;
 
 class Header extends Component
 {
     public $services;
+    public $company;
     /**
      * Create a new component instance.
      *
@@ -16,6 +18,7 @@ class Header extends Component
     public function __construct()
     {
         $this->services = Service::all();
+        $this->company = Company::find(1);
     }
 
     /**

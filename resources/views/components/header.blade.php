@@ -4,7 +4,7 @@
         <div class="row align-items-center top-bar">
             <div class="col-lg-4 col-md-12 text-center text-lg-start">
                 <a href="/" class="navbar-brand m-0 p-0">
-                    <img src={{asset("img/slogan.png")}} class="w-100" alt="">
+                    <img src={{asset( $company->logo_url )}} class="w-100" alt="">
                 </a>
             </div>
             <div class="col-lg-8 col-md-7 d-none d-lg-block">
@@ -16,7 +16,7 @@
                             </div>
                             <div class="ps-3">
                                 <p class="mb-2">Heures d’ouverture</p>
-                                <h6 class="mb-0">Lun - Dim, 8:00 - 9:00</h6>
+                                <h6 class="mb-0">Lundi - Vendredi, {{ $company->opening_hour }} - {{ $company->closing_hour }}</h6>
                             </div>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                             </div>
                             <div class="ps-3">
                                 <p class="mb-2">Appelez-nous</p>
-                                <h6 class="mb-0">+012 345 6789</h6>
+                                <h6 class="mb-0">{{ $company->phone_number }}</h6>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                             </div>
                             <div class="ps-3">
                                 <p class="mb-2">Envoyez-nous un mail</p>
-                                <h6 class="mb-0">info@example.com</h6>
+                                <h6 class="mb-0">{{ $company->email }}</h6>
                             </div>
                         </div>
                     </div>
