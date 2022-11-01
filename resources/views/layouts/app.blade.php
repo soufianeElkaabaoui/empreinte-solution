@@ -27,10 +27,10 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href={{ asset('stylesheet/bootstrap.min.css') }} rel="stylesheet">
 
+    @yield('stylesheets')
     <!-- Template Stylesheet -->
     <link href={{ asset('stylesheet/style.css') }} rel="stylesheet">
     <title>@yield('title')</title>
-    @yield('stylesheets')
 </head>
 
 <body>
@@ -39,7 +39,7 @@
         {{-- will be used to contain the page main content --}}
         @yield('content')
             <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary bg-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
     </div>
     <x-footer />
