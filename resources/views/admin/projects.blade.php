@@ -84,7 +84,7 @@
                       @foreach ($projects as $project)
                           <tr>
                               <td>{{$project->name}}</td>
-                              <td><img src="{{ asset($project->image_url) }}" width="50%" alt="Image du projet"></td>
+                              <td><img src="{{ asset('storage/' . $project->image_url) }}" width="50%" alt="Image du projet"></td>
                               <td>{{$project->company_client}}</td>
                               <td>{{$project->service->name}}</td>
                               <td>
