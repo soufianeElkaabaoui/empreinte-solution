@@ -101,6 +101,8 @@ class FormationController extends Controller
      */
     public function destroy(Formation $formation)
     {
-        //
+        Storage::delete($formation->image_url);
+        $formation->delete();
+        return back()->with('status', 'Bien supprimé.');
     }
 }
