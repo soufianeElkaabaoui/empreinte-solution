@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\CompanyController;
+use App\Http\Controllers\admin\FormationController;
 use App\Http\Controllers\admin\HomeController as AdminHomeController;
 use App\Http\Controllers\admin\MemberController as AdminMemberController;
 use App\Http\Controllers\admin\ProjectController;
@@ -48,6 +49,7 @@ Route::get('/contact',function ()
 Route::middleware('auth')->group(function (){
     Route::resources([
         'services' => ServiceController::class,
+        'formations' => FormationController::class,
         'team' => MemberController::class,
         'members' => AdminMemberController::class,
         'masterServices' => AdminServiceController::class,
