@@ -24,7 +24,7 @@
                 @if (count($services) > 0)
                     @foreach ($services as $service)
                         <div class="carousel-item {{($loop->iteration == 1)? 'active': ''}}">
-                            <img class="w-100" src="{{ asset($service->image_url) }}" alt="image de service">
+                            <img class="w-100" src="{{ asset('storage/' . $service->image_url) }}" alt="image de service">
                             <div class="carousel-caption">
                                 <div class="p-3" style="max-width: 900px;">
                                     <h4 class="text-white text-uppercase mb-4 animated zoomIn">Nous sommes leader dans</h4>
@@ -136,7 +136,7 @@
                     @foreach ($services as $service)
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{$time_counter}}s">
                             <a class="service-item d-block rounded text-center h-100 p-4" href="{{ route('services.show', ['service'=>$service->id]) }}">
-                                <img class="img-fluid rounded mb-4" src="{{ asset($service->image_url) }}" alt="image de service">
+                                <img class="img-fluid rounded mb-4" src="{{ asset('storage/' . $service->image_url) }}" alt="image de service">
                                 <h4 class="mb-0">{{$service->name}}</h4>
                             </a>
                         </div>
@@ -222,7 +222,7 @@
                     @foreach ($projects as $project)
                         <div class="project-item border rounded p-4" data-dot="0{{$loop->iteration}}">
                             <div class="position-relative mb-4">
-                                <img class="img-fluid rounded" src="{{ asset($project->image_url) }}" alt="">
+                                <img class="img-fluid rounded" src="{{ asset('storage/' . $project->image_url) }}" alt="">
                                 <a href="{{ asset($project->image_url) }}" data-lightbox="project"><i class="fa fa-eye fa-2x"></i></a>
                             </div>
                             <h6>{{$project->name}}</h6>
@@ -253,7 +253,7 @@
                     @foreach ($members as $member)
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{$time_counter}}s">
                             <div class="team-item text-center p-4">
-                                <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="{{ asset($member->image_url) }}" alt="Image d'un membre">
+                                <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="{{ asset('storage/' . $member->image_url) }}" alt="Image d'un membre">
                                 <div class="team-text">
                                     <div class="team-title">
                                         <h5>{{$member->name}}</h5>
@@ -292,7 +292,7 @@
                     @foreach ($reviews as $review)
                         <div class="testimonial-item bg-light rounded p-4">
                             <div class="d-flex align-items-center mb-4">
-                                <img class="flex-shrink-0 rounded-circle border p-1" src="{{ asset($review->image_url) }}" alt="Image du visiteur">
+                                <img class="flex-shrink-0 rounded-circle border p-1" src="{{ asset('storage/' . $review->image_url) }}" alt="Image du visiteur">
                                 <div class="ms-4">
                                     <h5 class="mb-1">{{$review->client_name}}</h5>
                                     <span>{{$review->profession}}</span>
@@ -309,4 +309,3 @@
     </div>
     <!-- Testimonial End -->
 @endsection
-

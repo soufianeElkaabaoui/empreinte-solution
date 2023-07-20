@@ -30,6 +30,7 @@
     @yield('stylesheets')
     <!-- Template Stylesheet -->
     <link href={{ asset('stylesheet/style.css') }} rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('stylesheet/header.css') }}">
     <title>@yield('title')</title>
 </head>
 

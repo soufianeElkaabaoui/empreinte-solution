@@ -92,7 +92,7 @@
                                 @foreach ($members as $member)
                                     <tr>
                                         <td>{{ $member->name }}</td>
-                                        <td><img src="{{ asset($member->image_url) }}" width="50%" alt="Image du membre">
+                                        <td><img src="{{ asset('storage/' . $member->image_url) }}" width="50%" alt="Image du membre">
                                         </td>
                                         <td>{{ $member->status }}</td>
                                         <td>{{ $member->facebook_url }}</td>
