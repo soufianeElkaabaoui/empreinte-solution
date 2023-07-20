@@ -107,7 +107,7 @@
                                                                     <label for="formation-img-{{ $loop->iteration }}" class="form-label">Image:</label>
                                                                     <div class="input-group-outline mb-3 d-flex align-items-center">
                                                                         <input type="file" name="image_url" id="formation-img-{{ $loop->iteration }}" hidden onchange="changeTextContent(this, {{ $loop->iteration }})">
-                                                                        <label for="formation_img{{ $loop->iteration }}" class="lbl_img_upload">Choose File</label>
+                                                                        <label for="formation-img-{{ $loop->iteration }}" class="lbl_img_upload">Choose File</label>
                                                                         <span id="file-chosen{{ $loop->iteration }}">No file chosen</span>
                                                                     </div>
                                                                     <div class="input-group input-group-outline mb-3 is-filled">
