@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\FormationCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FormationCategoryController extends Controller
 {
@@ -80,7 +81,16 @@ class FormationCategoryController extends Controller
      */
     public function update(Request $request, FormationCategory $formationCategory)
     {
-        //
+        // check if the file exist && there were no problems uploading the file:
+        if ($request->hasFile('image_url') && $request->file('image_url')->isValid()) {
+            Storage::delete($formationCategory->image_url);
+            $path = $request->file('image_url')->store('images'); // upload the image.
+            $formationCategory->image_url = $path;
+        }
+        $formationCategory->name = $request->formation_category_name;
+        $formationCategory->description = $request->formation_category_description;
+        $formationCategory->save();
+        return back()->with('status', 'Bien modifiée.');
     }
 
     /**
