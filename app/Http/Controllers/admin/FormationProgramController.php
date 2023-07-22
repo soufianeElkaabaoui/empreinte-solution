@@ -40,7 +40,6 @@ class FormationProgramController extends Controller
      */
     public function store(Request $request)
     {
-        // check if the file exist && there were no problems uploading the file:
         $formationProgram = new FormationProgram;
         $formationProgram->name = $request->formation_program_name;
         if (is_array($request->formation_program_titles)) {
@@ -84,7 +83,15 @@ class FormationProgramController extends Controller
      */
     public function update(Request $request, FormationProgram $formationProgram)
     {
-        //
+        $formationProgram->name = $request->formation_program_name;
+        if (is_array($request->formation_program_titles)) {
+            $titles = implode(',', $request->formation_program_titles);
+            $formationProgram->titles = $titles;
+        }
+        if ($formation = Formation::find($request->formation)) {
+            $formation->formationPrograms()->save($formationProgram);
+        }
+        return back()->with('status', 'Bien modifiée.');
     }
 
     /**
