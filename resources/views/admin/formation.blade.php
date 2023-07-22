@@ -46,6 +46,17 @@
                                                 <label for="formation-description" class="form-label">Description</label>
                                                 <input type="text" name="formation_description" class="form-control" id="formation-description">
                                             </div>
+                                            <div class="input-group input-group-outline mb-3">
+                                                <label class="input-group-text" for="formation-category">Choisir</label>
+                                                <select class="form-select" name="formation_category" id="formation-category">
+                                                  <option selected>Choisir Category</option>
+                                                  @if (count($formationCategories) > 0)
+                                                      @foreach ($formationCategories as $formationCategory)
+                                                        <option value="{{ $formationCategory->id }}">{{ $formationCategory->name }}</option>
+                                                      @endforeach
+                                                  @endif
+                                                </select>
+                                            </div>
                                         </form>
                                         </div>
                                         <div class="modal-footer">
@@ -66,6 +77,7 @@
                                     <th>Name</th>
                                     <th>Image</th>
                                     <th>Desc</th>
+                                    <th>Category</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -78,6 +90,7 @@
                                                 <img src="{{ asset('storage/' . $formation->image_url) }}" width="50%" alt="Image de la formation">
                                             </td>
                                             <td>{{ $formation->description }}</td>
+                                            <td>{{ $formation->formationCategory ? $formation->formationCategory->name : '' }}</td>
                                             <td>
                                                 <button class="edit border-0" type="button" data-bs-toggle="modal"
                                                     data-bs-target="#edit_modal{{ $loop->iteration }}"><i class="material-icons" data-toggle="tooltip"
@@ -113,6 +126,17 @@
                                                                     <div class="input-group input-group-outline mb-3 is-filled">
                                                                         <label for="formation-description{{ $loop->iteration }}" class="form-label">Description</label>
                                                                         <input type="text" name="formation_description" class="form-control" id="formation-description{{ $loop->iteration }}" value="{{ $formation->description }}">
+                                                                    </div>
+                                                                    <div class="input-group input-group-outline mb-3">
+                                                                        <label class="input-group-text" for="formation-category{{ $loop->iteration }}">Choisir</label>
+                                                                        <select class="form-select" name="formation_category" id="formation-category{{ $loop->iteration }}">
+                                                                          <option>Choisir Category</option>
+                                                                          @if (count($formationCategories) > 0)
+                                                                              @foreach ($formationCategories as $formationCategory)
+                                                                                <option value="{{ $formationCategory->id }}" {{$formation->formationCategory && $formationCategory->id == $formation->formationCategory->id ? 'selected' : ''}}>{{ $formationCategory->name }}</option>
+                                                                              @endforeach
+                                                                          @endif
+                                                                        </select>
                                                                     </div>
                                                                 </form>
                                                             </div>

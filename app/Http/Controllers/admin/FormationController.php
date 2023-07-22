@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Formation;
+use App\Models\FormationCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,7 +18,8 @@ class FormationController extends Controller
     public function index()
     {
         $formations = Formation::paginate(5);
-        return view('admin.formation', compact('formations'));
+        $formationCategories = FormationCategory::all();
+        return view('admin.formation', compact('formations', 'formationCategories'));
     }
 
     /**
@@ -45,7 +47,9 @@ class FormationController extends Controller
             $formation->name = $request->formation_name;
             $formation->image_url = $path;
             $formation->description = $request->formation_description;
-            $formation->save();
+            if ($formationCategory = FormationCategory::find($request->formation_category)) {
+                $formationCategory->formations()->save($formation);
+            }
             return back()->with('status', 'Bien ajoutée.');
         }
     }
@@ -89,7 +93,9 @@ class FormationController extends Controller
         }
         $formation->name = $request->formation_name;
         $formation->description = $request->formation_description;
-        $formation->save();
+        if ($formationCategory = FormationCategory::find($request->formation_category)) {
+            $formationCategory->formations()->save($formation);
+        }
         return back()->with('status', 'Bien modifiée.');
     }
 
