@@ -43,7 +43,7 @@
                                                 <span id="file-chosen">No file chosen</span>
                                             </div>
                                             <div class="input-group input-group-outline mb-3">
-                                                <label for="formation-description" class="form-label">Description</label>
+                                                <label for="formation-description" class="form-label">Purpose</label>
                                                 <input type="text" name="formation_description" class="form-control" id="formation-description">
                                             </div>
                                             <div class="input-group input-group-outline mb-3">
@@ -76,7 +76,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Image</th>
-                                    <th>Desc</th>
+                                    <th>Purpose</th>
                                     <th>Category</th>
                                     <th>Actions</th>
                                 </tr>
@@ -124,7 +124,7 @@
                                                                         <span id="file-chosen{{ $loop->iteration }}">No file chosen</span>
                                                                     </div>
                                                                     <div class="input-group input-group-outline mb-3 is-filled">
-                                                                        <label for="formation-description{{ $loop->iteration }}" class="form-label">Description</label>
+                                                                        <label for="formation-description{{ $loop->iteration }}" class="form-label">Purpose</label>
                                                                         <input type="text" name="formation_description" class="form-control" id="formation-description{{ $loop->iteration }}" value="{{ $formation->description }}">
                                                                     </div>
                                                                     <div class="input-group input-group-outline mb-3">
