@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\CompanyController;
+use App\Http\Controllers\admin\FormationCategoryController;
 use App\Http\Controllers\admin\FormationController;
 use App\Http\Controllers\admin\HomeController as AdminHomeController;
 use App\Http\Controllers\admin\MemberController as AdminMemberController;
@@ -50,6 +51,7 @@ Route::middleware('auth')->group(function (){
     Route::resources([
         'services' => ServiceController::class,
         'formations' => FormationController::class,
+        'formationCategories' => FormationCategoryController::class,
         'team' => MemberController::class,
         'members' => AdminMemberController::class,
         'masterServices' => AdminServiceController::class,
