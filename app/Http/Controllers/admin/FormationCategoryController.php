@@ -101,6 +101,8 @@ class FormationCategoryController extends Controller
      */
     public function destroy(FormationCategory $formationCategory)
     {
-        //
+        Storage::delete($formationCategory->image_url);
+        $formationCategory->delete();
+        return back()->with('status', 'Bien supprimé.');
     }
 }
