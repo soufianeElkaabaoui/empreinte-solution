@@ -102,6 +102,7 @@ class FormationProgramController extends Controller
      */
     public function destroy(FormationProgram $formationProgram)
     {
-        //
+        $formationProgram->delete();
+        return back()->with('status', 'Bien supprimé.');
     }
 }
