@@ -17,4 +17,7 @@ class Formation extends Model
     function formationPrograms() : HasMany {
         return $this->hasMany(FormationProgram::class);
     }
+    function formationGalleries() : HasMany {
+        return $this->hasMany(FormationGallery::class);
+    }
 }

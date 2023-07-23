@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\FormationCategoryController;
 use App\Http\Controllers\admin\FormationController;
+use App\Http\Controllers\admin\FormationGalleryController;
 use App\Http\Controllers\admin\FormationProgramController;
 use App\Http\Controllers\admin\HomeController as AdminHomeController;
 use App\Http\Controllers\admin\MemberController as AdminMemberController;
@@ -54,6 +55,7 @@ Route::middleware('auth')->group(function (){
         'formations' => FormationController::class,
         'formationCategories' => FormationCategoryController::class,
         'formationPrograms' => FormationProgramController::class,
+        'formationGalleries' => FormationGalleryController::class,
         'team' => MemberController::class,
         'members' => AdminMemberController::class,
         'masterServices' => AdminServiceController::class,
