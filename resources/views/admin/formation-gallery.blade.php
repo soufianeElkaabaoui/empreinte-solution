@@ -36,6 +36,11 @@
                                                 <label for="formation-gallery-name" class="form-label">Titre</label>
                                                 <input type="text" name="formation_gallery_name" class="form-control" id="formation-gallery-name">
                                             </div>
+                                            <div class="input-group-outline mb-3 d-flex align-items-center">
+                                                <input type="file" name="image_url" id="formation-gallery-img" hidden onchange="changeTextContent(this, '')">
+                                                <label for="formation-gallery-img" class="lbl_img_upload">Choose File</label>
+                                                <span id="file-chosen">No file chosen</span>
+                                            </div>
                                             <div class="input-group input-group-outline mb-3">
                                                 <label for="formation-gallery-description" class="form-label">Description</label>
                                                 <input type="text" name="formation_gallery_description" class="form-control" id="formation-gallery-description">
@@ -69,6 +74,7 @@
                             <thead>
                                 <tr>
                                     <th>Titre</th>
+                                    <th>Image</th>
                                     <th>Description</th>
                                     <th>Formation</th>
                                     <th>Actions</th>
@@ -79,6 +85,9 @@
                                     @foreach ($formationGalleries as $formationGallery)
                                         <tr>
                                             <td>{{ $formationGallery->name }}</td>
+                                            <td>
+                                                <img src="{{ asset('storage/' . $formationGallery->image_url) }}" width="50%" alt="Image de la gallery">
+                                            </td>
                                             <td>{{ $formationGallery->description }}</td>
                                             <td>{{ $formationGallery->formation ? $formationGallery->formation->name : '' }}</td>
                                             <td>
@@ -106,6 +115,11 @@
                                                                     <div class="input-group input-group-outline mb-3 is-filled">
                                                                         <label for="formation-gallery-name-{{ $loop->iteration }}" class="form-label">Titre de la gallery formation</label>
                                                                         <input type="text" name="formation_gallery_name" class="form-control " id="formation-gallery-name-{{ $loop->iteration }}" value="{{ $formationGallery->name }}">
+                                                                    </div>
+                                                                    <div class="input-group-outline mb-3 d-flex align-items-center">
+                                                                        <input type="file" name="image_url" id="formation-gallery-img-{{ $loop->iteration }}" hidden onchange="changeTextContent(this, {{ $loop->iteration }})">
+                                                                        <label for="formation-gallery-img-{{ $loop->iteration }}" class="lbl_img_upload">Choose File</label>
+                                                                        <span id="file-chosen{{ $loop->iteration }}">No file chosen</span>
                                                                     </div>
                                                                     <div class="input-group input-group-outline mb-3 is-filled">
                                                                         <label for="formation-gallery-description{{ $loop->iteration }}" class="form-label">Description</label>
