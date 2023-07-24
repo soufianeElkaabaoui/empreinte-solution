@@ -71,6 +71,13 @@
                         @endif
                     </div>
                 </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Formations</a>
+                    <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
+                        <a href="{{ route('categories') }}" class="dropdown-item">Domaines De Formation</a>
+                        <a href="#" class="dropdown-item">Ingénierie de Formation – Procédures CSF, OFPPT-GIAC</a>
+                    </div>
+                </div>
                 <a href="{{ route('team.index') }}" class="nav-item nav-link">Notre Equipe</a>
                 <a href="contact" class="nav-item nav-link">Contactez-nous</a>
             </div>

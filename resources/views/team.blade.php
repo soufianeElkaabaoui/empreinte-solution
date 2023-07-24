@@ -22,16 +22,17 @@
                     @foreach ($members as $member)
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{$time_counter}}s">
                             <div class="team-item text-center p-4">
-                                <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="{{ asset('images/' . $member->image_url) }}" alt="Image d'un membre">
+                                <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="{{ asset('storage/' . $member->image_url) }}" alt="Image d'un membre">
                                 <div class="team-text">
                                     <div class="team-title">
                                         <h5>{{$member->name}}</h5>
                                         <span>{{$member->status}}</span>
                                     </div>
                                     <div class="team-social">
-                                        <a class="btn btn-square btn-primary rounded-circle" href="{{$member->social_links()->where('name', 'fb')->first()->link}}"><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-square btn-primary rounded-circle" href="{{$member->social_links()->where('name', 'twitter')->first()->link}}"><i class="fab fa-twitter"></i></a>
-                                        <a class="btn btn-square btn-primary rounded-circle" href="{{$member->social_links()->where('name', 'insta')->first()->link}}"><i class="fab fa-instagram"></i></a>
+                                        <a class="btn btn-square btn-primary rounded-circle" href="{{$member->facebook_url}}"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-square btn-primary rounded-circle" href="{{$member->instagram_url}}"><i class="fab fa-twitter"></i></a>
+                                        <a class="btn btn-square btn-primary rounded-circle" href="{{$member->twitter_url}}"><i class="fab fa-instagram"></i></a>
+                                        <a class="btn btn-square btn-primary rounded-circle" href="{{$member->linkedin_url}}"><i class="fab fa-linkedin"></i></a>
                                     </div>
                                 </div>
                             </div>

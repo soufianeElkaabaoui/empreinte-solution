@@ -61,15 +61,17 @@ Route::get('categories/formations/{formationCategory}', function (Request $reque
 Route::get('formation/{formation}', function (Request $request, Formation $formation) {
     return view('formation-program', compact('formation'));
 })->name('formation');
+Route::resources([
+    'services' => ServiceController::class,
+    'team' => MemberController::class,
+]);
 // to protect this routes from unauthenticated users:
 Route::middleware('auth')->group(function (){
     Route::resources([
-        'services' => ServiceController::class,
         'formations' => FormationController::class,
         'formationCategories' => FormationCategoryController::class,
         'formationPrograms' => FormationProgramController::class,
         'formationGalleries' => FormationGalleryController::class,
-        'team' => MemberController::class,
         'members' => AdminMemberController::class,
         'masterServices' => AdminServiceController::class,
         'projects' => ProjectController::class,

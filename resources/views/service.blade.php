@@ -14,7 +14,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="img-border">
-                        <img class="img-fluid" src="{{ asset('images/' . $service->image_url) }}" alt="">
+                        <img class="img-fluid" src="{{ asset('storage/' . $service->image_url) }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
