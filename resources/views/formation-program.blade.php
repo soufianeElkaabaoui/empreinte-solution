@@ -100,7 +100,7 @@
                 </div>
             @endforeach
         @endif
-        <div class="programme-row">
+        {{-- <div class="programme-row">
             <div class="programme-content">
                 <h3 class="programme-title">Learning by doing</h3>
                 <p class="programme-desc">Nos sessions de formations sont basées sur l’approche LEARNING BY DOING,  ce qui permet  d’assimiler par la pratique les méthodologies et de transposer plus rapidement aux situations de travail.</p>
@@ -109,7 +109,7 @@
                 <img src="{{ asset('img/image-static.jpg') }}" alt="image-static">
             </div>
         </div>
-        {{-- <div class="programme-row">
+        <div class="programme-row">
             <div class="programme-content">
                 <h3 class="programme-title">Learning by doing</h3>
                 <p class="programme-desc">Nos sessions de formations sont basées sur l’approche LEARNING BY DOING,  ce qui permet  d’assimiler par la pratique les méthodologies et de transposer plus rapidement aux situations de travail.</p>
