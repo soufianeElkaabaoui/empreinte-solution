@@ -1,0 +1,84 @@
+.programme
+{
+    &-en-images
+    {
+        margin-top: 60px;
+    }
+
+    &-head-title
+    {
+        font-size: 39px;
+        font-weight: 600;
+        color: #ed4e04;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &-row
+    {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        @include desktop() {
+            flex-direction: row;
+            justify-content: center;
+            gap: 80px;
+            &:nth-child(3)
+            {
+                flex-direction: row-reverse;
+            }
+            &:nth-child(3),
+            &:nth-child(4)
+            {
+                margin-top: -70px;
+            }
+        }
+    }
+
+    &-image
+    {
+        padding: 20px;
+        width: 304px;
+        background-color: #ffffff;
+        box-shadow: 0 12px 32px #2745be1a;
+        @include desktop() {
+            flex: 0 0 auto;
+            width: 495px;
+            height: 380px;
+        }
+
+        img
+        {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &-content
+    {
+        @include desktop() {
+            display: grid;
+            place-items: center;
+        }
+    }
+
+    &-title
+    {
+        color: #ed4e04;
+        font-size: 30px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    &-desc
+    {
+        color: #353535;
+        font-size: 15px;
+        text-align: center;
+        line-height: 1.6;
+        @include desktop() {
+            font-size: 20px;
+        }
+    }
+}

@@ -16,6 +16,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ServiceController;
+use App\Models\Formation;
+use App\Models\FormationCategory;
 use App\Models\Statistic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,6 +50,17 @@ Route::get('/contact',function ()
 {
     return view('contact');
 })->name('contact');
+Route::get('categories', function (Request $request) {
+    $formationCategories = FormationCategory::all();
+    return view('formation-category', compact('formationCategories'));
+})->name('categories');
+Route::get('categories/formations/{formationCategory}', function (Request $request, FormationCategory $formationCategory) {
+    $formations = $formationCategory->formations;
+    return view('formation', compact('formations'));
+})->name('categories.formations');
+Route::get('formation/{formation}', function (Request $request, Formation $formation) {
+    return view('formation-program', compact('formation'));
+})->name('formation');
 // to protect this routes from unauthenticated users:
 Route::middleware('auth')->group(function (){
     Route::resources([
