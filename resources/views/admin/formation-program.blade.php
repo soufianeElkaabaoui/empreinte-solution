@@ -36,9 +36,12 @@
                                                 <label for="formation-program-name" class="form-label">Nom</label>
                                                 <input type="text" name="formation_program_name" class="form-control" id="formation-program-name">
                                             </div>
-                                            <div class="input-group input-group-outline mb-3">
-                                                <label for="formation-program-titles" class="form-label">Titles</label>
-                                                <input type="text" name="formation_program_titles[]" class="form-control" id="formation-program-titles">
+                                            <div id="input-container">
+                                                <div class="input-group input-group-outline mb-3">
+                                                    <label for="formation-program-titles" class="form-label">Titles</label>
+                                                    <input type="text" name="formation_program_titles[]" class="form-control" id="formation-program-titles">
+                                                </div>
+                                                <button type="button" class="btn-add-title">Add</button>
                                             </div>
                                             <div class="input-group input-group-outline mb-3">
                                                 <label class="input-group-text" for="formation">Choisir</label>
@@ -107,9 +110,12 @@
                                                                         <label for="formation-program-name-{{ $loop->iteration }}" class="form-label">Nom du program formation</label>
                                                                         <input type="text" name="formation_program_name" class="form-control " id="formation-program-name-{{ $loop->iteration }}" value="{{ $formationProgram->name }}">
                                                                     </div>
-                                                                    <div class="input-group input-group-outline mb-3 is-filled">
-                                                                        <label for="formation-program-titles{{ $loop->iteration }}" class="form-label">Titles</label>
-                                                                        <input type="text" name="formation_program_titles[]" class="form-control" id="formation-program-titles{{ $loop->iteration }}" value="{{ $formationProgram->titles }}">
+                                                                    <div id="input-container">
+                                                                        <div class="input-group input-group-outline mb-3 is-filled">
+                                                                            <label for="formation-program-titles{{ $loop->iteration }}" class="form-label">Titles</label>
+                                                                            <input type="text" name="formation_program_titles[]" class="form-control" id="formation-program-titles{{ $loop->iteration }}" value="{{ $formationProgram->titles }}">
+                                                                        </div>
+                                                                        <button type="button" class="btn-add-title">Add</button>
                                                                     </div>
                                                                     <div class="input-group input-group-outline mb-3">
                                                                         <label class="input-group-text" for="formation{{ $loop->iteration }}">Choisir</label>
@@ -181,4 +187,7 @@
             </div> <!-- end col -->
         </div> <!-- end row -->
     </div>
+@endsection
+@section('scripts')
+    <script src="{{ asset('js/formation/program.js') }}"></script>
 @endsection
