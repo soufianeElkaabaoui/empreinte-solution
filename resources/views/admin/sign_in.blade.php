@@ -80,7 +80,7 @@
                                         document.write(new Date().getFullYear())
                                     </script>,
                                     Créer avec <i class="fa fa-heart" aria-hidden="true"></i> par
-                                    <a href="https://www.sykweb.ma" class="font-weight-bold text-white"
+                                    <a href="https://www.sykweb.net" class="font-weight-bold text-white"
                                         target="_blank">SykWeb</a>
                                     pour un meilleur siteweb
                                 </div>

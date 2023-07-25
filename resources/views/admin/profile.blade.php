@@ -32,7 +32,7 @@
                                     <div class="col-md-8 d-flex align-items-center">
                                         <h6 class="mb-0">Profile Information</h6>
                                     </div>
-                                    <div class="col-md-4 text-end mdl-mb">
+                                    {{-- <div class="col-md-4 text-end mdl-mb">
                                         <a href="javascript:;" type="button"
                                         data-bs-toggle="modal" data-bs-target="#modal_profile1">
                                             <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip"
@@ -84,7 +84,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>     
+                                    </div>      --}}
                            </div>
                             </div>
                             <div class="card-body p-3">
@@ -166,7 +166,7 @@
                             document.write(new Date().getFullYear())
                         </script>,
                         Créer avec <i class="fa fa-heart" aria-hidden="true"></i> par
-                        <a href="https://www.sykweb.ma" class="font-weight-bold text-dark" target="_blank">SykWeb</a>
+                        <a href="https://www.sykweb.net" class="font-weight-bold text-dark" target="_blank">SykWeb</a>
                         pour un meilleur siteweb
                     </div>
                 </div>
